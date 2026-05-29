@@ -13,18 +13,18 @@
 
   <style>
     :root {
-      --bg: #f4f1ec;
-      --panel: #fffdf8;
-      --text: #1f2933;
-      --muted: #6b7280;
-      --soft: #e7ded2;
-      --line: #d8cec0;
-      --accent: #285f74;
-      --accent-dark: #173b49;
-      --tag: #edf6f8;
-      --shadow: 0 18px 45px rgba(35, 31, 28, 0.08);
-      --radius: 24px;
-      --max: 1180px;
+      --dark: #3b3d3f;
+      --dark-2: #2f3133;
+      --sidebar: #dedede;
+      --accent: #28a9c8;
+      --accent-dark: #147d96;
+      --text: #1f1f1f;
+      --muted: #5f666d;
+      --line: #222222;
+      --soft-line: #c8c8c8;
+      --paper: #ffffff;
+      --paper-soft: #f7f7f7;
+      --max: 1080px;
     }
 
     * {
@@ -37,12 +37,10 @@
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at top left, rgba(40, 95, 116, 0.10), transparent 34rem),
-        linear-gradient(135deg, #f8f5ef 0%, #f0e9de 100%);
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      background: #eeeeee;
       color: var(--text);
-      line-height: 1.65;
+      line-height: 1.55;
     }
 
     a {
@@ -50,699 +48,841 @@
       text-decoration: none;
     }
 
-    .page {
-      width: min(var(--max), calc(100% - 40px));
+    .site {
+      max-width: var(--max);
       margin: 0 auto;
-      padding: 36px 0 56px;
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+    }
+
+    .top-header {
+      position: relative;
+      overflow: hidden;
+      background: var(--dark);
+      color: #ffffff;
+      text-align: center;
+      padding: 38px 24px 34px;
+    }
+
+    .top-header::before,
+    .top-header::after {
+      content: "";
+      position: absolute;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      pointer-events: none;
+    }
+
+    .top-header::before {
+      width: 180px;
+      height: 180px;
+      left: -70px;
+      top: -80px;
+    }
+
+    .top-header::after {
+      width: 130px;
+      height: 130px;
+      right: -45px;
+      bottom: -70px;
+    }
+
+    .top-header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.1rem);
+      letter-spacing: 0.06em;
+      line-height: 1.05;
+      font-weight: 800;
+    }
+
+    .top-header p {
+      margin: 10px 0 0;
+      font-size: 1rem;
+      letter-spacing: 0.03em;
+      opacity: 0.95;
+    }
+
+    .header-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin: 0 9px 2px;
+    }
+
+    .content {
       display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 28px;
+      grid-template-columns: 260px 1fr;
+      align-items: stretch;
     }
 
     .sidebar {
-      position: sticky;
-      top: 28px;
-      align-self: start;
-      background: rgba(255, 253, 248, 0.82);
-      backdrop-filter: blur(18px);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
+      background: var(--sidebar);
+      padding: 34px 30px;
     }
 
-    .monogram {
-      width: 74px;
-      height: 74px;
-      border-radius: 22px;
+    .main {
+      padding: 34px 40px 46px;
+      background: #ffffff;
+    }
+
+    .profile-circle {
+      width: 152px;
+      height: 152px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 30%, #ffffff 0%, #e7e7e7 38%, #cfcfcf 100%);
+      border: 7px solid #f3f3f3;
+      margin: 0 auto 30px;
       display: grid;
       place-items: center;
-      background: var(--accent-dark);
-      color: #fffdf8;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+      color: var(--dark);
+      font-size: 2.1rem;
       font-weight: 800;
       letter-spacing: 0.08em;
-      margin-bottom: 22px;
     }
 
-    .sidebar h1 {
-      font-size: 1.65rem;
-      line-height: 1.1;
-      margin: 0 0 10px;
-      letter-spacing: -0.04em;
+    .profile-circle span {
+      position: absolute;
+      z-index: 1;
     }
 
-    .role {
-      color: var(--accent-dark);
-      font-weight: 650;
-      font-size: 0.98rem;
-      margin-bottom: 18px;
+    .profile-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      inset: 0;
+      z-index: 2;
     }
 
-    .sidebar p {
-      color: var(--muted);
-      font-size: 0.94rem;
-      margin: 0 0 22px;
-    }
-
-    .nav {
-      display: grid;
-      gap: 8px;
-      margin: 24px 0;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-    }
-
-    .nav a {
-      font-size: 0.94rem;
-      color: var(--muted);
-      padding: 8px 0;
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-
-    .nav a:hover {
-      color: var(--accent-dark);
-      transform: translateX(4px);
-    }
-
-    .links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding-top: 20px;
-      border-top: 1px solid var(--line);
-    }
-
-    .links a {
-      border: 1px solid var(--line);
+    .profile-circle::after {
+      content: "";
+      position: absolute;
+      width: 19px;
+      height: 19px;
       border-radius: 999px;
-      padding: 8px 12px;
-      font-size: 0.84rem;
-      color: var(--accent-dark);
-      background: rgba(255, 255, 255, 0.48);
-      transition: 0.2s ease;
+      right: 12px;
+      bottom: 18px;
+      background: var(--accent);
+      border: 4px solid var(--sidebar);
+      z-index: 3;
     }
 
-    .links a:hover {
-      background: var(--accent-dark);
-      color: white;
+    .side-block {
+      margin-bottom: 26px;
+    }
+
+    .side-title {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.79rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      margin-bottom: 8px;
+    }
+
+    .side-block p,
+    .side-block li {
+      font-size: 0.86rem;
+      line-height: 1.32;
+      color: #222222;
+    }
+
+    .side-block p {
+      margin: 0;
+    }
+
+    .side-block ul {
+      margin: 0;
+      padding-left: 16px;
+    }
+
+    .side-block li {
+      margin-bottom: 4px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 7px;
+      margin-top: 4px;
+    }
+
+    .contact-links a {
+      font-size: 0.84rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      padding-bottom: 4px;
+      word-break: break-word;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent-dark);
       border-color: var(--accent-dark);
     }
 
-    main {
-      display: grid;
-      gap: 24px;
-    }
-
-    .hero,
     .section {
-      background: rgba(255, 253, 248, 0.86);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+      margin-bottom: 32px;
     }
 
-    .hero {
-      padding: 52px;
-      min-height: 470px;
-      display: grid;
-      align-content: center;
-      position: relative;
-      overflow: hidden;
+    .section-heading {
+      display: flex;
+      align-items: end;
+      gap: 16px;
+      margin-bottom: 16px;
     }
 
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -90px;
-      top: -90px;
-      width: 260px;
-      height: 260px;
-      border-radius: 999px;
-      border: 1px solid rgba(40, 95, 116, 0.18);
-      background: rgba(40, 95, 116, 0.05);
+    .section-heading h2 {
+      font-variant: small-caps;
+      letter-spacing: 0.06em;
+      font-size: 1.55rem;
+      line-height: 1;
+      margin: 0;
+      font-weight: 500;
     }
 
-    .eyebrow {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-size: 0.74rem;
-      font-weight: 800;
-      margin-bottom: 14px;
+    .section-heading .rule {
+      height: 1px;
+      background: var(--line);
+      flex: 1;
+      margin-bottom: 3px;
     }
 
-    .hero h2 {
-      font-size: clamp(2.45rem, 5vw, 5rem);
-      line-height: 0.98;
-      letter-spacing: -0.075em;
-      margin: 0 0 22px;
-      max-width: 860px;
-    }
-
-    .hero .intro {
-      font-size: 1.12rem;
-      color: #4b5563;
-      max-width: 720px;
-      margin: 0 0 28px;
-    }
-
-    .availability {
-      display: inline-flex;
-      width: fit-content;
-      gap: 10px;
-      align-items: center;
-      color: var(--accent-dark);
-      font-size: 0.92rem;
-      background: #eef7f8;
-      border: 1px solid #d6e9ed;
-      border-radius: 999px;
-      padding: 9px 14px;
-      margin-bottom: 28px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #2f9e75;
-      flex: 0 0 auto;
+    .summary p {
+      margin: 0 0 14px;
+      font-size: 0.96rem;
+      color: #202020;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
+      margin-top: 18px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 999px;
-      padding: 12px 18px;
+      border: 1px solid var(--dark);
+      padding: 8px 13px;
+      font-size: 0.82rem;
       font-weight: 700;
-      font-size: 0.92rem;
-      border: 1px solid var(--accent-dark);
-      transition: 0.2s ease;
+      transition: 0.18s ease;
     }
 
     .button.primary {
-      background: var(--accent-dark);
-      color: #fff;
+      background: var(--dark);
+      color: #ffffff;
     }
 
     .button.secondary {
-      background: transparent;
-      color: var(--accent-dark);
+      background: #ffffff;
+      color: var(--dark);
     }
 
     .button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(23, 59, 73, 0.16);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
     }
 
-    .section {
-      padding: 34px;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 20px;
-      margin-bottom: 22px;
-      border-bottom: 1px solid var(--line);
-      padding-bottom: 18px;
-    }
-
-    .section h3 {
-      font-size: 1.55rem;
-      letter-spacing: -0.04em;
-      line-height: 1.1;
-      margin: 0;
-    }
-
-    .section-header p {
-      color: var(--muted);
-      margin: 0;
-      max-width: 520px;
-      font-size: 0.95rem;
-    }
-
-    .grid {
+    .project-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      gap: 14px;
     }
 
-    .card {
-      border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.45);
-      border-radius: 18px;
-      padding: 22px;
-      transition: 0.2s ease;
+    .project-card {
+      border-left: 3px solid var(--accent);
+      background: var(--paper-soft);
+      padding: 15px 16px;
+      min-height: 170px;
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 28px rgba(35, 31, 28, 0.08);
+    .project-card h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+      line-height: 1.22;
+      font-weight: 800;
     }
 
-    .card h4 {
-      margin: 0 0 10px;
-      font-size: 1.05rem;
-      letter-spacing: -0.02em;
-    }
-
-    .card p {
+    .project-card p {
+      margin: 0 0 11px;
+      font-size: 0.88rem;
+      line-height: 1.42;
       color: var(--muted);
-      font-size: 0.94rem;
-      margin: 0 0 16px;
     }
 
     .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
 
     .tag {
-      background: var(--tag);
-      color: var(--accent-dark);
-      border: 1px solid #d8eef1;
-      border-radius: 999px;
-      padding: 5px 9px;
-      font-size: 0.76rem;
+      font-size: 0.68rem;
+      background: #ffffff;
+      border: 1px solid var(--soft-line);
+      padding: 3px 6px;
+      color: #222222;
       font-weight: 650;
     }
 
     .timeline {
       display: grid;
-      gap: 16px;
+      gap: 15px;
     }
 
     .timeline-item {
       display: grid;
-      grid-template-columns: 150px 1fr;
+      grid-template-columns: 125px 1fr;
       gap: 18px;
-      padding: 20px;
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.42);
     }
 
     .date {
-      color: var(--accent);
-      font-weight: 800;
-      font-size: 0.82rem;
+      font-size: 0.72rem;
+      color: #222222;
+      padding-top: 2px;
+      white-space: nowrap;
     }
 
-    .timeline-item h4 {
-      margin: 0 0 6px;
+    .timeline-body {
+      border-left: 2px solid #8b8b8b;
+      padding-left: 14px;
     }
 
-    .timeline-item p {
+    .timeline-body h3 {
       margin: 0;
-      color: var(--muted);
-      font-size: 0.94rem;
+      font-size: 0.98rem;
+      line-height: 1.25;
+      font-weight: 800;
     }
 
-    .skills {
+    .institution {
+      margin: 2px 0 7px;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #202020;
+    }
+
+    .timeline-body p {
+      margin: 0;
+      font-size: 0.88rem;
+      line-height: 1.42;
+      color: var(--muted);
+    }
+
+    .writing-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .writing-item {
+      display: grid;
+      grid-template-columns: 18px 1fr;
+      gap: 10px;
+      background: var(--paper-soft);
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent);
+    }
+
+    .mini-circle {
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin-top: 7px;
+    }
+
+    .writing-item h3 {
+      margin: 0 0 4px;
+      font-size: 0.96rem;
+    }
+
+    .writing-item p {
+      margin: 0;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.42;
+    }
+
+    .skill-table {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
+      gap: 11px;
     }
 
-    .skill-group {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.42);
+    .skill-box {
+      background: var(--paper-soft);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
     }
 
-    .skill-group h4 {
-      margin: 0 0 8px;
-      font-size: 0.95rem;
-      color: var(--accent-dark);
+    .skill-box h3 {
+      margin: 0 0 5px;
+      font-size: 0.92rem;
+      font-weight: 800;
     }
 
-    .skill-group p {
+    .skill-box p {
       margin: 0;
+      font-size: 0.86rem;
       color: var(--muted);
-      font-size: 0.91rem;
+      line-height: 1.38;
     }
 
-    .contact-box {
-      display: grid;
-      gap: 14px;
+    .contact-panel {
+      background: var(--dark);
+      color: #ffffff;
+      padding: 22px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .contact-box p {
-      margin: 0;
-      color: var(--muted);
+    .contact-panel::after {
+      content: "";
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      right: -45px;
+      bottom: -55px;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .contact-panel p {
+      margin: 0 0 14px;
+      color: rgba(255, 255, 255, 0.86);
+      max-width: 640px;
+    }
+
+    .contact-panel .button {
+      border-color: #ffffff;
+    }
+
+    .contact-panel .button.primary {
+      background: #ffffff;
+      color: var(--dark);
+    }
+
+    .contact-panel .button.secondary {
+      color: #ffffff;
+      background: transparent;
     }
 
     footer {
+      font-size: 0.75rem;
       color: var(--muted);
-      font-size: 0.84rem;
-      text-align: center;
-      padding: 12px;
+      margin-top: 28px;
+      text-align: right;
     }
 
-    @media (max-width: 920px) {
-      .page {
+    @media (max-width: 850px) {
+      .content {
         grid-template-columns: 1fr;
       }
 
       .sidebar {
-        position: relative;
-        top: 0;
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 24px;
+        align-items: start;
       }
 
-      .nav {
-        grid-template-columns: repeat(3, 1fr);
+      .profile-circle {
+        margin: 0;
       }
 
-      .hero {
-        min-height: auto;
-        padding: 36px 28px;
+      .side-block {
+        margin-bottom: 18px;
       }
 
-      .section {
-        padding: 28px;
+      .main {
+        padding: 32px 28px 42px;
       }
     }
 
-    @media (max-width: 680px) {
-      .page {
-        width: min(100% - 24px, var(--max));
-        padding-top: 18px;
+    @media (max-width: 640px) {
+      .top-header {
+        padding: 32px 18px 28px;
       }
 
-      .grid,
-      .skills {
+      .content {
+        display: block;
+      }
+
+      .sidebar {
+        display: block;
+        padding: 28px 24px;
+      }
+
+      .profile-circle {
+        margin: 0 auto 24px;
+      }
+
+      .main {
+        padding: 28px 22px 38px;
+      }
+
+      .project-grid,
+      .skill-table {
         grid-template-columns: 1fr;
       }
 
       .timeline-item {
         grid-template-columns: 1fr;
+        gap: 5px;
       }
 
-      .section-header {
-        display: grid;
-      }
-
-      .nav {
-        grid-template-columns: repeat(2, 1fr);
+      footer {
+        text-align: left;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="page">
-    <aside class="sidebar">
-      <div class="monogram">ARC</div>
-
+  <div class="site">
+    <header class="top-header">
       <h1>Alberto Reyes Castro</h1>
-
-      <div class="role">
-        Physics Graduate & MSc AI Candidate
-      </div>
-
       <p>
-        Applied AI, data analysis, technical documentation and scientific communication.
+        Physics Graduate
+        <span class="header-dot"></span>
+        MSc Artificial Intelligence Candidate
       </p>
+    </header>
 
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#projects">Projects</a>
-        <a href="#writing">Technical Writing</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
-
-      <div class="links">
-        <a href="mailto:albertoreyescastro20@gmail.com">Email</a>
-        <a href="https://www.linkedin.com/in/alberto-reyes-ba5546238" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
-        <a href="./assets/Alberto_Reyes_CV.pdf">CV</a>
-      </div>
-    </aside>
-
-    <main>
-      <section class="hero" id="home">
-        <div class="eyebrow">AI · Data · Technical Documentation</div>
-
-        <h2>Clear technical work, carefully documented.</h2>
-
-        <p class="intro">
-          I combine a physics background with applied AI, machine learning and technical writing
-          to build clear, well-documented analytical projects.
-        </p>
-
-        <div class="availability">
-          <span class="dot"></span>
-          Based in London · Open to part-time employed, remote/hybrid and internship roles in the UK
+    <div class="content">
+      <aside class="sidebar">
+        <div class="profile-circle">
+          <span>ARC</span>
+          <img src="./assets/profile.jpg" alt="Profile photo of Alberto Reyes Castro" onerror="this.style.display='none';" />
         </div>
 
-        <div class="hero-actions">
-          <a class="button primary" href="#projects">View Projects</a>
-          <a class="button secondary" href="#writing">Technical Writing</a>
-          <a class="button secondary" href="./assets/Alberto_Reyes_CV.pdf">Download CV</a>
-        </div>
-      </section>
+        <div>
+          <section class="side-block">
+            <div class="side-title">About me</div>
+            <p>
+              Physics graduate and MSc Artificial Intelligence candidate with experience in Python
+              automation, scientific communication, LaTeX, machine learning and technical documentation.
+            </p>
+          </section>
 
-      <section class="section" id="projects">
-        <div class="section-header">
-          <h3>Featured Projects</h3>
+          <section class="side-block">
+            <div class="side-title">Specializations</div>
+            <ul>
+              <li>Physics</li>
+              <li>Python Programming</li>
+              <li>Machine Learning</li>
+              <li>Scientific Computing</li>
+              <li>Scientific Communication</li>
+              <li>Technical Documentation</li>
+              <li>LaTeX</li>
+            </ul>
+          </section>
+
+          <section class="side-block">
+            <div class="side-title">Skills</div>
+            <p>
+              Python Automation / Machine Learning / XGBoost / Whisper Transcription /
+              Subtitle Generation / Regex / Fuzzy Matching / Scientific Writing / Problem Solving
+            </p>
+          </section>
+
+          <section class="side-block">
+            <div class="side-title">Languages</div>
+            <p>
+              Spanish – Native<br />
+              English – Advanced C1<br />
+              Japanese – JLPT N3<br />
+              French – Limited working proficiency
+            </p>
+          </section>
+
+          <section class="side-block">
+            <div class="side-title">Links</div>
+            <div class="contact-links">
+              <a href="mailto:albertoreyescastro20@gmail.com">Email</a>
+              <a href="https://www.linkedin.com/in/alberto-reyes-ba5546238" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="./assets/Alberto_Reyes_CV.pdf">Download CV</a>
+            </div>
+          </section>
+        </div>
+      </aside>
+
+      <main class="main">
+        <section class="section summary" id="summary">
+          <div class="section-heading">
+            <h2>Summary</h2>
+            <div class="rule"></div>
+          </div>
+
           <p>
-            Selected projects combining applied AI, data analysis, AIoT prototyping,
-            automation and technical reporting.
+            I combine a physics background with applied AI, data analysis and technical writing
+            to build clear, well-documented analytical projects.
           </p>
-        </div>
 
-        <div class="grid">
-          <article class="card">
-            <h4>AI-Enhanced Smart Home System</h4>
-            <p>
-              Modular AIoT prototype using ESP32-S3 room controllers, Wokwi, Blynk,
-              Edge Impulse, rule-based automation and lightweight environmental classification.
-            </p>
-            <div class="tags">
-              <span class="tag">AIoT</span>
-              <span class="tag">ESP32-S3</span>
-              <span class="tag">Wokwi</span>
-              <span class="tag">Blynk</span>
-              <span class="tag">Edge Impulse</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h4>Credit Card Fraud Detection</h4>
-            <p>
-              Machine learning project focused on imbalanced classification, preprocessing,
-              model comparison, cross-validation and fraud detection evaluation using Python.
-            </p>
-            <div class="tags">
-              <span class="tag">Python</span>
-              <span class="tag">Machine Learning</span>
-              <span class="tag">XGBoost</span>
-              <span class="tag">SMOTE</span>
-              <span class="tag">Model Evaluation</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h4>AI-Assisted Science Communication Workflow</h4>
-            <p>
-              Scientific communication workflow involving AI-assisted transcription,
-              multilingual subtitles, regex, fuzzy matching and technical reporting.
-            </p>
-            <div class="tags">
-              <span class="tag">Whisper</span>
-              <span class="tag">Subtitles</span>
-              <span class="tag">Regex</span>
-              <span class="tag">Fuzzy Matching</span>
-              <span class="tag">Science Communication</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h4>Scientific & Academic Technical Work</h4>
-            <p>
-              Selected academic and scientific work demonstrating structured reasoning,
-              crystallographic analysis, LaTeX reporting and clear technical presentation.
-            </p>
-            <div class="tags">
-              <span class="tag">Physics</span>
-              <span class="tag">LaTeX</span>
-              <span class="tag">Scientific Writing</span>
-              <span class="tag">Crystallography</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="writing">
-        <div class="section-header">
-          <h3>Technical Writing & Reports</h3>
           <p>
-            A portfolio section dedicated to documentation quality, report design,
-            scientific explanation and selected LaTeX extracts.
+            Currently pursuing an MSc in Artificial Intelligence Technology with Advanced Practice
+            at Northumbria University, London Campus, with interests in machine learning, AIoT,
+            scientific communication, automation and structured technical reporting.
           </p>
-        </div>
 
-        <div class="grid">
-          <article class="card">
-            <h4>Technical Report Extracts</h4>
-            <p>
-              Curated pages from technical and academic reports, selected to show structure,
-              clarity, diagrams, methodology and visual presentation.
-            </p>
-            <div class="tags">
-              <span class="tag">LaTeX</span>
-              <span class="tag">Report Design</span>
-              <span class="tag">Methodology</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <h4>System Documentation</h4>
-            <p>
-              Architecture diagrams, decision tables, state-based logic and technical explanations
-              created to make complex systems easier to understand.
-            </p>
-            <div class="tags">
-              <span class="tag">Documentation</span>
-              <span class="tag">Diagrams</span>
-              <span class="tag">Technical Clarity</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="experience">
-        <div class="section-header">
-          <h3>Experience</h3>
-          <p>
-            Practical experience across scientific communication, automation and technical documentation.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="date">Mar 2025 — May 2025</div>
-            <div>
-              <h4>Student Internship · Instituto de Astrofísica de Canarias</h4>
-              <p>
-                Contributed to bilingual science communication and outreach. Developed AI-assisted
-                transcription and subtitle workflows, supported text-matching automation using regex
-                and fuzzy matching, and prepared technical documentation in LaTeX.
-              </p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="date">2025</div>
-            <div>
-              <h4>Final Degree Project · BSc Physics</h4>
-              <p>
-                Completed a scientific project in English on the structural mechanisms of
-                ferroelectricity and ferroelasticity in β′-RE₂(MoO₄)₃ compounds, involving
-                crystallographic analysis and scientific reporting.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="skills">
-        <div class="section-header">
-          <h3>Skills</h3>
-          <p>
-            A hybrid skill set across AI/data, scientific computing, documentation and communication.
-          </p>
-        </div>
-
-        <div class="skills">
-          <div class="skill-group">
-            <h4>AI & Data</h4>
-            <p>Python · Machine Learning · Classification · Model Evaluation · XGBoost · scikit-learn</p>
-          </div>
-
-          <div class="skill-group">
-            <h4>Technical Documentation</h4>
-            <p>LaTeX · Scientific Writing · Technical Reports · Diagrams · Structured Documentation</p>
-          </div>
-
-          <div class="skill-group">
-            <h4>AIoT & Prototyping</h4>
-            <p>ESP32-S3 · Wokwi · Blynk · Edge Impulse · Sensor-Based Logic</p>
-          </div>
-
-          <div class="skill-group">
-            <h4>Scientific Communication</h4>
-            <p>Bilingual Communication · Subtitles · Transcription Workflows · Content Adaptation</p>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="education">
-        <div class="section-header">
-          <h3>Education</h3>
-          <p>
-            Academic background in physics and current postgraduate training in artificial intelligence.
-          </p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="date">2026 — 2028</div>
-            <div>
-              <h4>MSc Artificial Intelligence Technology with Advanced Practice</h4>
-              <p>Northumbria University, London Campus · London, UK</p>
-            </div>
-          </div>
-
-          <div class="timeline-item">
-            <div class="date">2018 — 2025</div>
-            <div>
-              <h4>BSc in Physics</h4>
-              <p>Universidad de La Laguna · Tenerife, Spain</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="contact">
-        <div class="section-header">
-          <h3>Contact</h3>
           <p>
             Open to part-time employed roles, remote/hybrid opportunities, internships,
-            analytical support and technical documentation positions in the UK.
-          </p>
-        </div>
-
-        <div class="contact-box">
-          <p>
-            For opportunities related to AI, data, technical writing, research support,
-            QA or scientific communication, feel free to get in touch.
+            analytical support, QA, research support and technical documentation positions in the UK.
           </p>
 
           <div class="hero-actions">
-            <a class="button primary" href="mailto:albertoreyescastro20@gmail.com">Email Me</a>
-            <a class="button secondary" href="https://www.linkedin.com/in/alberto-reyes-ba5546238" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="button secondary" href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button primary" href="#projects">View Projects</a>
+            <a class="button secondary" href="#writing">Technical Writing</a>
+            <a class="button secondary" href="#contact">Contact</a>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <footer>
-        © <span id="year"></span> Alberto Reyes Castro · Portfolio built with HTML/CSS and hosted on GitHub Pages.
-      </footer>
-    </main>
+        <section class="section" id="projects">
+          <div class="section-heading">
+            <h2>Featured Projects</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="project-grid">
+            <article class="project-card">
+              <h3>AI-Enhanced Smart Home System</h3>
+              <p>
+                Modular AIoT prototype using ESP32-S3 room controllers, Wokwi, Blynk,
+                Edge Impulse, rule-based automation and lightweight environmental classification.
+              </p>
+              <div class="tags">
+                <span class="tag">AIoT</span>
+                <span class="tag">ESP32-S3</span>
+                <span class="tag">Wokwi</span>
+                <span class="tag">Blynk</span>
+                <span class="tag">Edge Impulse</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Credit Card Fraud Detection</h3>
+              <p>
+                Machine learning project focused on imbalanced classification, preprocessing,
+                model comparison, cross-validation and fraud detection evaluation using Python.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">XGBoost</span>
+                <span class="tag">SMOTE</span>
+                <span class="tag">Model Evaluation</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>AI-Assisted Science Communication Workflow</h3>
+              <p>
+                Scientific communication workflow involving AI-assisted transcription,
+                multilingual subtitles, regex, fuzzy matching and technical reporting.
+              </p>
+              <div class="tags">
+                <span class="tag">Whisper</span>
+                <span class="tag">Subtitles</span>
+                <span class="tag">Regex</span>
+                <span class="tag">Fuzzy Matching</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Scientific & Academic Technical Work</h3>
+              <p>
+                Selected academic and scientific work demonstrating structured reasoning,
+                crystallographic analysis, LaTeX reporting and clear technical presentation.
+              </p>
+              <div class="tags">
+                <span class="tag">Physics</span>
+                <span class="tag">LaTeX</span>
+                <span class="tag">Scientific Writing</span>
+                <span class="tag">Crystallography</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="writing">
+          <div class="section-heading">
+            <h2>Technical Writing</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="writing-list">
+            <article class="writing-item">
+              <div class="mini-circle"></div>
+              <div>
+                <h3>Technical Report Extracts</h3>
+                <p>
+                  Curated pages from technical and academic reports selected to show structure,
+                  methodology, diagrams, clarity and visual presentation.
+                </p>
+              </div>
+            </article>
+
+            <article class="writing-item">
+              <div class="mini-circle"></div>
+              <div>
+                <h3>System Documentation</h3>
+                <p>
+                  Architecture diagrams, decision tables, state-based logic and technical explanations
+                  designed to make complex systems easier to understand.
+                </p>
+              </div>
+            </article>
+
+            <article class="writing-item">
+              <div class="mini-circle"></div>
+              <div>
+                <h3>Scientific Communication</h3>
+                <p>
+                  Bilingual communication, subtitle workflows, content adaptation and clear explanation
+                  of scientific or technical material for wider audiences.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="experience">
+          <div class="section-heading">
+            <h2>Experience</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="date">Mar 2025–May 2025</div>
+              <div class="timeline-body">
+                <h3>Student Internship — Department of Communication and Scientific Culture</h3>
+                <div class="institution">Instituto de Astrofísica de Canarias · La Laguna</div>
+                <p>
+                  Contributed to bilingual science communication and outreach. Developed AI-assisted
+                  transcription and subtitle workflows, supported text-matching automation using regex
+                  and fuzzy matching, and prepared technical documentation in LaTeX.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="date">2025</div>
+              <div class="timeline-body">
+                <h3>Final Degree Project — BSc Physics</h3>
+                <div class="institution">Universidad de La Laguna · Tenerife</div>
+                <p>
+                  Completed a scientific project in English on the structural mechanisms of
+                  ferroelectricity and ferroelasticity in β′-RE₂(MoO₄)₃ compounds, involving
+                  crystallographic analysis and scientific reporting.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="skills">
+          <div class="section-heading">
+            <h2>Skills</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="skill-table">
+            <article class="skill-box">
+              <h3>AI & Data</h3>
+              <p>Python · Machine Learning · Classification · Model Evaluation · XGBoost · scikit-learn</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Technical Documentation</h3>
+              <p>LaTeX · Scientific Writing · Technical Reports · Diagrams · Structured Documentation</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>AIoT & Prototyping</h3>
+              <p>ESP32-S3 · Wokwi · Blynk · Edge Impulse · Sensor-Based Logic</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Scientific Communication</h3>
+              <p>Bilingual Communication · Subtitles · Transcription Workflows · Content Adaptation</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="education">
+          <div class="section-heading">
+            <h2>Education</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="date">Jan 2026–Jan 2028</div>
+              <div class="timeline-body">
+                <h3>MSc Artificial Intelligence Technology with Advanced Practice</h3>
+                <div class="institution">Northumbria University, London Campus · London, UK</div>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="date">Sep 2018–Jul 2025</div>
+              <div class="timeline-body">
+                <h3>BSc in Physics</h3>
+                <div class="institution">Universidad de La Laguna · Tenerife, Spain</div>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="date">2025</div>
+              <div class="timeline-body">
+                <h3>Academic Merit Convocation Award</h3>
+                <div class="institution">Universidad de La Laguna</div>
+                <p>
+                  Annual distinction granted to students with outstanding academic performance
+                  and ranking among the top of their graduating class.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="contact">
+          <div class="section-heading">
+            <h2>Contact</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="contact-panel">
+            <p>
+              Open to part-time employed roles, remote/hybrid opportunities, internships,
+              analytical support, QA, research support and technical documentation positions in the UK.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="mailto:albertoreyescastro20@gmail.com">Email Me</a>
+              <a class="button secondary" href="https://www.linkedin.com/in/alberto-reyes-ba5546238" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button secondary" href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+          </div>
+        </section>
+
+        <footer>
+          © <span id="year"></span> Alberto Reyes Castro · Portfolio hosted on GitHub Pages.
+        </footer>
+      </main>
+    </div>
   </div>
 
   <script>
