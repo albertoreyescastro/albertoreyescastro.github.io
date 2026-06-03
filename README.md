@@ -1,2 +1,2 @@
 # albertoreyescastro.github.io
-Personal portfolio for AI, data, technical documentation and scientific communication.
+Personal portfolio showcasing AI, data, scientific computing and technical documentation projects.
