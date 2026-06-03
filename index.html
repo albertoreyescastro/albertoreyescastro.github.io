@@ -303,7 +303,9 @@
       border-left: 3px solid var(--accent);
       background: var(--paper-soft);
       padding: 15px 16px;
-      min-height: 170px;
+      min-height: 190px;
+      display: flex;
+      flex-direction: column;
     }
 
     .project-card h3 {
@@ -333,6 +335,40 @@
       padding: 3px 6px;
       color: #222222;
       font-weight: 650;
+    }
+
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+      padding-top: 12px;
+    }
+
+    .card-actions a {
+      font-size: 0.72rem;
+      font-weight: 750;
+      border: 1px solid var(--dark);
+      padding: 5px 8px;
+      background: #ffffff;
+      color: var(--dark);
+      transition: 0.18s ease;
+    }
+
+    .card-actions a:hover {
+      background: var(--dark);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .card-actions a.primary-link {
+      background: var(--dark);
+      color: #ffffff;
+    }
+
+    .card-actions a.primary-link:hover {
+      background: var(--accent-dark);
+      border-color: var(--accent-dark);
     }
 
     .timeline {
@@ -412,6 +448,36 @@
       font-size: 0.88rem;
       color: var(--muted);
       line-height: 1.42;
+    }
+
+    .writing-item .card-actions {
+      margin-top: 0;
+      padding-top: 10px;
+    }
+
+    .link-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+    .link-card {
+      background: var(--paper-soft);
+      border-left: 3px solid var(--accent);
+      padding: 13px 14px;
+    }
+
+    .link-card h3 {
+      margin: 0 0 5px;
+      font-size: 0.92rem;
+      font-weight: 800;
+    }
+
+    .link-card p {
+      margin: 0 0 11px;
+      font-size: 0.84rem;
+      color: var(--muted);
+      line-height: 1.38;
     }
 
     .skill-table {
@@ -533,7 +599,8 @@
       }
 
       .project-grid,
-      .skill-table {
+      .skill-table,
+      .link-grid {
         grid-template-columns: 1fr;
       }
 
@@ -583,6 +650,7 @@
               <li>Python Programming</li>
               <li>Machine Learning</li>
               <li>Scientific Computing</li>
+              <li>AIoT and TinyML</li>
               <li>Scientific Communication</li>
               <li>Technical Documentation</li>
               <li>LaTeX</li>
@@ -611,9 +679,10 @@
             <div class="side-title">Links</div>
             <div class="contact-links">
               <a href="mailto:albertoreyescastro20@gmail.com">Email</a>
-              <a href="https://www.linkedin.com/in/alberto-reyes-ba5546238" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noreferrer">LinkedIn</a>
               <a href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="./assets/Alberto_Reyes_CV.pdf">Download CV</a>
+              <a href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noreferrer">Kaggle</a>
+              <a href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
             </div>
           </section>
         </div>
@@ -645,6 +714,8 @@
           <div class="hero-actions">
             <a class="button primary" href="#projects">View Projects</a>
             <a class="button secondary" href="#writing">Technical Writing</a>
+            <a class="button secondary" href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="button secondary" href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noreferrer">Kaggle</a>
             <a class="button secondary" href="#contact">Contact</a>
           </div>
         </section>
@@ -669,19 +740,50 @@
                 <span class="tag">Blynk</span>
                 <span class="tag">Edge Impulse</span>
               </div>
+              <div class="card-actions">
+                <a class="primary-link" href="https://github.com/albertoreyescastro/aiot-smart-home-esp32-wokwi" target="_blank" rel="noreferrer">GitHub Repo</a>
+                <a href="./assets/reports/aiot-smart-home-report.pdf" target="_blank" rel="noreferrer">Read Report</a>
+                <a href="https://wokwi.com/projects/465661521735358465" target="_blank" rel="noreferrer">Bedroom Demo</a>
+                <a href="https://wokwi.com/projects/465661368262601729" target="_blank" rel="noreferrer">Kitchen Demo</a>
+              </div>
             </article>
 
             <article class="project-card">
               <h3>Credit Card Fraud Detection</h3>
               <p>
                 Machine learning project focused on imbalanced classification, preprocessing,
-                model comparison, cross-validation and fraud detection evaluation using Python.
+                model comparison, threshold selection and fraud detection evaluation using Python.
               </p>
               <div class="tags">
                 <span class="tag">Python</span>
+                <span class="tag">scikit-learn</span>
                 <span class="tag">XGBoost</span>
                 <span class="tag">SMOTE</span>
                 <span class="tag">Model Evaluation</span>
+              </div>
+              <div class="card-actions">
+                <a class="primary-link" href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noreferrer">Kaggle Notebook</a>
+                <a href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noreferrer">Read Report</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Computational Physics ODE Solvers</h3>
+              <p>
+                Scientific computing project implementing numerical ODE solvers in Python,
+                including Euler, modified Euler and Milne-Simpson methods with SciPy comparison.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">SciPy</span>
+                <span class="tag">Numerical Methods</span>
+                <span class="tag">Physics</span>
+                <span class="tag">Scientific Computing</span>
+              </div>
+              <div class="card-actions">
+                <a class="primary-link" href="https://github.com/albertoreyescastro/computational-physics-ode-solvers" target="_blank" rel="noreferrer">GitHub Repo</a>
+                <a href="https://www.kaggle.com/code/albertoreyescastro20/numerical-solution-of-ode-in-python" target="_blank" rel="noreferrer">Kaggle Notebook</a>
+                <a href="./assets/reports/computational-physics-ode-solvers-report.pdf" target="_blank" rel="noreferrer">Read Report</a>
               </div>
             </article>
 
@@ -696,20 +798,11 @@
                 <span class="tag">Subtitles</span>
                 <span class="tag">Regex</span>
                 <span class="tag">Fuzzy Matching</span>
+                <span class="tag">Technical Writing</span>
               </div>
-            </article>
-
-            <article class="project-card">
-              <h3>Scientific & Academic Technical Work</h3>
-              <p>
-                Selected academic and scientific work demonstrating structured reasoning,
-                crystallographic analysis, LaTeX reporting and clear technical presentation.
-              </p>
-              <div class="tags">
-                <span class="tag">Physics</span>
-                <span class="tag">LaTeX</span>
-                <span class="tag">Scientific Writing</span>
-                <span class="tag">Crystallography</span>
+              <div class="card-actions">
+                <a class="primary-link" href="./assets/reports/scientific-communication-workflow.pdf" target="_blank" rel="noreferrer">Read Sample</a>
+                <a href="#writing">Writing Section</a>
               </div>
             </article>
           </div>
@@ -725,33 +818,93 @@
             <article class="writing-item">
               <div class="mini-circle"></div>
               <div>
-                <h3>Technical Report Extracts</h3>
+                <h3>AI-Enhanced Smart Home System — Technical Report</h3>
                 <p>
-                  Curated pages from technical and academic reports selected to show structure,
-                  methodology, diagrams, clarity and visual presentation.
+                  Full technical report documenting the design, architecture, simulation logic,
+                  sensor behaviour, AIoT integration and evaluation of an ESP32-S3 smart home prototype.
                 </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="./assets/reports/aiot-smart-home-report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
+                  <a href="https://github.com/albertoreyescastro/aiot-smart-home-esp32-wokwi" target="_blank" rel="noreferrer">GitHub Repo</a>
+                </div>
               </div>
             </article>
 
             <article class="writing-item">
               <div class="mini-circle"></div>
               <div>
-                <h3>System Documentation</h3>
+                <h3>Credit Card Fraud Detection — Machine Learning Report</h3>
                 <p>
-                  Architecture diagrams, decision tables, state-based logic and technical explanations
-                  designed to make complex systems easier to understand.
+                  Report and notebook explaining imbalanced classification, resampling strategies,
+                  model comparison, threshold selection and evaluation metrics for fraud detection.
                 </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
+                  <a href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noreferrer">Kaggle Notebook</a>
+                </div>
               </div>
             </article>
 
             <article class="writing-item">
               <div class="mini-circle"></div>
               <div>
-                <h3>Scientific Communication</h3>
+                <h3>Computational Physics ODE Solvers — Scientific Computing Report</h3>
                 <p>
-                  Bilingual communication, subtitle workflows, content adaptation and clear explanation
-                  of scientific or technical material for wider audiences.
+                  Scientific computing document explaining numerical ODE methods, implementation details,
+                  comparisons with SciPy and interpretation of results.
                 </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="./assets/reports/computational-physics-ode-solvers-report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
+                  <a href="https://github.com/albertoreyescastro/computational-physics-ode-solvers" target="_blank" rel="noreferrer">GitHub Repo</a>
+                  <a href="https://www.kaggle.com/code/albertoreyescastro20/numerical-solution-of-ode-in-python" target="_blank" rel="noreferrer">Kaggle Notebook</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="writing-item">
+              <div class="mini-circle"></div>
+              <div>
+                <h3>Scientific Communication & AI-Assisted Transcription</h3>
+                <p>
+                  Documentation sample based on AI-assisted transcription, subtitle generation,
+                  regex-based text processing, fuzzy matching and bilingual scientific communication.
+                </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="./assets/reports/scientific-communication-workflow.pdf" target="_blank" rel="noreferrer">Read Sample</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="links">
+          <div class="section-heading">
+            <h2>Profiles & Links</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="link-grid">
+            <article class="link-card">
+              <h3>GitHub</h3>
+              <p>Code repositories, project documentation, notebooks and open-source work.</p>
+              <div class="card-actions">
+                <a class="primary-link" href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">Open GitHub</a>
+              </div>
+            </article>
+
+            <article class="link-card">
+              <h3>Kaggle</h3>
+              <p>Machine learning notebooks, data analysis workflows and reproducible experiments.</p>
+              <div class="card-actions">
+                <a class="primary-link" href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noreferrer">Open Kaggle</a>
+              </div>
+            </article>
+
+            <article class="link-card">
+              <h3>LinkedIn</h3>
+              <p>Professional profile, education, experience and contact information.</p>
+              <div class="card-actions">
+                <a class="primary-link" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noreferrer">Open LinkedIn</a>
               </div>
             </article>
           </div>
@@ -872,8 +1025,9 @@
 
             <div class="hero-actions">
               <a class="button primary" href="mailto:albertoreyescastro20@gmail.com">Email Me</a>
-              <a class="button secondary" href="https://www.linkedin.com/in/alberto-reyes-ba5546238" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button secondary" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noreferrer">LinkedIn</a>
               <a class="button secondary" href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
+              <a class="button secondary" href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noreferrer">Kaggle</a>
             </div>
           </div>
         </section>
