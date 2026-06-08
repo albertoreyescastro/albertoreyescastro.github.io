@@ -1,3 +1,6 @@
+He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF real, añadido Whisper, limpiado Vizro, quitado skills duplicadas, actualizado japonés y evitado links rotos donde no tenemos URL real todavía. 
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -345,7 +348,8 @@
       padding-top: 12px;
     }
 
-    .card-actions a {
+    .card-actions a,
+    .card-actions .disabled-link {
       font-size: 0.72rem;
       font-weight: 750;
       border: 1px solid var(--dark);
@@ -369,6 +373,12 @@
     .card-actions a.primary-link:hover {
       background: var(--accent-dark);
       border-color: var(--accent-dark);
+    }
+
+    .card-actions .disabled-link {
+      opacity: 0.55;
+      cursor: not-allowed;
+      border-style: dashed;
     }
 
     .timeline {
@@ -651,6 +661,7 @@
               <li>Machine Learning</li>
               <li>Scientific Computing</li>
               <li>AIoT and TinyML</li>
+              <li>Audio Transcription</li>
               <li>Scientific Communication</li>
               <li>Technical Documentation</li>
               <li>LaTeX</li>
@@ -658,19 +669,11 @@
           </section>
 
           <section class="side-block">
-            <div class="side-title">Skills</div>
-            <p>
-              Python Automation / Machine Learning / XGBoost / Whisper Transcription /
-              Subtitle Generation / Regex / Fuzzy Matching / Scientific Writing / Problem Solving
-            </p>
-          </section>
-
-          <section class="side-block">
             <div class="side-title">Languages</div>
             <p>
               Spanish – Native<br />
               English – Advanced C1<br />
-              Japanese – JLPT N3<br />
+              Japanese – Conversational, JLPT N3-level study<br />
               French – Limited working proficiency
             </p>
           </section>
@@ -678,7 +681,7 @@
           <section class="side-block">
             <div class="side-title">Links</div>
             <div class="contact-links">
-              <a href="mailto:albertoreyescastro20@gmail.com">Email</a>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=albertoreyescastro20@gmail.com&su=Portfolio%20Contact" target="_blank" rel="noreferrer">Email</a>
               <a href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noreferrer">LinkedIn</a>
               <a href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
               <a href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noreferrer">Kaggle</a>
@@ -707,8 +710,9 @@
           </p>
 
           <p>
-            Open to part-time employed roles, remote/hybrid opportunities, internships,
-            analytical support, QA, research support and technical documentation positions in the UK.
+            Open to part-time roles, internships, remote/hybrid opportunities, analytical support,
+            QA, research support and technical documentation positions, particularly within AI,
+            data and technology-focused environments.
           </p>
 
           <div class="hero-actions">
@@ -764,7 +768,6 @@
               </div>
               <div class="card-actions">
                 <a class="primary-link" href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noreferrer">Kaggle Notebook</a>
-                <a href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noreferrer">Read Report</a>
               </div>
             </article>
 
@@ -784,26 +787,44 @@
               <div class="card-actions">
                 <a class="primary-link" href="https://github.com/albertoreyescastro/computational-physics-ode-solvers" target="_blank" rel="noreferrer">GitHub Repo</a>
                 <a href="https://www.kaggle.com/code/albertoreyescastro20/numerical-solution-of-ode-in-python" target="_blank" rel="noreferrer">Kaggle Notebook</a>
-                <a href="./assets/reports/computational-physics-ode-solvers-report.pdf" target="_blank" rel="noreferrer">Read Report</a>
               </div>
             </article>
 
             <article class="project-card">
-              <h3>AI-Assisted Science Communication Workflow</h3>
+              <h3>Adaptive Whisper Transcription Pipeline</h3>
               <p>
-                Scientific communication workflow involving AI-assisted transcription,
-                multilingual subtitles, regex, fuzzy matching and technical reporting.
+                Portable CPU/GPU transcription workflow for audio and video files using faster-whisper,
+                automatic hardware selection, audio normalisation, VAD presets, progress tracking and optional SRT output.
               </p>
               <div class="tags">
                 <span class="tag">Whisper</span>
+                <span class="tag">Python</span>
+                <span class="tag">Audio</span>
                 <span class="tag">Subtitles</span>
-                <span class="tag">Regex</span>
-                <span class="tag">Fuzzy Matching</span>
-                <span class="tag">Technical Writing</span>
+                <span class="tag">Automation</span>
               </div>
               <div class="card-actions">
-                <a class="primary-link" href="./assets/reports/scientific-communication-workflow.pdf" target="_blank" rel="noreferrer">Read Sample</a>
-                <a href="#writing">Writing Section</a>
+                <a class="primary-link" href="https://github.com/albertoreyescastro/adaptive-whisper-transcription-pipeline" target="_blank" rel="noreferrer">GitHub Repo</a>
+                <a href="https://www.kaggle.com/code/albertoreyescastro20/adaptive-whisper-transcription-pipeline-demo" target="_blank" rel="noreferrer">Kaggle Demo</a>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <h3>Regex & Fuzzy Matching Text Processing Workflow</h3>
+              <p>
+                Text-processing workflow for matching, cleaning and validating transcription/subtitle content
+                using regex logic and fuzzy matching techniques.
+              </p>
+              <div class="tags">
+                <span class="tag">Regex</span>
+                <span class="tag">Fuzzy Matching</span>
+                <span class="tag">Text Processing</span>
+                <span class="tag">Automation</span>
+                <span class="tag">Python</span>
+              </div>
+              <div class="card-actions">
+                <span class="disabled-link">Repo link pending</span>
+                <span class="disabled-link">Demo link pending</span>
               </div>
             </article>
           </div>
@@ -830,51 +851,6 @@
                 </div>
               </div>
             </article>
-
-            <article class="writing-item">
-              <div class="mini-circle"></div>
-              <div>
-                <h3>Credit Card Fraud Detection — Machine Learning Report</h3>
-                <p>
-                  Report and notebook explaining imbalanced classification, resampling strategies,
-                  model comparison, threshold selection and evaluation metrics for fraud detection.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
-                  <a href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noreferrer">Kaggle Notebook</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="writing-item">
-              <div class="mini-circle"></div>
-              <div>
-                <h3>Computational Physics ODE Solvers — Scientific Computing Report</h3>
-                <p>
-                  Scientific computing document explaining numerical ODE methods, implementation details,
-                  comparisons with SciPy and interpretation of results.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/reports/computational-physics-ode-solvers-report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
-                  <a href="https://github.com/albertoreyescastro/computational-physics-ode-solvers" target="_blank" rel="noreferrer">GitHub Repo</a>
-                  <a href="https://www.kaggle.com/code/albertoreyescastro20/numerical-solution-of-ode-in-python" target="_blank" rel="noreferrer">Kaggle Notebook</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="writing-item">
-              <div class="mini-circle"></div>
-              <div>
-                <h3>Scientific Communication & AI-Assisted Transcription</h3>
-                <p>
-                  Documentation sample based on AI-assisted transcription, subtitle generation,
-                  regex-based text processing, fuzzy matching and bilingual scientific communication.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/reports/scientific-communication-workflow.pdf" target="_blank" rel="noreferrer">Read Sample</a>
-                </div>
-              </div>
-            </article>
           </div>
         </section>
 
@@ -895,8 +871,7 @@
                   acknowledged by a Vizro maintainer and helped narrow down the bug for the fix planned in Vizro 0.1.57.
                 </p>
                 <div class="card-actions">
-                  <a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4605773378" target="_blank" rel="noreferrer">Maintainer Comment</a>
-                  <a href="https://github.com/mckinsey/vizro/issues/1750" target="_blank" rel="noreferrer">View Issue</a>
+                  <a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750" target="_blank" rel="noreferrer">View Issue</a>
                 </div>
               </div>
             </article>
@@ -931,14 +906,6 @@
               <p>Professional profile, education, experience and contact information.</p>
               <div class="card-actions">
                 <a class="primary-link" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noreferrer">Open LinkedIn</a>
-              </div>
-            </article>
-
-            <article class="link-card">
-              <h3>Open Source</h3>
-              <p>Selected debugging contribution acknowledged by a Vizro maintainer.</p>
-              <div class="card-actions">
-                <a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4614287868" target="_blank" rel="noreferrer">View Contribution</a>
               </div>
             </article>
           </div>
@@ -1002,8 +969,8 @@
             </article>
 
             <article class="skill-box">
-              <h3>Scientific Communication</h3>
-              <p>Bilingual Communication · Subtitles · Transcription Workflows · Content Adaptation</p>
+              <h3>Automation & Text Processing</h3>
+              <p>Whisper · faster-whisper · Subtitle Generation · Regex · Fuzzy Matching · Transcription Workflows</p>
             </article>
           </div>
         </section>
@@ -1053,12 +1020,13 @@
 
           <div class="contact-panel">
             <p>
-              Open to part-time employed roles, remote/hybrid opportunities, internships,
-              analytical support, QA, research support and technical documentation positions in the UK.
+              Open to part-time roles, internships, remote/hybrid opportunities, analytical support,
+              QA, research support and technical documentation positions, particularly within AI,
+              data and technology-focused environments.
             </p>
 
             <div class="hero-actions">
-              <a class="button primary" href="mailto:albertoreyescastro20@gmail.com">Email Me</a>
+              <a class="button primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=albertoreyescastro20@gmail.com&su=Portfolio%20Contact" target="_blank" rel="noreferrer">Email Me</a>
               <a class="button secondary" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noreferrer">LinkedIn</a>
               <a class="button secondary" href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
               <a class="button secondary" href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noreferrer">Kaggle</a>
@@ -1078,3 +1046,4 @@
   </script>
 </body>
 </html>
+```
