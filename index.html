@@ -1,6 +1,3 @@
-He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF real, añadido Whisper, limpiado Vizro, quitado skills duplicadas, actualizado japonés y evitado links rotos donde no tenemos URL real todavía. 
-
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -348,8 +345,7 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
       padding-top: 12px;
     }
 
-    .card-actions a,
-    .card-actions .disabled-link {
+    .card-actions a {
       font-size: 0.72rem;
       font-weight: 750;
       border: 1px solid var(--dark);
@@ -373,12 +369,6 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
     .card-actions a.primary-link:hover {
       background: var(--accent-dark);
       border-color: var(--accent-dark);
-    }
-
-    .card-actions .disabled-link {
-      opacity: 0.55;
-      cursor: not-allowed;
-      border-style: dashed;
     }
 
     .timeline {
@@ -648,8 +638,8 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
           <section class="side-block">
             <div class="side-title">About me</div>
             <p>
-              Physics graduate and MSc Artificial Intelligence candidate with experience in Python
-              automation, scientific communication, LaTeX, machine learning and technical documentation.
+              Physics graduate and MSc Artificial Intelligence candidate with experience in Python,
+              machine learning, AIoT prototypes, scientific communication and technical documentation.
             </p>
           </section>
 
@@ -661,11 +651,19 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
               <li>Machine Learning</li>
               <li>Scientific Computing</li>
               <li>AIoT and TinyML</li>
-              <li>Audio Transcription</li>
               <li>Scientific Communication</li>
+              <li>NLP Workflows</li>
               <li>Technical Documentation</li>
               <li>LaTeX</li>
             </ul>
+          </section>
+
+          <section class="side-block">
+            <div class="side-title">Skills</div>
+            <p>
+              Python Automation / Machine Learning / XGBoost / Whisper Transcription /
+              Subtitle Generation / Regex / Fuzzy Matching / Scientific Writing / Problem Solving
+            </p>
           </section>
 
           <section class="side-block">
@@ -673,7 +671,7 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
             <p>
               Spanish – Native<br />
               English – Advanced C1<br />
-              Japanese – Conversational, JLPT N3-level study<br />
+              Japanese – JLPT N3<br />
               French – Limited working proficiency
             </p>
           </section>
@@ -719,8 +717,10 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
             <a class="button primary" href="#projects">View Projects</a>
             <a class="button secondary" href="#writing">Technical Writing</a>
             <a class="button secondary" href="#open-source">Open Source</a>
+            <a class="button secondary" href="#recommendations">Recommendations</a>
             <a class="button secondary" href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
             <a class="button secondary" href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noreferrer">Kaggle</a>
+            <a class="button secondary" href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
             <a class="button secondary" href="#contact">Contact</a>
           </div>
         </section>
@@ -768,6 +768,7 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
               </div>
               <div class="card-actions">
                 <a class="primary-link" href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noreferrer">Kaggle Notebook</a>
+                <a href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noreferrer">Read Report</a>
               </div>
             </article>
 
@@ -791,40 +792,41 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
             </article>
 
             <article class="project-card">
+              <h3>IAC Publication–Press Note Matching</h3>
+              <p>
+                AI-assisted workflow for matching IAC scientific publications with press notes,
+                using text preprocessing, regex, fuzzy matching and reproducible notebook-based analysis.
+              </p>
+              <div class="tags">
+                <span class="tag">Python</span>
+                <span class="tag">NLP</span>
+                <span class="tag">Regex</span>
+                <span class="tag">Fuzzy Matching</span>
+                <span class="tag">Science Communication</span>
+              </div>
+              <div class="card-actions">
+                <a class="primary-link" href="https://github.com/albertoreyescastro/IAC-publication-press-note-matching" target="_blank" rel="noreferrer">GitHub Repo</a>
+                <a href="https://www.kaggle.com/code/albertoreyescastro20/iac-scientific-publication-matching-demo" target="_blank" rel="noreferrer">Kaggle Demo</a>
+              </div>
+            </article>
+
+            <article class="project-card">
               <h3>Adaptive Whisper Transcription Pipeline</h3>
               <p>
                 Portable CPU/GPU transcription workflow for audio and video files using faster-whisper,
-                automatic hardware selection, audio normalisation, VAD presets, progress tracking and optional SRT output.
+                with automatic hardware selection, safe input handling, audio normalization,
+                progress tracking and optional SRT subtitle generation.
               </p>
               <div class="tags">
-                <span class="tag">Whisper</span>
                 <span class="tag">Python</span>
-                <span class="tag">Audio</span>
-                <span class="tag">Subtitles</span>
+                <span class="tag">Whisper</span>
+                <span class="tag">Audio Processing</span>
+                <span class="tag">SRT Subtitles</span>
                 <span class="tag">Automation</span>
               </div>
               <div class="card-actions">
                 <a class="primary-link" href="https://github.com/albertoreyescastro/adaptive-whisper-transcription-pipeline" target="_blank" rel="noreferrer">GitHub Repo</a>
                 <a href="https://www.kaggle.com/code/albertoreyescastro20/adaptive-whisper-transcription-pipeline-demo" target="_blank" rel="noreferrer">Kaggle Demo</a>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <h3>Regex & Fuzzy Matching Text Processing Workflow</h3>
-              <p>
-                Text-processing workflow for matching, cleaning and validating transcription/subtitle content
-                using regex logic and fuzzy matching techniques.
-              </p>
-              <div class="tags">
-                <span class="tag">Regex</span>
-                <span class="tag">Fuzzy Matching</span>
-                <span class="tag">Text Processing</span>
-                <span class="tag">Automation</span>
-                <span class="tag">Python</span>
-              </div>
-              <div class="card-actions">
-                <span class="disabled-link">Repo link pending</span>
-                <span class="disabled-link">Demo link pending</span>
               </div>
             </article>
           </div>
@@ -851,6 +853,22 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
                 </div>
               </div>
             </article>
+
+            <article class="writing-item">
+              <div class="mini-circle"></div>
+              <div>
+                <h3>Credit Card Fraud Detection — Machine Learning Report</h3>
+                <p>
+                  Technical report explaining imbalanced classification, preprocessing,
+                  resampling strategies, model comparison, threshold selection and evaluation
+                  metrics for fraud detection.
+                </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
+                  <a href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noreferrer">Kaggle Notebook</a>
+                </div>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -871,7 +889,7 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
                   acknowledged by a Vizro maintainer and helped narrow down the bug for the fix planned in Vizro 0.1.57.
                 </p>
                 <div class="card-actions">
-                  <a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750" target="_blank" rel="noreferrer">View Issue</a>
+                  <a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4605773378" target="_blank" rel="noreferrer">View Maintainer Comment</a>
                 </div>
               </div>
             </article>
@@ -955,7 +973,7 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
           <div class="skill-table">
             <article class="skill-box">
               <h3>AI & Data</h3>
-              <p>Python · Machine Learning · Classification · Model Evaluation · XGBoost · scikit-learn</p>
+              <p>Python · Machine Learning · Classification · Model Evaluation · XGBoost · scikit-learn · NLP</p>
             </article>
 
             <article class="skill-box">
@@ -969,8 +987,8 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
             </article>
 
             <article class="skill-box">
-              <h3>Automation & Text Processing</h3>
-              <p>Whisper · faster-whisper · Subtitle Generation · Regex · Fuzzy Matching · Transcription Workflows</p>
+              <h3>Scientific Communication</h3>
+              <p>Bilingual Communication · Subtitles · Transcription Workflows · Publication Matching · Content Adaptation</p>
             </article>
           </div>
         </section>
@@ -1012,6 +1030,45 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
           </div>
         </section>
 
+        <section class="section" id="recommendations">
+          <div class="section-heading">
+            <h2>Recommendations</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="writing-list">
+            <article class="writing-item">
+              <div class="mini-circle"></div>
+              <div>
+                <h3>Academic Recommendation — Universidad de La Laguna</h3>
+                <p>
+                  Recommendation letter from a Full Professor of Applied Physics highlighting academic performance,
+                  autonomous learning, analytical ability, communication skills, Computational Physics, Python programming
+                  and mathematical strength.
+                </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="./assets/recommendations/ull-recommendation-justo-roberto-perez-cruz.pdf" target="_blank" rel="noreferrer">Read Letter</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="writing-item">
+              <div class="mini-circle"></div>
+              <div>
+                <h3>Professional Recommendation — Instituto de Astrofísica de Canarias</h3>
+                <p>
+                  Recommendation letter from my internship supervisor at the IAC, highlighting Python automation,
+                  AI-assisted transcription, multilingual subtitles, regex, fuzzy matching, LaTeX documentation
+                  and scientific communication work.
+                </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noreferrer">Read Letter</a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
         <section class="section" id="contact">
           <div class="section-heading">
             <h2>Contact</h2>
@@ -1046,4 +1103,3 @@ He aplicado los cambios sobre tu `PORTFOLIO.txt`: quitado lo que no tiene PDF re
   </script>
 </body>
 </html>
-```
