@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Portfolio of Alberto Reyes Castro: AI, data, technical documentation, scientific communication, machine learning projects, AIoT prototypes and LaTeX technical reports."
+    content="Portfolio of Alberto Reyes Castro: AI, data, technical documentation, scientific communication, machine learning projects, AIoT prototypes, ModelHawk, AI-assisted notebook audits and LaTeX technical reports."
   />
 
   <style>
@@ -308,9 +308,13 @@
       flex-direction: column;
     }
 
-    .project-card:last-child {
+    .project-card.featured {
       grid-column: 1 / -1;
       min-height: auto;
+      background:
+        linear-gradient(135deg, rgba(40, 169, 200, 0.12), rgba(255, 255, 255, 0.95)),
+        var(--paper-soft);
+      border-left: 5px solid var(--accent-dark);
     }
 
     .project-card h3 {
@@ -318,6 +322,10 @@
       font-size: 1rem;
       line-height: 1.22;
       font-weight: 800;
+    }
+
+    .project-card.featured h3 {
+      font-size: 1.15rem;
     }
 
     .project-card p {
@@ -333,6 +341,20 @@
       font-weight: 700;
       color: var(--accent-dark);
       letter-spacing: 0.02em;
+    }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      background: var(--dark);
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      padding: 4px 7px;
+      margin-bottom: 8px;
     }
 
     .tags {
@@ -617,6 +639,10 @@
         grid-template-columns: 1fr;
       }
 
+      .project-card.featured {
+        grid-column: auto;
+      }
+
       .timeline-item {
         grid-template-columns: 1fr;
         gap: 5px;
@@ -637,6 +663,8 @@
         Physics Graduate
         <span class="header-dot"></span>
         MSc Artificial Intelligence Student
+        <span class="header-dot"></span>
+        AI & Technical Documentation
       </p>
     </header>
 
@@ -652,7 +680,15 @@
             <div class="side-title">About me</div>
             <p>
               Physics graduate and MSc Artificial Intelligence student focused on machine learning,
-              AIoT, scientific computing and technical documentation.
+              AI-assisted tools, scientific computing and technical documentation.
+            </p>
+          </section>
+
+          <section class="side-block">
+            <div class="side-title">Current build</div>
+            <p>
+              Building ModelHawk, a personal AI/ML project for static notebook auditing,
+              local AI examiner notes and professional PDF report generation.
             </p>
           </section>
 
@@ -660,6 +696,7 @@
             <div class="side-title">Specializations</div>
             <ul>
               <li>Machine Learning</li>
+              <li>AI-assisted tooling</li>
               <li>Scientific Computing</li>
               <li>AIoT and TinyML</li>
               <li>Technical Documentation</li>
@@ -699,13 +736,19 @@
 
           <p>
             I combine a physics background with applied AI, data analysis and technical writing
-            to build clear, well-documented analytical projects.
+            to build clear, well-documented analytical and technical projects.
           </p>
 
           <p>
             Currently pursuing an MSc in Artificial Intelligence Technology with Advanced Practice
-            at Northumbria University, London Campus, with interests in machine learning, AIoT,
-            scientific communication, automation and structured technical reporting.
+            at Northumbria University, London Campus, with interests in machine learning, AI-assisted
+            tooling, AIoT, scientific communication, automation and structured technical reporting.
+          </p>
+
+          <p>
+            My current personal project, ModelHawk, explores static machine-learning notebook auditing:
+            detecting ML workflow signals, producing technical risk summaries, generating local AI examiner
+            notes with Ollama and compiling professional LaTeX PDF reports.
           </p>
 
           <p>
@@ -715,6 +758,7 @@
 
           <div class="hero-actions">
             <a class="button primary" href="#projects">View Projects</a>
+            <a class="button secondary" href="#modelhawk">ModelHawk</a>
             <a class="button secondary" href="#writing">Technical Writing</a>
             <a class="button secondary" href="#open-source">Open Source</a>
             <a class="button secondary" href="#recommendations">Recommendations</a>
@@ -730,6 +774,32 @@
           </div>
 
           <div class="project-grid">
+            <article class="project-card featured" id="modelhawk">
+              <div class="status-badge">Current personal build</div>
+              <h3>ModelHawk — Static ML Notebook Audit Platform</h3>
+              <p class="project-note">Next.js prototype · Local AI examiner · LaTeX PDF reports</p>
+              <p>
+                Personal AI/ML web project that analyses Jupyter notebooks through static audit rules,
+                detects project profile, data modality, ML signals, evaluation risks and portfolio-readiness
+                indicators, then generates local AI examiner notes using Ollama and professional PDF audit
+                reports using LaTeX.
+              </p>
+              <div class="tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Static Analysis</span>
+                <span class="tag">Machine Learning QA</span>
+                <span class="tag">Ollama</span>
+                <span class="tag">Local AI</span>
+                <span class="tag">LaTeX PDF</span>
+                <span class="tag">Technical Reports</span>
+              </div>
+              <div class="card-actions">
+                <a class="primary-link" href="https://website-respondents-jaguar-opened.trycloudflare.com" target="_blank" rel="noreferrer">Live Prototype Demo</a>
+                <a href="https://github.com/albertoreyescastro/modelhawk" target="_blank" rel="noreferrer">GitHub Repo</a>
+              </div>
+            </article>
+
             <article class="project-card">
               <h3>AI-Enhanced Smart Home System</h3>
               <p>
@@ -844,6 +914,22 @@
             <article class="writing-item">
               <div class="mini-circle"></div>
               <div>
+                <h3>ModelHawk — Static ML Audit Report Generator</h3>
+                <p>
+                  Web-based technical reporting prototype that transforms static notebook analysis into structured
+                  audit summaries, ML risk checks, local AI examiner notes and professional PDF reports compiled
+                  through LaTeX.
+                </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="https://website-respondents-jaguar-opened.trycloudflare.com" target="_blank" rel="noreferrer">Open Live Prototype</a>
+                  <a href="https://github.com/albertoreyescastro/modelhawk" target="_blank" rel="noreferrer">GitHub Repo</a>
+                </div>
+              </div>
+            </article>
+
+            <article class="writing-item">
+              <div class="mini-circle"></div>
+              <div>
                 <h3>AI-Enhanced Smart Home System — Technical Report</h3>
                 <p>
                   Full technical report documenting the design, architecture, simulation logic,
@@ -926,6 +1012,19 @@
 
           <div class="timeline">
             <article class="timeline-item">
+              <div class="date">2026</div>
+              <div class="timeline-body">
+                <h3>ModelHawk — Personal AI/ML Technical Project</h3>
+                <div class="institution">Independent technical build · London</div>
+                <p>
+                  Designed and built a Next.js prototype for static ML notebook auditing, including notebook parsing,
+                  project-profile detection, rule-based ML risk checks, local AI examiner notes with Ollama and
+                  LaTeX-based PDF report generation.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
               <div class="date">Mar 2025–May 2025</div>
               <div class="timeline-body">
                 <h3>Student Internship — Department of Communication and Scientific Culture</h3>
@@ -966,8 +1065,18 @@
             </article>
 
             <article class="skill-box">
+              <h3>AI-assisted Tooling</h3>
+              <p>Ollama · Local AI workflows · Static notebook analysis · AI examiner notes · ML audit logic · Prompted JSON outputs</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Web & Prototyping</h3>
+              <p>Next.js · TypeScript · React · API routes · Front-end prototyping · Local development · Cloudflare Tunnel demos</p>
+            </article>
+
+            <article class="skill-box">
               <h3>Technical Documentation</h3>
-              <p>LaTeX · Scientific Writing · Technical Reports · Academic Writing · Technical Presentations · Structured Documentation</p>
+              <p>LaTeX · Scientific Writing · Technical Reports · PDF report generation · Academic Writing · Structured Documentation</p>
             </article>
 
             <article class="skill-box">
@@ -1149,4 +1258,3 @@
   </script>
 </body>
 </html>
-
