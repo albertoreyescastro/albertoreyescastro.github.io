@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Portfolio of Alberto Reyes Castro: AI, data, technical documentation, scientific communication, machine learning projects, AIoT prototypes, ModelHawk, AI-assisted notebook audits and LaTeX technical reports."
+    content="Portfolio of Alberto Reyes Castro: AI, data, technical documentation, scientific communication, machine learning projects, AIoT prototypes, ModelHawk, Gemini/Ollama AI-assisted notebook audits and LaTeX technical reports."
   />
 
   <style>
@@ -687,8 +687,9 @@
           <section class="side-block">
             <div class="side-title">Current build</div>
             <p>
-              Building <strong>ModelHawk</strong>, a personal AI/ML prototype for static Jupyter notebook auditing, 
-              local AI examiner notes with Ollama, and professional LaTeX-based PDF report generation.
+              Building <strong>ModelHawk</strong>, a personal AI/ML prototype for static Jupyter
+              notebook auditing, Gemini API examiner notes, Ollama local fallback and professional
+              LaTeX-based PDF report generation.
             </p>
           </section>
 
@@ -746,9 +747,10 @@
           </p>
 
           <p>
-            My current personal project, ModelHawk, explores static machine-learning notebook auditing:
-            detecting ML workflow signals, producing technical risk summaries, generating local AI examiner
-            notes with Ollama and compiling professional LaTeX PDF reports.
+            My current personal project, <strong>ModelHawk</strong>, is a personal AI/ML prototype
+            that audits Jupyter notebooks through static analysis, detects machine-learning workflow
+            signals, generates technical risk summaries, produces AI examiner notes through a Gemini
+            API route with Ollama local fallback, and exports professional LaTeX-based PDF reports.
           </p>
 
           <p>
@@ -776,27 +778,47 @@
           <div class="project-grid">
             <article class="project-card featured" id="modelhawk">
               <div class="status-badge">Current personal build</div>
+
               <h3>ModelHawk — Static ML Notebook Audit Platform</h3>
-              <p class="project-note">Next.js prototype · Local AI examiner · LaTeX PDF reports</p>
-              <p>
-                Personal AI/ML web project that analyses Jupyter notebooks through static audit rules,
-                detects project profile, data modality, ML signals, evaluation risks and portfolio-readiness
-                indicators, then generates local AI examiner notes using Ollama and professional PDF audit
-                reports using LaTeX.
+
+              <p class="project-note">
+                Next.js prototype · Static ML audit engine · Gemini/Ollama AI examiner · LaTeX PDF reports
               </p>
+
+              <p>
+                Personal AI/ML prototype that audits Jupyter notebooks through static analysis,
+                detects project profile, data modality, machine-learning workflow signals,
+                evaluation risks and portfolio-readiness indicators, then generates AI examiner
+                notes through a Gemini API route with Ollama local fallback and deterministic
+                fallback behaviour.
+              </p>
+
+              <p>
+                The full workflow currently runs best from a local development environment because
+                PDF generation depends on LaTeX/pdflatex, and the local AI fallback depends on
+                Ollama. A stable hosted demo is planned after improving the deployment strategy for
+                PDF generation and local-service-dependent features.
+              </p>
+
               <div class="tags">
                 <span class="tag">Next.js</span>
                 <span class="tag">TypeScript</span>
+                <span class="tag">React</span>
                 <span class="tag">Static Analysis</span>
                 <span class="tag">Machine Learning QA</span>
+                <span class="tag">Jupyter Notebooks</span>
+                <span class="tag">Gemini API</span>
                 <span class="tag">Ollama</span>
                 <span class="tag">Local AI</span>
+                <span class="tag">Deterministic Fallbacks</span>
                 <span class="tag">LaTeX PDF</span>
                 <span class="tag">Technical Reports</span>
               </div>
+
               <div class="card-actions">
-                <a class="primary-link" href="https://website-respondents-jaguar-opened.trycloudflare.com" target="_blank" rel="noreferrer">Live Prototype Demo</a>
-                <a href="https://github.com/albertoreyescastro/modelhawk" target="_blank" rel="noreferrer">GitHub Repo</a>
+                <a href="https://github.com/albertoreyescastro/modelhawk" target="_blank" rel="noreferrer">
+                  GitHub Repo
+                </a>
               </div>
             </article>
 
@@ -916,9 +938,9 @@
               <div>
                 <h3>ModelHawk — Static ML Audit Report Generator</h3>
                 <p>
-                  Web-based technical reporting prototype that transforms static notebook analysis into structured
-                  audit summaries, ML risk checks, local AI examiner notes and professional PDF reports compiled
-                  through LaTeX.
+                  Web-based technical reporting prototype that transforms static notebook analysis into
+                  structured audit summaries, ML risk checks, Gemini/Ollama AI examiner notes,
+                  deterministic fallback explanations and professional PDF reports compiled through LaTeX.
                 </p>
                 <div class="card-actions">
                   <a class="primary-link" href="https://github.com/albertoreyescastro/modelhawk" target="_blank" rel="noreferrer">GitHub Repo</a>
@@ -1016,8 +1038,9 @@
                 <h3>ModelHawk — Personal AI/ML Technical Project</h3>
                 <div class="institution">Independent technical build · London</div>
                 <p>
-                  Designed and built a Next.js prototype for static ML notebook auditing, including notebook parsing,
-                  project-profile detection, rule-based ML risk checks, local AI examiner notes with Ollama and
+                  Designed and built a Next.js prototype for static ML notebook auditing, including
+                  notebook parsing, project-profile detection, rule-based ML risk checks, Gemini API
+                  examiner notes, Ollama local fallback, deterministic fallback behaviour and
                   LaTeX-based PDF report generation.
                 </p>
               </div>
@@ -1065,7 +1088,7 @@
 
             <article class="skill-box">
               <h3>AI-assisted Tooling</h3>
-              <p>Ollama · Local AI workflows · Static notebook analysis · AI examiner notes · ML audit logic · Prompted JSON outputs</p>
+              <p>Gemini API · Ollama · Local AI workflows · Static notebook analysis · AI examiner notes · ML audit logic · Provider fallback logic · Deterministic fallbacks · Prompted JSON outputs</p>
             </article>
 
             <article class="skill-box">
