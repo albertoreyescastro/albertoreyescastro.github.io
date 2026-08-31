@@ -4,20 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Alberto Reyes Castro | Applied AI, Multimodal &amp; On-Device ML</title>
+  <title>Alberto Reyes Castro | Applied AI Engineer | Multimodal &amp; On-Device ML</title>
 
   <meta
     name="description"
-    content="Portfolio of Alberto Reyes Castro, an Applied AI Engineer and MSc Artificial Intelligence student working across multimodal retrieval, on-device ML, model evaluation, speech AI and developer-facing AI tools."
+    content="Portfolio of Alberto Reyes Castro, an applied AI engineer working with TeachScribe and completing an MSc in Artificial Intelligence, with projects in multimodal retrieval, on-device ML, model evaluation, speech AI and developer tools."
   />
+  <meta name="author" content="Alberto Reyes Castro" />
+  <meta name="theme-color" content="#3b3d3f" />
 
   <style>
     :root {
       --dark: #3b3d3f;
       --dark-2: #2f3133;
       --sidebar: #dedede;
-      --accent: #28a9c8;
-      --accent-dark: #147d96;
+      --accent: #0b7285;
+      --accent-dark: #07596a;
       --text: #1f1f1f;
       --muted: #5f666d;
       --line: #222222;
@@ -46,6 +48,28 @@
     a {
       color: inherit;
       text-decoration: none;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 1000;
+      padding: 9px 12px;
+      background: #ffffff;
+      color: var(--dark);
+      border: 2px solid var(--dark);
+      font-weight: 800;
+      transform: translateY(-150%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
     }
 
     .site {
@@ -312,7 +336,7 @@
       grid-column: 1 / -1;
       min-height: auto;
       background:
-        linear-gradient(135deg, rgba(40, 169, 200, 0.12), rgba(255, 255, 255, 0.95)),
+        linear-gradient(135deg, rgba(11, 114, 133, 0.12), rgba(255, 255, 255, 0.95)),
         var(--paper-soft);
       border-left: 5px solid var(--accent-dark);
     }
@@ -349,7 +373,7 @@
       width: fit-content;
       background: var(--dark);
       color: #ffffff;
-      font-size: 0.7rem;
+      font-size: 0.74rem;
       font-weight: 800;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -364,7 +388,7 @@
     }
 
     .tag {
-      font-size: 0.68rem;
+      font-size: 0.75rem;
       background: #ffffff;
       border: 1px solid var(--soft-line);
       padding: 3px 6px;
@@ -381,7 +405,7 @@
     }
 
     .card-actions a {
-      font-size: 0.72rem;
+      font-size: 0.77rem;
       font-weight: 750;
       border: 1px solid var(--dark);
       padding: 5px 8px;
@@ -418,7 +442,7 @@
     }
 
     .date {
-      font-size: 0.72rem;
+      font-size: 0.78rem;
       color: #222222;
       padding-top: 2px;
       white-space: nowrap;
@@ -652,18 +676,31 @@
         text-align: left;
       }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+    }
   </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="site">
     <header class="top-header">
       <h1>Alberto Reyes Castro</h1>
       <p>
         Applied AI Engineer
-        <span class="header-dot"></span>
+        <span class="header-dot" aria-hidden="true"></span>
         Multimodal &amp; On-Device ML
-        <span class="header-dot"></span>
+        <span class="header-dot" aria-hidden="true"></span>
         MSc Artificial Intelligence
       </p>
     </header>
@@ -671,8 +708,8 @@
     <div class="content">
       <aside class="sidebar">
         <div class="profile-circle">
-          <span>ARC</span>
-          <img src="./assets/profile.jpg" alt="Profile photo of Alberto Reyes Castro" onerror="this.style.display='none';" />
+          <span aria-hidden="true">ARC</span>
+          <img src="./assets/profile.jpg" alt="Profile photo of Alberto Reyes Castro" width="152" height="152" decoding="async" onerror="this.style.display='none';" />
         </div>
 
         <div>
@@ -688,9 +725,9 @@
           <section class="side-block">
             <div class="side-title">Current work</div>
             <p>
-              Developing an on-device multimodal retrieval prototype through a confidential UK
-              EdTech collaboration, alongside <strong>ModelHawk</strong>, an independent prototype
-              for explainable review of machine-learning notebooks.
+              Developing an on-device multimodal retrieval feature for <strong>TeachScribe</strong>,
+              alongside <strong>ModelHawk</strong>, an independent prototype for explainable review
+              of machine-learning notebooks.
             </p>
           </section>
 
@@ -711,7 +748,7 @@
             <p>
               Spanish – Native<br />
               English – C1 Advanced / IELTS UKVI 7.0<br />
-              Japanese – Intermediate study / JLPT N3 attempted<br />
+              Japanese – Intermediate study<br />
               French – Limited working proficiency
             </p>
           </section>
@@ -719,17 +756,17 @@
           <section class="side-block">
             <div class="side-title">Links</div>
             <div class="contact-links">
-              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=albertoreyescastro20@gmail.com&su=Portfolio%20Contact" target="_blank" rel="noreferrer">Email</a>
-              <a href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://github.com/albertoreyescastro" target="_blank" rel="noreferrer">GitHub</a>
-              <a href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noreferrer">Kaggle</a>
-              <a href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+              <a href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email</a>
+              <a href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              <a href="https://github.com/albertoreyescastro" target="_blank" rel="noopener noreferrer">GitHub</a>
+              <a href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noopener noreferrer">Kaggle</a>
+              <a href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
             </div>
           </section>
         </div>
       </aside>
 
-      <main class="main">
+      <main class="main" id="main-content">
         <section class="section summary" id="summary">
           <div class="section-heading">
             <h2>Summary</h2>
@@ -738,24 +775,17 @@
 
           <p>
             I am an applied AI engineer and physics graduate completing an MSc in Artificial
-            Intelligence Technology with Advanced Practice at Northumbria University. My current
-            academic performance is at Distinction level, and I focus on building and evaluating
-            machine-learning systems under real product and deployment constraints.
+            Intelligence Technology with Advanced Practice at Northumbria University, where my
+            current academic performance is at Distinction level. I build and evaluate machine-learning
+            systems under real product, deployment and human-review constraints.
           </p>
 
           <p>
-            In a current commercial EdTech collaboration, I am developing a fully on-device
-            multimodal retrieval prototype for Android. My responsibilities span evaluation design,
-            model and checkpoint assessment, mobile deployment feasibility, implementation and
-            target-device validation. The public description is intentionally limited: source code,
-            product data, screenshots and internal implementation materials are not disclosed.
-          </p>
-
-          <p>
-            I also created <strong>ModelHawk</strong>, an independent AI/ML developer-tool prototype
-            currently focused on structured classification notebooks, particularly imbalanced
-            datasets. It combines deterministic and heuristic analysis with optional Gemini API and
-            locally hosted Llama/Ollama assistance, then generates structured LaTeX PDF audit reports.
+            Through a technical collaboration with <strong>TeachScribe</strong>, I am developing a
+            fully on-device multimodal retrieval prototype for Android, from model benchmarking and
+            licensing assessment to mobile implementation and target-device validation. I also created
+            <strong>ModelHawk</strong>, an independent developer-tool prototype that combines deterministic
+            notebook analysis with optional Gemini and locally hosted Llama/Ollama assistance.
           </p>
 
           <p>
@@ -767,11 +797,9 @@
           <div class="hero-actions">
             <a class="button primary" href="#projects">View Projects</a>
             <a class="button secondary" href="#experience">Experience</a>
-            <a class="button secondary" href="#modelhawk">ModelHawk</a>
-            <a class="button secondary" href="#writing">Technical Writing</a>
-            <a class="button secondary" href="#open-source">Open Source</a>
-            <a class="button secondary" href="#recommendations">Recommendations</a>
-            <a class="button secondary" href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+            <a class="button secondary" href="#publications">Publications</a>
+            <a class="button secondary" href="#writing">Technical Reports</a>
+            <a class="button secondary" href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
             <a class="button secondary" href="#contact">Contact</a>
           </div>
         </section>
@@ -784,27 +812,29 @@
 
           <div class="project-grid">
             <article class="project-card featured" id="multimodal-mobile">
-              <div class="status-badge">Current commercial collaboration</div>
+              <div class="status-badge">Current applied ML work</div>
 
-              <h3>On-Device Multimodal Retrieval — Public Project Summary</h3>
+              <h3>TeachScribe — On-Device Multimodal Retrieval</h3>
 
               <p class="project-note">
-                Confidential implementation · Source code and product materials are not publicly available
+                Technical collaboration for product integration · Code, data and internal product materials remain private
               </p>
 
               <p>
-                Developing a standalone Android prototype for a UK EdTech product that applies fully
-                on-device image–text retrieval and human-reviewed selection within a mobile workflow.
-                The work connects multimodal model evaluation with practical product requirements and
-                resource-constrained deployment.
+                Built a standalone Android prototype that ranks relevant classroom
+                photographs against written observations using optional capture-time filtering and
+                fully on-device image–text inference. The prototype is now being validated before adaptation
+                and integration into TeachScribe's main teacher-facing product.
               </p>
 
               <p>
-                Responsible for evaluation design, model and checkpoint assessment, mobile feasibility,
-                implementation and validation on the intended device, including retrieval quality,
-                responsiveness, memory use and sustained-device behaviour. This summary deliberately
-                excludes proprietary code, data, screenshots, model-selection results and internal
-                product details.
+                Responsible for model research, system design, evaluation and implementation. Benchmarked
+                five pretrained vision–language models across three structured retrieval evaluations,
+                comparing Recall@1 and Recall@5 alongside model size, CPU performance, mobile feasibility
+                and published checkpoint licensing. Identified TinyCLIP as the current leading candidate
+                and integrated it through ONNX Runtime into an Expo/React Native prototype with native Kotlin preprocessing, reusable model
+                sessions, persistent SQLite embedding caches and human-reviewed multi-photo selection.
+                Current work covers task-specific fine-tuning and validation on the target Android tablet.
               </p>
 
               <div class="tags">
@@ -813,16 +843,23 @@
                 <span class="tag">Image–Text Retrieval</span>
                 <span class="tag">On-Device Inference</span>
                 <span class="tag">Android</span>
+                <span class="tag">ONNX Runtime</span>
+                <span class="tag">React Native</span>
+                <span class="tag">Kotlin</span>
                 <span class="tag">Model Evaluation</span>
                 <span class="tag">Mobile Performance</span>
                 <span class="tag">Human-Reviewed AI</span>
+              </div>
+
+              <div class="card-actions">
+                <a class="primary-link" href="https://www.linkedin.com/company/105803973/" target="_blank" rel="noreferrer">TeachScribe Company Page</a>
               </div>
             </article>
 
             <article class="project-card featured" id="modelhawk">
               <div class="status-badge">Current independent prototype</div>
 
-              <h3>ModelHawk — Static ML Notebook Audit Platform</h3>
+              <h3>ModelHawk — ML Notebook Audit Prototype</h3>
 
               <p class="project-note">
                 Structured classification audits · Deterministic analysis · Gemini/Ollama examiner · LaTeX reports
@@ -860,7 +897,7 @@
               </div>
 
               <div class="card-actions">
-                <a class="primary-link" href="https://github.com/albertoreyescastro/modelhawk" target="_blank" rel="noreferrer">
+                <a class="primary-link" href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">
                   GitHub Repo
                 </a>
                 <a href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noreferrer">Read Sample PDF</a>
@@ -868,7 +905,7 @@
             </article>
 
             <article class="project-card">
-              <h3>AI-Enhanced Smart Home System</h3>
+              <h3>AIoT Smart Home Prototype</h3>
               <p>
                 Modular AIoT prototype using ESP32-S3 room controllers, Wokwi, Blynk,
                 Edge Impulse, rule-based automation and lightweight environmental classification.
@@ -881,10 +918,10 @@
                 <span class="tag">Edge Impulse</span>
               </div>
               <div class="card-actions">
-                <a class="primary-link" href="https://github.com/albertoreyescastro/aiot-smart-home-esp32-wokwi" target="_blank" rel="noreferrer">GitHub Repo</a>
+                <a class="primary-link" href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
                 <a href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noreferrer">Read Report</a>
                 <a href="https://wokwi.com/projects/465661521735358465" target="_blank" rel="noreferrer">Bedroom Demo</a>
-                <a href="https://wokwi.com/projects/465661368262601729" target="_blank" rel="noreferrer">Kitchen Demo</a>
+                <a href="https://wokwi.com/projects/465661368262601729" target="_blank" rel="noreferrer">Kitchen &amp; Living Room Demo</a>
               </div>
             </article>
 
@@ -892,8 +929,10 @@
               <h3>Credit Card Fraud Detection</h3>
               <p class="project-note">MSc machine-learning report · Distinction mark: 85/100</p>
               <p>
-                Machine learning project focused on imbalanced classification, preprocessing,
-                model comparison, threshold selection and fraud detection evaluation using Python.
+                Built a leakage-controlled pipeline for 284,807 transactions and compared six
+                classifiers and imbalance strategies using five-fold stratified cross-validation,
+                RandomizedSearchCV and validation-based threshold analysis. The tuned XGBoost model
+                achieved 91.2% precision, 84.7% recall and 0.8827 average precision.
               </p>
               <div class="tags">
                 <span class="tag">Python</span>
@@ -972,9 +1011,124 @@
           </div>
         </section>
 
+        <section class="section" id="experience">
+          <div class="section-heading">
+            <h2>Experience</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="date">Jul 2026–Present</div>
+              <div class="timeline-body">
+                <h3>Applied AI Engineer — On-Device Multimodal ML</h3>
+                <div class="institution">TeachScribe · Technical collaboration · Hybrid</div>
+                <p>
+                  Building an Android-based multimodal retrieval prototype for TeachScribe's
+                  teacher-facing product. Responsible for benchmarking vision–language models,
+                  integrating on-device inference and validating retrieval quality, latency, memory
+                  use and thermal behaviour on the target device before planned product integration.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="date">Jul 2026–Present</div>
+              <div class="timeline-body">
+                <h3>Creator &amp; Applied AI Developer — ModelHawk</h3>
+                <div class="institution">Independent technical build · London</div>
+                <p>
+                  Designed and built a Next.js/TypeScript prototype for explainable review of structured
+                  classification notebooks, combining deterministic and heuristic audit checks with
+                  optional Gemini API assistance, a locally hosted Llama 3.2/Ollama fallback and
+                  automated LaTeX PDF report generation.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="date">Mar 2025–May 2025</div>
+              <div class="timeline-body">
+                <h3>Python &amp; Scientific Communication Intern</h3>
+                <div class="institution">Instituto de Astrofísica de Canarias · La Laguna</div>
+                <p>
+                  Developed a multilingual faster-whisper transcription and subtitle workflow and a
+                  semi-automated matcher comparing 67 outreach articles with more than 700 scientific
+                  publications. Authored an IAC News article on the March 2025 partial solar eclipse,
+                  prepared the English-language version of the IAC article on SN 2023ixf, co-authored
+                  an <em>Astronomía</em> Magazine feature and produced technical documentation in LaTeX.
+                  Completed the assessed 250-hour placement with a final mark of 9.2/10.
+                </p>
+              </div>
+            </article>
+
+            <article class="timeline-item">
+              <div class="date">2025</div>
+              <div class="timeline-body">
+                <h3>Final Degree Project — BSc Physics</h3>
+                <div class="institution">Universidad de La Laguna · Tenerife</div>
+                <p>
+                  Completed a scientific project in English on the structural mechanisms of
+                  ferroelectricity and ferroelasticity in β′-RE₂(MoO₄)₃ compounds, involving
+                  crystallographic analysis and scientific reporting.
+                </p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="skills">
+          <div class="section-heading">
+            <h2>Skills</h2>
+            <div class="rule"></div>
+          </div>
+
+          <div class="skill-table">
+            <article class="skill-box">
+              <h3>AI &amp; Data</h3>
+              <p>Python · PyTorch · scikit-learn · XGBoost · Machine Learning · Fine-Tuning · Classification · Model Evaluation · Retrieval Metrics · Imbalanced Learning</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Multimodal &amp; On-Device ML</h3>
+              <p>Vision–Language Models · Image–Text Retrieval · Mobile Inference · ONNX Runtime · Android · Model Benchmarking · Latency, Memory &amp; Thermal Evaluation · Human-Reviewed Selection</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>LLMs &amp; Developer Tools</h3>
+              <p>Gemini API · Llama 3.2 · Ollama · Local LLM Workflows · Structured Outputs · Static Notebook Analysis · Provider Fallback Logic · Deterministic Fallbacks</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Mobile, Web &amp; Prototyping</h3>
+              <p>React Native · Expo · Kotlin · SQLite · Next.js · TypeScript · React · API Routes · Front-End Prototyping</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Technical Documentation</h3>
+              <p>LaTeX · Scientific Writing · Technical Reports · PDF Report Generation · Academic Writing · Structured Documentation</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>AIoT &amp; Prototyping</h3>
+              <p>Embedded C++ · ESP32-S3 · Wokwi · Blynk · Edge Impulse · TinyML · Sensor-Based Logic</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Scientific Communication</h3>
+              <p>Bilingual Communication · Subtitles · Transcription Workflows · Publication Matching · Content Adaptation</p>
+            </article>
+
+            <article class="skill-box">
+              <h3>Scientific Computing</h3>
+              <p>NumPy · SciPy · Matplotlib · Numerical Methods · ODE Solvers · Computational Physics</p>
+            </article>
+          </div>
+        </section>
+
         <section class="section" id="writing">
           <div class="section-heading">
-            <h2>Technical Writing</h2>
+            <h2>Selected Technical Reports</h2>
             <div class="rule"></div>
           </div>
 
@@ -991,7 +1145,7 @@
                 </p>
                 <div class="card-actions">
                   <a class="primary-link" href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noreferrer">Read Sample PDF</a>
-                  <a href="https://github.com/albertoreyescastro/modelhawk" target="_blank" rel="noreferrer">GitHub Repo</a>
+                  <a href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
                 </div>
               </div>
             </article>
@@ -999,14 +1153,14 @@
             <article class="writing-item">
               <div class="mini-circle"></div>
               <div>
-                <h3>AI-Enhanced Smart Home System — Technical Report</h3>
+                <h3>AIoT Smart Home Prototype — Technical Report</h3>
                 <p>
                   Full technical report documenting the design, architecture, simulation logic,
                   sensor behaviour, AIoT integration and evaluation of an ESP32-S3 smart home prototype.
                 </p>
                 <div class="card-actions">
                   <a class="primary-link" href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
-                  <a href="https://github.com/albertoreyescastro/aiot-smart-home-esp32-wokwi" target="_blank" rel="noreferrer">GitHub Repo</a>
+                  <a href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
                 </div>
               </div>
             </article>
@@ -1063,7 +1217,7 @@
                 <p>
                   Helped reproduce and isolate a Vizro/Dash tab-rendering regression by comparing dependency versions,
                   testing pure Dash behaviour and narrowing the issue beyond Plotly graph rendering. The analysis was
-                  acknowledged by a Vizro maintainer and helped narrow down the bug for the fix planned in Vizro 0.1.57.
+                  acknowledged by a Vizro maintainer and helped narrow the source of the regression.
                 </p>
                 <div class="card-actions">
                   <a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4605773378" target="_blank" rel="noreferrer">View Maintainer Comment</a>
@@ -1073,122 +1227,53 @@
           </div>
         </section>
 
-        <section class="section" id="experience">
+        <section class="section" id="publications">
           <div class="section-heading">
-            <h2>Experience</h2>
+            <h2>Selected Publications &amp; Scientific Communication</h2>
             <div class="rule"></div>
           </div>
 
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="date">Jul 2026–Present</div>
-              <div class="timeline-body">
-                <h3>Applied AI Engineer — On-Device Multimodal ML</h3>
-                <div class="institution">Confidential UK EdTech collaboration · Hybrid</div>
+          <div class="writing-list">
+            <article class="writing-item">
+              <div class="mini-circle" aria-hidden="true"></div>
+              <div>
+                <h3>The IAC brings the partial solar eclipse of 29 March closer to the public</h3>
                 <p>
-                  Developing an Android-based multimodal retrieval prototype for a commercial mobile
-                  product. Responsible for evaluation design, model assessment, mobile implementation
-                  and target-device validation while keeping source code, product data and internal
-                  implementation materials confidential.
+                  IAC News article written during my internship in the Department of Communication
+                  and Scientific Culture, translating astronomical information into accessible public communication.
                 </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="https://www.iac.es/en/outreach/news/iac-brings-partial-solar-eclipse-29-march-closer-public" target="_blank" rel="noopener noreferrer">Read IAC Article</a>
+                </div>
               </div>
             </article>
 
-            <article class="timeline-item">
-              <div class="date">Jul 2026–Present</div>
-              <div class="timeline-body">
-                <h3>Creator &amp; Applied AI Developer — ModelHawk</h3>
-                <div class="institution">Independent technical build · London</div>
+            <article class="writing-item">
+              <div class="mini-circle" aria-hidden="true"></div>
+              <div>
+                <h3>The WEAVE spectrograph captures the interaction of supernova SN 2023ixf with its surroundings</h3>
                 <p>
-                  Designed and built a Next.js/TypeScript prototype for explainable review of structured
-                  classification notebooks, combining deterministic and heuristic audit checks with
-                  optional Gemini API assistance, a locally hosted Llama 3.2/Ollama fallback and
-                  automated LaTeX PDF report generation.
+                  Prepared the English-language version of this IAC News article during the internship,
+                  communicating current astrophysical research accurately for an international audience.
                 </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="https://www.iac.es/en/outreach/news/weave-spectrograph-captures-interaction-supernova-sn-2023ixf-its-surroundings-one-year-after-its-explosion" target="_blank" rel="noopener noreferrer">Read IAC Article</a>
+                </div>
               </div>
             </article>
 
-            <article class="timeline-item">
-              <div class="date">Mar 2025–May 2025</div>
-              <div class="timeline-body">
-                <h3>Python &amp; Scientific Communication Intern</h3>
-                <div class="institution">Instituto de Astrofísica de Canarias · La Laguna</div>
+            <article class="writing-item">
+              <div class="mini-circle" aria-hidden="true"></div>
+              <div>
+                <h3>El eclipse parcial que recordó a Canarias el valor de mirar al cielo</h3>
                 <p>
-                  Developed a multilingual faster-whisper transcription and subtitle workflow and a
-                  semi-automated matcher comparing 67 outreach articles with more than 700 scientific
-                  publications. Wrote “The Partial Solar Eclipse of March 2025” and the English version
-                  of the IAC article on SN 2023ixf, contributed to an Astronomía Magazine feature and
-                  produced technical documentation in LaTeX. Completed the assessed 250-hour placement
-                  with a final mark of 9.2/10.
+                  Co-authored with Ariadna Mesa and Hugo Fernández and published in the May 2025
+                  issue (No. 311) of <em>Astronomía</em> Magazine.
                 </p>
+                <div class="card-actions">
+                  <a class="primary-link" href="https://www.globalastronomia.com/producto/astronomia-mayo-2025-n-o-311-pdf/" target="_blank" rel="noopener noreferrer">View Magazine Issue</a>
+                </div>
               </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">2025</div>
-              <div class="timeline-body">
-                <h3>Final Degree Project — BSc Physics</h3>
-                <div class="institution">Universidad de La Laguna · Tenerife</div>
-                <p>
-                  Completed a scientific project in English on the structural mechanisms of
-                  ferroelectricity and ferroelasticity in β′-RE₂(MoO₄)₃ compounds, involving
-                  crystallographic analysis and scientific reporting.
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="skills">
-          <div class="section-heading">
-            <h2>Skills</h2>
-            <div class="rule"></div>
-          </div>
-
-          <div class="skill-table">
-            <article class="skill-box">
-              <h3>AI & Data</h3>
-              <p>Python · PyTorch · scikit-learn · XGBoost · Machine Learning · Fine-Tuning · Classification · Model Evaluation · Retrieval Metrics · Imbalanced Learning</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Multimodal &amp; On-Device ML</h3>
-              <p>Vision–Language Models · Image–Text Retrieval · Mobile Inference · ONNX Runtime · Android · Model Benchmarking · Latency, Memory &amp; Thermal Evaluation · Human-Reviewed Selection</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>LLMs &amp; Developer Tools</h3>
-              <p>Gemini API · Llama 3.2 · Ollama · Local LLM Workflows · Structured Outputs · Static Notebook Analysis · Provider Fallback Logic · Deterministic Fallbacks</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Mobile, Web &amp; Prototyping</h3>
-              <p>React Native · Expo · Kotlin · SQLite · Next.js · TypeScript · React · API Routes · Front-End Prototyping</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Technical Documentation</h3>
-              <p>LaTeX · Scientific Writing · Technical Reports · PDF report generation · Academic Writing · Structured Documentation</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>AIoT & Prototyping</h3>
-              <p>Embedded C++ · ESP32-S3 · Wokwi · Blynk · Edge Impulse · TinyML · Sensor-Based Logic</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Scientific Communication</h3>
-              <p>Bilingual Communication · Subtitles · Transcription Workflows · Publication Matching · Content Adaptation</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Scientific Computing</h3>
-              <p>NumPy · SciPy · Matplotlib · Numerical Methods · ODE Solvers · Computational Physics</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Languages</h3>
-              <p>Spanish Native · English C1 Advanced · IELTS UKVI 7.0 · Japanese Intermediate Study / JLPT N3 Attempted · French Limited Working Proficiency</p>
             </article>
           </div>
         </section>
@@ -1223,6 +1308,8 @@
                 <p>
                   Final grade: 7.13/10 (approximately equivalent to a UK 2:1). Built strong foundations
                   in mathematics, scientific computing, numerical methods and signal/image processing.
+                  Selected results include Acquisition and Transmission of Signals and Images (9.9/10),
+                  Differential Calculus (9.5/10), and Differential Equations and Complex Variables (8.1/10).
                   Completed and defended the final project in English with a mark of 9.4/10; the
                   supervisor subsequently proposed developing it into a manuscript for submission to
                   a high-impact peer-reviewed scientific journal.
@@ -1236,8 +1323,7 @@
                 <h3>Academic Merit Convocation Award</h3>
                 <div class="institution">Universidad de La Laguna</div>
                 <p>
-                  Annual distinction granted to students with outstanding academic performance
-                  and ranking among the top of their graduating class.
+                  Official Universidad de La Laguna recognition for academic merit, awarded in 2025.
                 </p>
               </div>
             </article>
@@ -1258,7 +1344,6 @@
                 <div class="institution">British Council</div>
                 <p>
                   C1-level English certification for UK academic and visa purposes.
-                  Credential ID: 25ES502590REYA024A.
                 </p>
               </div>
             </article>
@@ -1270,19 +1355,6 @@
                 <div class="institution">University of Cambridge</div>
                 <p>
                   Cambridge English qualification certifying advanced English communication ability.
-                  Credential ID: C0100635.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">Dec 2024</div>
-              <div class="timeline-body">
-                <h3>Japanese-Language Proficiency Test — N3 Examination</h3>
-                <div class="institution">JLPT / NOKEN</div>
-                <p>
-                  Sat the JLPT N3 examination and obtained 80/180, documenting sustained intermediate
-                  Japanese study. This entry does not claim N3 certification.
                 </p>
               </div>
             </article>
@@ -1297,7 +1369,7 @@
 
           <div class="writing-list">
             <article class="writing-item">
-              <div class="mini-circle"></div>
+              <div class="mini-circle" aria-hidden="true"></div>
               <div>
                 <h3>Academic Recommendation — Universidad de La Laguna</h3>
                 <p>
@@ -1306,13 +1378,13 @@
                   and mathematical strength.
                 </p>
                 <div class="card-actions">
-                  <a class="primary-link" href="./assets/recommendations/ull-recommendation-justo-roberto-perez-cruz.pdf" target="_blank" rel="noreferrer">Read Letter</a>
+                  <a class="primary-link" href="./assets/recommendations/ull-recommendation-justo-roberto-perez-cruz.pdf" target="_blank" rel="noopener noreferrer">Read Signed Letter</a>
                 </div>
               </div>
             </article>
 
             <article class="writing-item">
-              <div class="mini-circle"></div>
+              <div class="mini-circle" aria-hidden="true"></div>
               <div>
                 <h3>Professional Recommendation — Instituto de Astrofísica de Canarias</h3>
                 <p>
@@ -1321,7 +1393,7 @@
                   and scientific communication work.
                 </p>
                 <div class="card-actions">
-                  <a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noreferrer">Read Letter</a>
+                  <a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noopener noreferrer">Read Signed Letter</a>
                 </div>
               </div>
             </article>
@@ -1342,8 +1414,8 @@
             </p>
 
             <div class="hero-actions">
-              <a class="button primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=albertoreyescastro20@gmail.com&su=Portfolio%20Contact" target="_blank" rel="noreferrer">Email Me</a>
-              <a class="button secondary" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noreferrer">LinkedIn</a>
+              <a class="button primary" href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email Me</a>
+              <a class="button secondary" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             </div>
           </div>
         </section>
