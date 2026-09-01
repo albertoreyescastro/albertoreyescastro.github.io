@@ -321,13 +321,11 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .project-card {
-      border-left: 3px solid var(--accent);
-      background: var(--paper-soft);
-      padding: 15px 16px;
+      min-height: 190px;
       display: flex;
       flex-direction: column;
     }
@@ -400,8 +398,8 @@
       display: flex;
       flex-wrap: wrap;
       gap: 7px;
-      margin-top: 12px;
-      padding-top: 0;
+      margin-top: auto;
+      padding-top: 12px;
     }
 
     .card-actions a {
