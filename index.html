@@ -940,6 +940,13 @@
                 RandomizedSearchCV and validation-based threshold analysis. The tuned XGBoost model
                 achieved 91.2% precision, 84.7% recall and 0.8827 average precision.
               </p>
+              <p>
+                The evaluation prioritised Average Precision and precision–recall trade-offs
+                over accuracy, with leakage controls applied across preprocessing, resampling,
+                cross-validation and validation-based threshold selection. This made the
+                comparison appropriate for the dataset’s extreme class imbalance and the
+                different costs of false positives and false negatives.
+              </p>
               <div class="tags">
                 <span class="tag">Python</span>
                 <span class="tag">scikit-learn</span>
