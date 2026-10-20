@@ -4,100 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Alberto Reyes Castro | Applied AI Engineer | Multimodal & On-Device ML</title>
-  <meta
-    name="description"
-    content="Portfolio of Alberto Reyes Castro, an Applied AI Engineer in London focused on multimodal and on-device machine learning, reliable AI systems, model evaluation, efficient inference and technical tooling."
-  />
+  <meta name="description" content="Portfolio of Alberto Reyes Castro, an Applied AI Engineer in London focused on multimodal and on-device machine learning, reliable AI systems, model evaluation, efficient inference and technical tooling." />
   <meta name="author" content="Alberto Reyes Castro" />
   <meta name="theme-color" content="#303437" />
+  <meta property="og:title" content="Alberto Reyes Castro | Applied AI / ML portfolio" />
+  <meta property="og:description" content="On-device multimodal ML, ML evaluation tooling and agent reliability. Seeking Summer 2027 ML and Applied AI internships in London." />
+  <meta property="og:image" content="https://albertoreyescastro.github.io/assets/profile.jpg" />
+  <meta property="og:url" content="https://albertoreyescastro.github.io/" />
+  <meta name="twitter:card" content="summary" />
 
   <style>
-    :root {
-      --ink: #1f2326;
-      --muted: #626a70;
-      --paper: #ffffff;
-      --soft: #f6f8f9;
-      --sidebar: #e5e7e8;
-      --accent: #0b7285;
-      --accent-dark: #07596a;
-      --dark: #303437;
-      --line: #cbd2d5;
-      --max: 1120px;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: var(--ink); background: #eceff0; line-height: 1.55; }
-    a { color: inherit; text-decoration: none; }
-    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-    .skip-link { position: fixed; left: 10px; top: 10px; z-index: 1000; transform: translateY(-160%); padding: 9px 12px; background: #fff; color: var(--dark); border: 2px solid var(--dark); font-weight: 800; }
-    .skip-link:focus { transform: translateY(0); }
-    .site { max-width: var(--max); margin: 0 auto; background: var(--paper); min-height: 100vh; box-shadow: 0 20px 60px rgba(0,0,0,.08); }
-    .hero { position: relative; overflow: hidden; padding: 42px 34px 38px; text-align: center; background: var(--dark); color: #fff; }
-    .hero::before,.hero::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; pointer-events: none; }
-    .hero::before { width: 210px; height: 210px; left: -85px; top: -105px; }
-    .hero::after { width: 145px; height: 145px; right: -45px; bottom: -80px; }
-    .hero h1 { margin: 0; font-size: clamp(2rem,5vw,3.25rem); line-height: 1.02; letter-spacing: .045em; }
-    .hero p { margin: 12px 0 0; font-size: 1rem; letter-spacing: .025em; opacity: .95; }
-    .dot { display: inline-block; width: 8px; height: 8px; margin: 0 8px 2px; border-radius: 50%; background: #4ec3d6; }
-    .layout { display: grid; grid-template-columns: 260px 1fr; align-items: stretch; }
-    .sidebar { background: var(--sidebar); padding: 34px 28px; }
-    .main { padding: 36px 42px 48px; }
-    .avatar { width: 152px; height: 152px; margin: 0 auto 30px; border-radius: 50%; overflow: hidden; border: 7px solid #f4f5f5; background: #d8dcde; box-shadow: 0 12px 28px rgba(0,0,0,.08); }
-    .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
-    .side-block { margin-bottom: 25px; }
-    .side-title { display: inline-block; margin-bottom: 8px; padding: 4px 8px; background: var(--accent); color: #fff; font-size: .78rem; font-weight: 800; }
-    .side-block p,.side-block li { margin: 0; font-size: .86rem; line-height: 1.38; }
-    .side-block ul { margin: 0; padding-left: 17px; }
-    .side-block li { margin-bottom: 5px; }
-    .contact-links { display: grid; gap: 7px; }
-    .contact-links a { padding-bottom: 4px; border-bottom: 1px solid rgba(0,0,0,.14); font-size: .84rem; word-break: break-word; }
-    .contact-links a:hover { color: var(--accent-dark); }
-    .section { margin-bottom: 35px; }
-    .section-heading { display: flex; align-items: end; gap: 16px; margin-bottom: 17px; }
-    .section-heading h2 { margin: 0; font-size: 1.5rem; line-height: 1; font-weight: 600; font-variant: small-caps; letter-spacing: .06em; }
-    .rule { flex: 1; height: 1px; margin-bottom: 3px; background: var(--ink); }
-    .summary p { margin: 0 0 14px; font-size: .96rem; }
-    .actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
-    .button { display: inline-flex; align-items: center; justify-content: center; padding: 8px 13px; border: 1px solid var(--dark); font-size: .81rem; font-weight: 800; transition: .16s ease; }
-    .button.primary { background: var(--dark); color: #fff; }
-    .button:hover { transform: translateY(-1px); box-shadow: 0 7px 16px rgba(0,0,0,.1); }
-    .project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
-    .project { display: flex; flex-direction: column; min-height: 205px; padding: 16px; border-left: 3px solid var(--accent); background: var(--soft); }
-    .project.featured { grid-column: 1/-1; min-height: auto; border-left: 5px solid var(--accent-dark); background: linear-gradient(135deg,rgba(11,114,133,.12),rgba(255,255,255,.97)),var(--soft); }
-    .badge { width: fit-content; margin-bottom: 8px; padding: 4px 7px; background: var(--dark); color: #fff; font-size: .72rem; font-weight: 850; text-transform: uppercase; letter-spacing: .045em; }
-    .project h3 { margin: 0 0 6px; font-size: 1rem; line-height: 1.22; }
-    .project.featured h3 { font-size: 1.16rem; }
-    .project-note { margin: 0 0 9px; color: var(--accent-dark); font-size: .75rem; font-weight: 800; letter-spacing: .015em; }
-    .project p { margin: 0 0 11px; color: var(--muted); font-size: .87rem; line-height: 1.43; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
-    .tag { padding: 3px 6px; border: 1px solid var(--line); background: #fff; font-size: .73rem; font-weight: 700; }
-    .card-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; padding-top: 12px; }
-    .card-actions a { padding: 5px 8px; border: 1px solid var(--dark); background: #fff; font-size: .76rem; font-weight: 800; }
-    .card-actions a.primary-link { background: var(--dark); color: #fff; }
-    .timeline { display: grid; gap: 16px; }
-    .timeline-item { display: grid; grid-template-columns: 125px 1fr; gap: 18px; }
-    .date { padding-top: 2px; font-size: .78rem; white-space: nowrap; }
-    .timeline-body { padding-left: 14px; border-left: 2px solid #8a9195; }
-    .timeline-body h3 { margin: 0; font-size: .98rem; line-height: 1.26; }
-    .institution { margin: 2px 0 7px; font-size: .77rem; text-transform: uppercase; letter-spacing: .045em; }
-    .timeline-body p { margin: 0; color: var(--muted); font-size: .87rem; line-height: 1.43; }
-    .skill-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 11px; }
-    .skill { padding: 13px 14px; border-left: 3px solid var(--accent); background: var(--soft); }
-    .skill h3 { margin: 0 0 5px; font-size: .91rem; }
-    .skill p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.42; }
-    .writing-list { display: grid; gap: 11px; }
-    .writing-item { padding: 13px 14px; border-left: 3px solid var(--accent); background: var(--soft); }
-    .writing-item h3 { margin: 0 0 5px; font-size: .95rem; }
-    .writing-item p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.43; }
-    .contact-panel { position: relative; overflow: hidden; padding: 22px; background: var(--dark); color: #fff; }
-    .contact-panel p { max-width: 690px; margin: 0 0 14px; color: rgba(255,255,255,.86); }
-    .contact-panel .button { border-color: #fff; }
-    .contact-panel .button.primary { background: #fff; color: var(--dark); }
-    .contact-panel .button:not(.primary) { color: #fff; }
-    footer { margin-top: 28px; text-align: right; color: var(--muted); font-size: .74rem; }
-    @media (max-width:850px) { .layout { grid-template-columns: 1fr; } .sidebar { display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: start; } .avatar { margin: 0; } .main { padding: 32px 28px 42px; } }
-    @media (max-width:650px) { .hero { padding: 32px 18px 28px; } .sidebar { display: block; padding: 28px 24px; } .avatar { margin: 0 auto 24px; } .main { padding: 28px 22px 38px; } .project-grid,.skill-grid { grid-template-columns: 1fr; } .project.featured { grid-column: auto; } .timeline-item { grid-template-columns: 1fr; gap: 5px; } footer { text-align: left; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; } }
+    :root { --ink:#1f2326; --muted:#626a70; --paper:#fff; --soft:#f6f8f9; --sidebar:#e5e7e8; --accent:#0b7285; --accent-dark:#07596a; --dark:#303437; --line:#cbd2d5; --max:1120px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:"Segoe UI",Arial,Helvetica,sans-serif; color:var(--ink); background:#eceff0; line-height:1.55; }
+    a { color:inherit; text-decoration:none; }
+    :focus-visible { outline:3px solid var(--accent); outline-offset:3px; }
+    .skip-link { position:fixed; left:10px; top:10px; z-index:1000; transform:translateY(-160%); padding:9px 12px; background:#fff; color:var(--dark); border:2px solid var(--dark); font-weight:800; }
+    .skip-link:focus { transform:translateY(0); }
+    .site { max-width:var(--max); margin:0 auto; background:var(--paper); min-height:100vh; box-shadow:0 20px 60px rgba(0,0,0,.08); }
+    .hero { position:relative; overflow:hidden; padding:42px 34px 38px; text-align:center; background:var(--dark); color:#fff; }
+    .hero::before,.hero::after { content:""; position:absolute; border:1px solid rgba(255,255,255,.12); border-radius:999px; pointer-events:none; }
+    .hero::before { width:210px; height:210px; left:-85px; top:-105px; }
+    .hero::after { width:145px; height:145px; right:-45px; bottom:-80px; }
+    .hero h1 { margin:0; font-size:clamp(2rem,5vw,3.25rem); line-height:1.02; letter-spacing:.045em; }
+    .hero p { margin:12px 0 0; font-size:1rem; letter-spacing:.025em; opacity:.95; }
+    .dot { display:inline-block; width:8px; height:8px; margin:0 8px 2px; border-radius:50%; background:#4ec3d6; }
+    .layout { display:grid; grid-template-columns:260px 1fr; align-items:stretch; }
+    .sidebar { background:var(--sidebar); padding:34px 28px; }
+    .main { padding:36px 42px 48px; }
+    .avatar { width:152px; height:152px; margin:0 auto 30px; border-radius:50%; overflow:hidden; border:7px solid #f4f5f5; background:#d8dcde; box-shadow:0 12px 28px rgba(0,0,0,.08); }
+    .avatar img { width:100%; height:100%; object-fit:cover; object-position:center; display:block; }
+    .side-block { margin-bottom:25px; }
+    .side-title { display:inline-block; margin-bottom:8px; padding:4px 8px; background:var(--accent); color:#fff; font-size:.78rem; font-weight:800; }
+    .side-block p,.side-block li { margin:0; font-size:.86rem; line-height:1.38; }
+    .side-block ul { margin:0; padding-left:17px; }
+    .side-block li { margin-bottom:5px; }
+    .contact-links { display:grid; gap:7px; }
+    .contact-links a { padding-bottom:4px; border-bottom:1px solid rgba(0,0,0,.14); font-size:.84rem; word-break:break-word; }
+    .contact-links a:hover { color:var(--accent-dark); }
+    .section { margin-bottom:35px; }
+    .section-heading { display:flex; align-items:end; gap:16px; margin-bottom:17px; }
+    .section-heading h2 { margin:0; font-size:1.5rem; line-height:1; font-weight:600; font-variant:small-caps; letter-spacing:.06em; }
+    .rule { flex:1; height:1px; margin-bottom:3px; background:var(--ink); }
+    .summary p { margin:0 0 14px; font-size:.96rem; }
+    .actions { display:flex; flex-wrap:wrap; gap:9px; margin-top:18px; }
+    .button { display:inline-flex; align-items:center; justify-content:center; padding:8px 13px; border:1px solid var(--dark); font-size:.81rem; font-weight:800; transition:.16s ease; }
+    .button.primary { background:var(--dark); color:#fff; }
+    .button:hover { transform:translateY(-1px); box-shadow:0 7px 16px rgba(0,0,0,.1); }
+    .project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+    .project { display:flex; flex-direction:column; min-height:205px; padding:16px; border-left:3px solid var(--accent); background:var(--soft); }
+    .project.featured { grid-column:1/-1; min-height:auto; border-left:5px solid var(--accent-dark); background:linear-gradient(135deg,rgba(11,114,133,.12),rgba(255,255,255,.97)),var(--soft); }
+    .badge { width:fit-content; margin-bottom:8px; padding:4px 7px; background:var(--dark); color:#fff; font-size:.72rem; font-weight:850; text-transform:uppercase; letter-spacing:.045em; }
+    .project h3 { margin:0 0 6px; font-size:1rem; line-height:1.22; }
+    .project.featured h3 { font-size:1.16rem; }
+    .project-note { margin:0 0 9px; color:var(--accent-dark); font-size:.75rem; font-weight:800; letter-spacing:.015em; }
+    .project p { margin:0 0 11px; color:var(--muted); font-size:.87rem; line-height:1.43; }
+    .tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:2px; }
+    .tag { padding:3px 6px; border:1px solid var(--line); background:#fff; font-size:.73rem; font-weight:700; }
+    .card-actions { display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:12px; }
+    .card-actions a { padding:5px 8px; border:1px solid var(--dark); background:#fff; font-size:.76rem; font-weight:800; }
+    .card-actions a.primary-link { background:var(--dark); color:#fff; }
+    .timeline { display:grid; gap:16px; }
+    .timeline-item { display:grid; grid-template-columns:125px 1fr; gap:18px; }
+    .date { padding-top:2px; font-size:.78rem; white-space:nowrap; }
+    .timeline-body { padding-left:14px; border-left:2px solid #8a9195; }
+    .timeline-body h3 { margin:0; font-size:.98rem; line-height:1.26; }
+    .institution { margin:2px 0 7px; font-size:.77rem; text-transform:uppercase; letter-spacing:.045em; }
+    .timeline-body p { margin:0; color:var(--muted); font-size:.87rem; line-height:1.43; }
+    .skill-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:11px; }
+    .skill { padding:13px 14px; border-left:3px solid var(--accent); background:var(--soft); }
+    .skill h3 { margin:0 0 5px; font-size:.91rem; }
+    .skill p { margin:0; color:var(--muted); font-size:.84rem; line-height:1.42; }
+    .writing-list { display:grid; gap:11px; }
+    .writing-item { padding:13px 14px; border-left:3px solid var(--accent); background:var(--soft); }
+    .writing-item h3 { margin:0 0 5px; font-size:.95rem; }
+    .writing-item p { margin:0; color:var(--muted); font-size:.86rem; line-height:1.43; }
+    .contact-panel { position:relative; overflow:hidden; padding:22px; background:var(--dark); color:#fff; }
+    .contact-panel p { max-width:690px; margin:0 0 14px; color:rgba(255,255,255,.86); }
+    .contact-panel .button { border-color:#fff; }
+    .contact-panel .button.primary { background:#fff; color:var(--dark); }
+    .contact-panel .button:not(.primary) { color:#fff; }
+    footer { margin-top:28px; text-align:right; color:var(--muted); font-size:.74rem; }
+    @media (max-width:850px) { .layout { grid-template-columns:1fr; } .sidebar { display:grid; grid-template-columns:160px 1fr; gap:24px; align-items:start; } .avatar { margin:0; } .main { padding:32px 28px 42px; } }
+    @media (max-width:650px) { .hero { padding:32px 18px 28px; } .layout { display:flex; flex-direction:column; } .main { order:1; padding:28px 22px 38px; } .sidebar { order:2; display:block; padding:28px 24px; } .avatar { margin:0 auto 24px; } .project-grid,.skill-grid { grid-template-columns:1fr; } .project.featured { grid-column:auto; } .timeline-item { grid-template-columns:1fr; gap:5px; } footer { text-align:left; } }
+    @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none !important; } }
   </style>
 </head>
 <body>
@@ -112,8 +103,8 @@
       <aside class="sidebar">
         <div class="avatar"><img src="./assets/profile.jpg" alt="Profile photo of Alberto Reyes Castro" width="152" height="152" decoding="async" /></div>
         <div>
-          <section class="side-block"><div class="side-title">About me</div><p>Applied AI engineer and physics graduate completing an MSc in Artificial Intelligence Technology with Advanced Practice. I focus on multimodal systems, efficient inference, model evaluation and reliable AI engineering.</p></section>
-          <section class="side-block"><div class="side-title">Current focus</div><p>On-device multimodal ML at <strong>TeachScribe</strong>, reliable agent orchestration, and independent engineering projects that emphasise measurable behaviour and explicit failure handling.</p></section>
+          <section class="side-block"><div class="side-title">Looking for</div><p>Summer 2027 machine-learning and Applied AI internships · London · on-site, hybrid or remote</p></section>
+          <section class="side-block"><div class="side-title">Current focus</div><p>On-device ML at <strong>TeachScribe</strong> · ML evaluation tooling · agent reliability</p></section>
           <section class="side-block"><div class="side-title">Specialisms</div><ul><li>Multimodal Machine Learning</li><li>On-Device &amp; Mobile ML</li><li>Reliable AI Systems</li><li>Model Evaluation</li><li>Speech AI</li><li>Scientific Computing</li></ul></section>
           <section class="side-block"><div class="side-title">Languages</div><p>Spanish – Native<br />English – C1 Advanced / IELTS UKVI 7.0<br />Japanese – Intermediate study</p></section>
           <section class="side-block"><div class="side-title">Links</div><div class="contact-links"><a href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email</a><a href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/albertoreyescastro" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noopener noreferrer">Kaggle</a><a href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a></div></section>
@@ -123,11 +114,11 @@
       <main class="main" id="main-content">
         <section class="section summary" id="summary">
           <div class="section-heading"><h2>Summary</h2><div class="rule"></div></div>
-          <p>I am an Applied AI Engineer and physics graduate completing an MSc in Artificial Intelligence Technology with Advanced Practice at Northumbria University London. My current academic performance is at Distinction level, and I build systems under practical deployment, evaluation and human-review constraints.</p>
-          <p>At <strong>TeachScribe</strong>, I designed, built and evaluated an Android prototype for fully on-device multimodal photo retrieval. After benchmarking five pretrained vision–language models, I selected TinyCLIP 39M/16 and deployed it with INT8 ONNX Runtime inference. The final prototype reduced the text encoder from approximately 170 MiB to 43 MiB and achieved 441 ms median / 459 ms P95 cached-search latency across 108 sustained searches on physical Android hardware, with 108/108 successful completions.</p>
-          <p>Alongside applied ML work, I build reliable AI tooling and agent systems, including <strong>Agent Control Center</strong> for orchestration and recovery behaviour and <strong>ModelHawk</strong> for structured review of machine-learning notebooks.</p>
-          <p>I am seeking Summer 2027 machine-learning and applied AI internships involving multimodal systems, efficient inference, model evaluation, AI reliability or technical tooling.</p>
-          <div class="actions"><a class="button primary" href="#projects">View Projects</a><a class="button" href="#experience">Experience</a><a class="button" href="#writing">Technical Reports</a><a class="button" href="#open-source">Open Source</a><a class="button" href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a><a class="button" href="#contact">Contact</a></div>
+          <p>I am a physics graduate and MSc Artificial Intelligence Technology student at Northumbria University London, currently performing at Distinction level, with first-semester marks including 85%, 75% and 70%. I build ML systems end to end, from model selection to on-device inference, and evaluate them with measured technical evidence.</p>
+          <p>At <strong>TeachScribe</strong>—whose platform is in use in 50+ UK schools—I designed, built and evaluated an Android prototype for fully on-device multimodal photo retrieval. I benchmarked five pretrained vision–language models, selected TinyCLIP 39M/16 and ran it fully on-device with INT8 ONNX Runtime: 441 ms median / 459 ms P95 across 108 cached searches over 44 photos, with a 74.8% smaller text encoder.</p>
+          <p>I also build AI tooling: <strong>ModelHawk</strong>, which audits ML notebooks for leakage and evaluation problems, and <strong>Agent Control Center</strong>, a public simulation of my private agent-orchestration harness.</p>
+          <p>I am seeking Summer 2027 machine-learning and Applied AI internships involving multimodal systems, efficient inference, model evaluation, AI reliability or technical tooling.</p>
+          <div class="actions"><a class="button primary" href="#projects">View Projects</a><a class="button" href="#experience">Experience</a><a class="button" href="#education">Education</a><a class="button" href="#open-source">Open Source</a><a class="button" href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a><a class="button" href="#contact">Contact</a></div>
         </section>
 
         <section class="section" id="projects">
@@ -136,48 +127,32 @@
             <article class="project featured" id="teachscribe">
               <div class="badge">Applied ML · Product collaboration</div>
               <h3>TeachScribe — On-Device Multimodal Retrieval</h3>
-              <p class="project-note">TinyCLIP 39M/16 · INT8 ONNX Runtime · 441 ms median / 459 ms P95 · 108/108 sustained searches</p>
-              <p>Designed, built and evaluated a standalone Android prototype that retrieves relevant local photographs from natural-language observations using fully on-device image–text inference. I benchmarked five pretrained vision–language models on small curated retrieval evaluations using Hit@1 and Hit@5 alongside model size, CPU performance, mobile deployability and checkpoint licensing, selecting TinyCLIP 39M/16 as the best fit for the target prototype.</p>
-              <p>Optimised the mobile inference path with INT8 quantisation, reusable inference sessions, native Android image preprocessing and persistent embedding reuse. The text encoder was reduced from approximately 170 MiB to 43 MiB (~74.8%), while physical-device validation covered retrieval quality, latency, memory, sustained-load stability, thermal behaviour and battery-side energy consumption. The 108-search stress run completed 108/108 searches successfully at 441 ms median and 459 ms P95 cached-search latency.</p>
-              <p>The full source code, product data and internal product materials remain private. Public material presents the engineering work and measured results without publishing the implementation.</p>
+              <p class="project-note">TinyCLIP 39M/16 · INT8 ONNX Runtime · 441 ms median / 459 ms P95 · Android 7 tablet</p>
+              <p>Designed, built and evaluated a standalone Android prototype that ranks local photos against written observations using fully on-device image–text inference, with a person confirming every match. I benchmarked five pretrained vision–language models on curated retrieval evaluations using Hit@1 and Hit@5 alongside model size, CPU cost, mobile deployability and checkpoint licensing. TinyCLIP 39M/16 reached 17/20 Hit@1 and 18/20 Hit@5 on a 20-query desktop evaluation with 16 candidate images.</p>
+              <p>Optimised the mobile path with INT8 quantisation, reusable inference sessions, native Kotlin preprocessing and a persistent SQLite embedding cache. Dynamic INT8 quantisation reduced the text encoder from approximately 170 MiB to 43 MiB (−74.8%). Keeping image sessions lazy held idle memory at 76.3 MiB PSS versus 166.6 MiB with preloading. On a Huawei MediaPad M3 Lite 8 running Android 7, 108/108 cached searches over 44 photos completed at 441 ms median and 459 ms P95; physical-device testing also covered functional acceptance, sustained load, thermal behaviour and battery-side energy.</p>
+              <p>Source code, product data and internal product materials remain private.</p>
               <div class="tags"><span class="tag">TinyCLIP</span><span class="tag">Multimodal ML</span><span class="tag">On-Device AI</span><span class="tag">INT8 Quantisation</span><span class="tag">ONNX Runtime</span><span class="tag">Android</span><span class="tag">React Native</span><span class="tag">Kotlin</span><span class="tag">SQLite</span><span class="tag">Model Evaluation</span><span class="tag">Mobile Performance</span><span class="tag">Human-Reviewed AI</span></div>
               <div class="card-actions"><a class="primary-link" href="https://teachscribe.com/" target="_blank" rel="noopener noreferrer">TeachScribe Website</a></div>
-            </article>
-
-            <article class="project featured" id="agent-control-center">
-              <div class="badge">Reliable AI systems</div>
-              <h3>Agent Control Center — Multi-Agent Orchestration</h3>
-              <p class="project-note">Capability-aware routing · execution leases · bounded recovery · independent verification</p>
-              <p>Interactive demonstration of a multi-agent orchestration architecture designed around explicit execution ownership and observable state. It models routing, leases, heartbeat tracking, bounded recovery and verification rather than treating agent execution as a black box.</p>
-              <p>The design also includes spending controls, fail-closed publication checks and human approval gates before merge, with a focus on predictable behaviour when workers or dependencies become stale or unavailable.</p>
-              <div class="tags"><span class="tag">Agent Orchestration</span><span class="tag">Reliability Engineering</span><span class="tag">State Machines</span><span class="tag">Human Approval</span><span class="tag">Failure Recovery</span><span class="tag">GitHub Workflows</span></div>
-              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/agent-control-center" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://albertoreyescastro.github.io/agent-control-center/" target="_blank" rel="noopener noreferrer">Interactive Demo</a></div>
             </article>
 
             <article class="project featured" id="modelhawk">
               <div class="badge">Independent AI tooling</div>
               <h3>ModelHawk — ML Notebook Audit Prototype</h3>
-              <p class="project-note">Static analysis · deterministic findings · optional AI-assisted review · LaTeX reporting</p>
-              <p>Developer tool for reviewing structured machine-learning notebooks. It parses code and Markdown, identifies workflow signals and applies deterministic and heuristic checks around leakage risk, class imbalance, metric choice, validation quality, reproducibility and portfolio readiness.</p>
-              <p>An optional AI review layer can add examiner-style questions and commentary while deterministic operation remains available without an external model. Findings are compiled into professional LaTeX reports.</p>
-              <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Static Analysis</span><span class="tag">Model Evaluation</span><span class="tag">Jupyter</span><span class="tag">Local LLMs</span><span class="tag">LaTeX</span></div>
+              <p class="project-note">Static analysis · deterministic audit · Gemini API · local Llama/Ollama fallback · LaTeX/PDF</p>
+              <p>Next.js/TypeScript tool that audits classification notebooks, especially on imbalanced data. It parses code and Markdown cells and applies deterministic and heuristic checks for leakage risk, metric choice, class imbalance, validation quality and reproducibility.</p>
+              <p>Optional examiner notes come from the Gemini API, with a local Llama 3.2 fallback through Ollama; the core audit remains usable without an external LLM. Results are exported as LaTeX/PDF audit reports.</p>
+              <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Static Analysis</span><span class="tag">Model Evaluation</span><span class="tag">Jupyter</span><span class="tag">Gemini API</span><span class="tag">Ollama</span><span class="tag">LaTeX</span></div>
               <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noopener noreferrer">Sample Report</a></div>
             </article>
 
-            <article class="project">
-              <h3>Adaptive Whisper Transcription Pipeline</h3>
-              <p class="project-note">Hardware-aware speech inference · reusable CPU/GPU workflow</p>
-              <p>Portable transcription workflow built on faster-whisper with hardware-aware model selection, CPU/GPU execution, audio normalisation, configurable VAD, repetition safeguards, caching, quality checks and TXT/SRT export.</p>
-              <div class="tags"><span class="tag">Python</span><span class="tag">faster-whisper</span><span class="tag">FFmpeg</span><span class="tag">INT8 / FP16</span><span class="tag">Speech AI</span></div>
-              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/adaptive-whisper-transcription-pipeline" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/adaptive-whisper-transcription-pipeline-demo" target="_blank" rel="noopener noreferrer">Kaggle Demo</a></div>
-            </article>
-
-            <article class="project">
-              <h3>AIoT Smart Home Prototype</h3>
-              <p class="project-note">Held-out simulation: 85.9% accuracy · 0.99 AUC · 0.89 weighted F1</p>
-              <p>Modular ESP32-S3 smart-home prototype combining profile-aware automation, Blynk monitoring and a five-class Edge Impulse environmental classifier with deterministic safety fallbacks. Estimated embedded footprint: ~1 ms inference, 1.4 KB peak RAM and 14.4 KB flash.</p>
-              <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">Edge Impulse</span><span class="tag">Wokwi</span><span class="tag">Embedded C++</span><span class="tag">TinyML</span></div>
-              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noopener noreferrer">Technical Report</a><a href="https://wokwi.com/projects/465661521735358465" target="_blank" rel="noopener noreferrer">Bedroom Demo</a></div>
+            <article class="project featured" id="agent-control-center">
+              <div class="badge">Reliable AI systems · Public simulation</div>
+              <h3>Agent Control Center — Multi-Agent Orchestration</h3>
+              <p class="project-note">Six failure scenarios · routing · execution leases · bounded recovery · human merge gate</p>
+              <p>Public, interactive simulation of the control plane behind my private agent-orchestration harness for local and cloud AI workers. Six scenarios—normal routing, reviewer outage, quota fence, lost heartbeat, bounded recovery and a human merge gate—show capability-aware routing, execution leases, separate review and fail-closed recovery.</p>
+              <p>The demo uses authored, simulated data with no live telemetry or provider calls; the operational harness itself stays private.</p>
+              <div class="tags"><span class="tag">Agent Orchestration</span><span class="tag">Reliability Engineering</span><span class="tag">State Machines</span><span class="tag">Human Approval</span><span class="tag">Failure Recovery</span><span class="tag">GitHub Workflows</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/agent-control-center" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://albertoreyescastro.github.io/agent-control-center/" target="_blank" rel="noopener noreferrer">Interactive Demo</a></div>
             </article>
 
             <article class="project">
@@ -189,10 +164,19 @@
             </article>
 
             <article class="project">
-              <h3>Computational Physics Numerical Methods</h3>
-              <p>Scientific Python implementations of interpolation, numerical integration, ODE solvers and stochastic simulation, applying numerical techniques to physical problems and reproducible scientific computing.</p>
-              <div class="tags"><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">Matplotlib</span><span class="tag">Numerical Methods</span></div>
-              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/computational-physics-numerical-methods" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/computational-physics-numerical-methods-in-python" target="_blank" rel="noopener noreferrer">Kaggle Demo</a></div>
+              <h3>Adaptive Whisper Transcription Pipeline</h3>
+              <p class="project-note">Hardware-aware speech inference · reusable CPU/GPU workflow</p>
+              <p>Portable faster-whisper workflow with hardware-aware model selection, CPU/GPU execution, audio normalisation, configurable VAD, repetition safeguards, caching, quality checks and TXT/SRT export. The original workflow was developed during my IAC internship for scientific interview transcription and subtitle production, including interviews with Nobel laureates Donna Strickland and John Mather.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">faster-whisper</span><span class="tag">FFmpeg</span><span class="tag">INT8 / FP16</span><span class="tag">Speech AI</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/adaptive-whisper-transcription-pipeline" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/adaptive-whisper-transcription-pipeline-demo" target="_blank" rel="noopener noreferrer">Kaggle Demo</a></div>
+            </article>
+
+            <article class="project">
+              <h3>AIoT Smart Home Prototype</h3>
+              <p class="project-note">Simulated, rule-labelled held-out set: 85.9% accuracy · 0.99 AUC · 0.89 weighted F1</p>
+              <p>Modular ESP32-S3 smart-home prototype combining profile-aware automation, Blynk monitoring and a five-class Edge Impulse environmental classifier with deterministic safety fallbacks. Estimated embedded footprint: ~1 ms inference, 1.4 KB peak RAM and 14.4 KB flash.</p>
+              <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">Edge Impulse</span><span class="tag">Wokwi</span><span class="tag">Embedded C++</span><span class="tag">TinyML</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noopener noreferrer">Technical Report</a><a href="https://wokwi.com/projects/465661521735358465" target="_blank" rel="noopener noreferrer">Bedroom Demo</a><a href="https://wokwi.com/projects/465661368262601729" target="_blank" rel="noopener noreferrer">Kitchen &amp; Living Room Demo</a></div>
             </article>
 
             <article class="project">
@@ -201,27 +185,41 @@
               <div class="tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Regex</span><span class="tag">Fuzzy Matching</span></div>
               <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/IAC-publication-press-note-matching" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/iac-scientific-publication-matching-demo" target="_blank" rel="noopener noreferrer">Kaggle Demo</a></div>
             </article>
+
+            <article class="project">
+              <h3>Computational Physics Numerical Methods</h3>
+              <p>Scientific Python implementations of interpolation, numerical integration, ODE solvers and stochastic simulation, applying numerical techniques to physical problems and reproducible scientific computing.</p>
+              <div class="tags"><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">Matplotlib</span><span class="tag">Numerical Methods</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/computational-physics-numerical-methods" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/computational-physics-numerical-methods-in-python" target="_blank" rel="noopener noreferrer">Kaggle Demo</a></div>
+            </article>
           </div>
         </section>
 
         <section class="section" id="experience">
           <div class="section-heading"><h2>Experience</h2><div class="rule"></div></div>
           <div class="timeline">
-            <article class="timeline-item"><div class="date">Jul 2026–Present</div><div class="timeline-body"><h3>Applied AI Engineer — On-Device Multimodal ML</h3><div class="institution">TeachScribe · Technical collaboration · London / Hybrid</div><p>Designed, built and evaluated an Android on-device multimodal retrieval prototype using TinyCLIP 39M/16, INT8 ONNX Runtime inference, React Native/Kotlin and persistent embedding storage. Benchmarked five pretrained vision–language models and validated the final system on physical Android hardware, including a 108-search sustained-load run with 108/108 successful completions, 441 ms median and 459 ms P95 cached-search latency. Since October 2026, I have continued the collaboration alongside my MSc. Source code and internal product materials remain private.</p></div></article>
-            <article class="timeline-item"><div class="date">Jul 2026–Present</div><div class="timeline-body"><h3>Creator &amp; Applied AI Developer — ModelHawk</h3><div class="institution">Independent technical build · London</div><p>Designed and built a TypeScript/Next.js prototype for structured ML notebook review, combining deterministic and heuristic checks with optional AI assistance and automated LaTeX report generation.</p></div></article>
+            <article class="timeline-item"><div class="date">Jul 2026–Present</div><div class="timeline-body"><h3>Applied AI Engineer — On-Device Multimodal ML</h3><div class="institution">TeachScribe · Technical collaboration · London / Hybrid</div><p>Designed, built and evaluated an on-device multimodal photo-retrieval prototype for Android: VLM benchmarking, INT8 ONNX Runtime inference on device, native Kotlin preprocessing, persistent embedding storage and physical-device performance testing. Full-time July–October 2026; part-time alongside my MSc since then. Source code and internal product materials remain private.</p></div></article>
             <article class="timeline-item"><div class="date">Mar 2025–May 2025</div><div class="timeline-body"><h3>Python &amp; Scientific Communication Intern</h3><div class="institution">Instituto de Astrofísica de Canarias · La Laguna</div><p>Developed Python workflows for multilingual transcription and publication matching; produced technical documentation and scientific communication in English and Spanish. Completed the assessed 250-hour placement with a final mark of 9.2/10.</p></div></article>
-            <article class="timeline-item"><div class="date">Sep 2024–Jul 2025</div><div class="timeline-body"><h3>Final Degree Project — BSc Physics</h3><div class="institution">Universidad de La Laguna · Tenerife</div><p>Scientific project in English on structural mechanisms of ferroelectricity and ferroelasticity in β′-RE₂(MoO₄)₃ compounds, combining crystallographic analysis and long-form scientific reporting. Mark: 9.4/10.</p></div></article>
+          </div>
+        </section>
+
+        <section class="section" id="education">
+          <div class="section-heading"><h2>Education</h2><div class="rule"></div></div>
+          <div class="timeline">
+            <article class="timeline-item"><div class="date">Jan 2026–Jan 2028</div><div class="timeline-body"><h3>MSc Artificial Intelligence Technology with Advanced Practice</h3><div class="institution">Northumbria University London · London, UK</div><p>Currently performing at Distinction level, with first-semester marks including 85/100, 75/100 and 70/100. The 85/100 project was an end-to-end machine-learning study on credit-card fraud detection.</p></div></article>
+            <article class="timeline-item"><div class="date">Sep 2018–Jul 2025</div><div class="timeline-body"><h3>BSc Physics</h3><div class="institution">Universidad de La Laguna · Tenerife, Spain</div><p>Final grade: 7.13/10. Final degree project completed and defended in English with a mark of 9.4/10, supported by foundations in mathematics, scientific computing, numerical methods and signal/image processing.</p></div></article>
+            <article class="timeline-item"><div class="date">2025</div><div class="timeline-body"><h3>Academic Merit Convocation Award</h3><div class="institution">Universidad de La Laguna</div><p>Official academic-merit recognition awarded in 2025.</p></div></article>
           </div>
         </section>
 
         <section class="section" id="skills">
           <div class="section-heading"><h2>Technical Skills</h2><div class="rule"></div></div>
           <div class="skill-grid">
-            <article class="skill"><h3>Machine Learning &amp; Evaluation</h3><p>Python · PyTorch · scikit-learn · XGBoost · pandas · model benchmarking · Hit@k / retrieval metrics · imbalanced learning · error analysis</p></article>
+            <article class="skill"><h3>Machine Learning &amp; Evaluation</h3><p>Python · PyTorch · Hugging Face Transformers · scikit-learn · XGBoost · TensorFlow/Keras (coursework) · pandas · model benchmarking · Hit@k / retrieval metrics · imbalanced learning · error analysis</p></article>
             <article class="skill"><h3>Multimodal &amp; Efficient Inference</h3><p>Vision–language models · image–text retrieval · TinyCLIP · ONNX Runtime · INT8 quantisation · mobile inference · latency and memory profiling · Android</p></article>
-            <article class="skill"><h3>Reliable AI &amp; Agent Systems</h3><p>Agent orchestration · capability-aware routing · stateful workflows · bounded recovery · independent verification · human approval gates</p></article>
+            <article class="skill"><h3>Reliable AI &amp; Agent Systems</h3><p>Agent orchestration · capability-aware routing · stateful workflows · bounded recovery · separate verification · human approval gates</p></article>
             <article class="skill"><h3>Application Engineering</h3><p>TypeScript · React · Next.js · React Native · Expo · Kotlin · SQLite · Node.js · REST APIs · GitHub Actions</p></article>
-            <article class="skill"><h3>Speech &amp; Local AI</h3><p>faster-whisper · FFmpeg · VAD · CPU/GPU inference · Ollama · local LLM workflows · provider fallbacks</p></article>
+            <article class="skill"><h3>Speech &amp; Local AI</h3><p>faster-whisper · FFmpeg · VAD · CPU/GPU inference · Gemini API · Ollama · local LLM workflows · provider fallbacks</p></article>
             <article class="skill"><h3>Scientific Computing &amp; Documentation</h3><p>NumPy · SciPy · Matplotlib · SymPy · numerical methods · Jupyter · LaTeX/Overleaf · reproducible technical reporting</p></article>
             <article class="skill"><h3>Embedded AI / AIoT</h3><p>ESP32-S3 · Embedded C++ · Wokwi · Blynk · Edge Impulse · TinyML · sensor-driven control logic</p></article>
             <article class="skill"><h3>Engineering Tools</h3><p>Git/GitHub · Bash · PowerShell · Linux · SQL · Docker fundamentals · API integration · reproducible validation workflows</p></article>
@@ -230,15 +228,13 @@
 
         <section class="section" id="open-source">
           <div class="section-heading"><h2>Open Source</h2><div class="rule"></div></div>
-          <div class="writing-list">
-            <article class="writing-item"><h3>Vizro / Dash Rendering Regression Analysis</h3><p>Helped reproduce and isolate a Vizro/Dash tab-rendering regression by comparing dependency versions, testing pure Dash behaviour and narrowing the issue beyond Plotly graph rendering. The analysis was acknowledged by a Vizro maintainer and helped narrow the source of the regression.</p><div class="card-actions"><a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4605773378" target="_blank" rel="noopener noreferrer">View Maintainer Comment</a></div></article>
-          </div>
+          <div class="writing-list"><article class="writing-item"><h3>Vizro / Dash Rendering Regression Analysis</h3><p>Helped reproduce and isolate a Vizro/Dash tab-rendering regression by comparing dependency versions, testing pure Dash behaviour and narrowing the issue beyond Plotly graph rendering. The analysis was acknowledged by a Vizro maintainer and helped narrow the source of the regression.</p><div class="card-actions"><a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4605773378" target="_blank" rel="noopener noreferrer">View Maintainer Comment</a></div></article></div>
         </section>
 
         <section class="section" id="writing">
           <div class="section-heading"><h2>Selected Technical Reports</h2><div class="rule"></div></div>
           <div class="writing-list">
-            <article class="writing-item"><h3>ModelHawk — Static ML Audit Report Generator</h3><p>Sample technical report generated from structured notebook analysis, deterministic findings and optional AI-assisted review.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noopener noreferrer">Read Sample PDF</a><a href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">GitHub Repo</a></div></article>
+            <article class="writing-item"><h3>ModelHawk — Static ML Audit Report Generator</h3><p>Sample report generated from structured notebook analysis, deterministic findings and optional AI-assisted review.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noopener noreferrer">Read Sample PDF</a><a href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">GitHub Repo</a></div></article>
             <article class="writing-item"><h3>AIoT Smart Home Prototype — Technical Report</h3><p>Architecture, simulation logic, embedded classifier behaviour, safety fallbacks and evaluation of an ESP32-S3 smart-home prototype.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noopener noreferrer">Read PDF</a><a href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a></div></article>
             <article class="writing-item"><h3>Credit Card Fraud Detection — Machine Learning Report</h3><p>Distinction-level MSc report documenting leakage controls, imbalance handling, cross-validation, threshold selection and precision-recall evaluation.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noopener noreferrer">Read PDF</a><a href="https://github.com/albertoreyescastro/credit-card-fraud-detection" target="_blank" rel="noopener noreferrer">GitHub Repo</a></div></article>
             <article class="writing-item"><h3>Final Degree Project — Ferroelectricity and Ferroelasticity</h3><p>BSc Physics thesis written in English on structural mechanisms in β′-RE₂(MoO₄)₃ compounds. Final mark: 9.4/10.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/final-degree-project-ferroelectricity-ferroelasticity.pdf" target="_blank" rel="noopener noreferrer">Read Thesis</a><a href="./assets/reports/tfg-defense-presentation.pdf" target="_blank" rel="noopener noreferrer">Defense Slides</a></div></article>
@@ -254,12 +250,12 @@
           </div>
         </section>
 
-        <section class="section" id="education">
-          <div class="section-heading"><h2>Education</h2><div class="rule"></div></div>
-          <div class="timeline">
-            <article class="timeline-item"><div class="date">Jan 2026–Jan 2028</div><div class="timeline-body"><h3>MSc Artificial Intelligence Technology with Advanced Practice</h3><div class="institution">Northumbria University London · London, UK</div><p>First-semester average: 73.25% (Distinction level), including 85/100 in an end-to-end machine-learning project on credit-card fraud detection.</p></div></article>
-            <article class="timeline-item"><div class="date">Sep 2018–Jul 2025</div><div class="timeline-body"><h3>BSc Physics</h3><div class="institution">Universidad de La Laguna · Tenerife, Spain</div><p>Final grade: 7.13/10. Final degree project completed and defended in English with a mark of 9.4/10, supported by foundations in mathematics, scientific computing, numerical methods and signal/image processing.</p></div></article>
-            <article class="timeline-item"><div class="date">2025</div><div class="timeline-body"><h3>Academic Merit Convocation Award</h3><div class="institution">Universidad de La Laguna</div><p>Official academic-merit recognition awarded in 2025.</p></div></article>
+        <section class="section" id="training">
+          <div class="section-heading"><h2>Training &amp; Certifications</h2><div class="rule"></div></div>
+          <div class="writing-list">
+            <article class="writing-item"><h3>Artificial Intelligence &amp; Big Data Applied to the Biomedical and Healthcare Sector — 325 hours</h3><p>Docencia y Multimedia Canarias, for the Canary Islands Employment Service · Sep–Dec 2025. Applied training in Python, machine learning, TensorFlow/Keras, Big Data systems, Docker/APIs, cloud architecture, and probability and statistics with R.</p><div class="card-actions"><a class="primary-link" href="./assets/certifications/DYM_AI_certificate.pdf" target="_blank" rel="noopener noreferrer">Certificate (redacted)</a></div></article>
+            <article class="writing-item"><h3>AWS Educate Machine Learning Foundations · Google Cloud Skills Boost</h3><p>AWS machine-learning foundations (2026) and Google Cloud courses covering AI, data transformation and digital transformation (2025).</p></article>
+            <article class="writing-item"><h3>Additional Relevant Training</h3><p>NASA Open Science 101 (2025), Introduction to Data Science — IE University / Santander Open Academy (2024), and Artificial Intelligence and Productivity — Google / Santander Open Academy (2024).</p></article>
           </div>
         </section>
 
@@ -273,14 +269,13 @@
 
         <section class="section" id="contact">
           <div class="section-heading"><h2>Contact</h2><div class="rule"></div></div>
-          <div class="contact-panel"><p>Open to Summer 2027 machine-learning and applied AI internships, especially work in multimodal systems, efficient inference, model evaluation, reliable AI systems and technical tooling.</p><div class="actions"><a class="button primary" href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email Me</a><a class="button" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="button" href="https://github.com/albertoreyescastro" target="_blank" rel="noopener noreferrer">GitHub</a></div></div>
+          <div class="contact-panel"><p>Open to Summer 2027 machine-learning and Applied AI internships, especially work in multimodal systems, efficient inference, model evaluation, reliable AI systems and technical tooling.</p><div class="actions"><a class="button primary" href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email Me</a><a class="button" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="button" href="https://github.com/albertoreyescastro" target="_blank" rel="noopener noreferrer">GitHub</a></div></div>
         </section>
 
         <footer>© <span id="year"></span> Alberto Reyes Castro · Portfolio hosted on GitHub Pages.</footer>
       </main>
     </div>
   </div>
-
   <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
