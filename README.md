@@ -1,3 +1,2 @@
 # albertoreyescastro.github.io
-
-Personal portfolio of Alberto Reyes Castro, hosted with GitHub Pages.
+Personal portfolio showcasing AI, data, scientific computing and technical documentation projects.
