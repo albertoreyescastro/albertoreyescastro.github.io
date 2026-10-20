@@ -1,2 +1,4 @@
 # albertoreyescastro.github.io
-Personal portfolio showcasing AI, data, scientific computing and technical documentation projects.
+Portfolio of Alberto Reyes Castro: on-device multimodal retrieval, ML evaluation tooling, reliable AI systems and scientific computing.
+
+Live at https://albertoreyescastro.github.io
