@@ -3,1517 +3,283 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <title>Alberto Reyes Castro | Applied AI Engineer | Multimodal &amp; On-Device ML</title>
-
+  <title>Alberto Reyes Castro | Applied AI Engineer | Multimodal & On-Device ML</title>
   <meta
     name="description"
-    content="Portfolio of Alberto Reyes Castro, an applied AI engineer collaborating with TeachScribe and completing an MSc in Artificial Intelligence, with projects in multimodal retrieval, on-device ML, model evaluation, speech AI and developer tools."
+    content="Portfolio of Alberto Reyes Castro, an Applied AI Engineer in London focused on multimodal and on-device machine learning, reliable AI systems, model evaluation, efficient inference and technical tooling."
   />
   <meta name="author" content="Alberto Reyes Castro" />
-  <meta name="theme-color" content="#3b3d3f" />
+  <meta name="theme-color" content="#303437" />
 
   <style>
     :root {
-      --dark: #3b3d3f;
-      --dark-2: #2f3133;
-      --sidebar: #dedede;
+      --ink: #1f2326;
+      --muted: #626a70;
+      --paper: #ffffff;
+      --soft: #f6f8f9;
+      --sidebar: #e5e7e8;
       --accent: #0b7285;
       --accent-dark: #07596a;
-      --text: #1f1f1f;
-      --muted: #5f666d;
-      --line: #222222;
-      --soft-line: #c8c8c8;
-      --paper: #ffffff;
-      --paper-soft: #f7f7f7;
-      --max: 1080px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-      background: #eeeeee;
-      color: var(--text);
-      line-height: 1.55;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    :focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-    }
-
-    .skip-link {
-      position: fixed;
-      top: 10px;
-      left: 10px;
-      z-index: 1000;
-      padding: 9px 12px;
-      background: #ffffff;
-      color: var(--dark);
-      border: 2px solid var(--dark);
-      font-weight: 800;
-      transform: translateY(-150%);
-    }
-
-    .skip-link:focus {
-      transform: translateY(0);
-    }
-
-    .site {
-      max-width: var(--max);
-      margin: 0 auto;
-      background: var(--paper);
-      min-height: 100vh;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-    }
-
-    .top-header {
-      position: relative;
-      overflow: hidden;
-      background: var(--dark);
-      color: #ffffff;
-      text-align: center;
-      padding: 38px 24px 34px;
-    }
-
-    .top-header::before,
-    .top-header::after {
-      content: "";
-      position: absolute;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      pointer-events: none;
-    }
-
-    .top-header::before {
-      width: 180px;
-      height: 180px;
-      left: -70px;
-      top: -80px;
-    }
-
-    .top-header::after {
-      width: 130px;
-      height: 130px;
-      right: -45px;
-      bottom: -70px;
-    }
-
-    .top-header h1 {
-      margin: 0;
-      font-size: clamp(2rem, 4vw, 3.1rem);
-      letter-spacing: 0.06em;
-      line-height: 1.05;
-      font-weight: 800;
-    }
-
-    .top-header p {
-      margin: 10px 0 0;
-      font-size: 1rem;
-      letter-spacing: 0.03em;
-      opacity: 0.95;
-    }
-
-    .header-dot {
-      display: inline-block;
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      background: var(--accent);
-      margin: 0 9px 2px;
-    }
-
-    .content {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      align-items: stretch;
-    }
-
-    .sidebar {
-      background: var(--sidebar);
-      padding: 34px 30px;
-    }
-
-    .main {
-      padding: 34px 40px 46px;
-      background: #ffffff;
-    }
-
-    .profile-circle {
-      width: 152px;
-      height: 152px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 35% 30%, #ffffff 0%, #e7e7e7 38%, #cfcfcf 100%);
-      border: 7px solid #f3f3f3;
-      margin: 0 auto 30px;
-      display: grid;
-      place-items: center;
-      position: relative;
-      overflow: hidden;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
-      color: var(--dark);
-      font-size: 2.1rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-    }
-
-    .profile-circle span {
-      position: absolute;
-      z-index: 1;
-    }
-
-    .profile-circle img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      position: absolute;
-      inset: 0;
-      z-index: 2;
-    }
-
-    .profile-circle::after {
-      content: "";
-      position: absolute;
-      width: 19px;
-      height: 19px;
-      border-radius: 999px;
-      right: 12px;
-      bottom: 18px;
-      background: var(--accent);
-      border: 4px solid var(--sidebar);
-      z-index: 3;
-    }
-
-    .side-block {
-      margin-bottom: 26px;
-    }
-
-    .side-title {
-      display: inline-block;
-      background: var(--accent);
-      color: #ffffff;
-      font-size: 0.79rem;
-      font-weight: 700;
-      padding: 4px 8px;
-      margin-bottom: 8px;
-    }
-
-    .side-block p,
-    .side-block li {
-      font-size: 0.86rem;
-      line-height: 1.32;
-      color: #222222;
-    }
-
-    .side-block p {
-      margin: 0;
-    }
-
-    .side-block ul {
-      margin: 0;
-      padding-left: 16px;
-    }
-
-    .side-block li {
-      margin-bottom: 4px;
-    }
-
-    .contact-links {
-      display: grid;
-      gap: 7px;
-      margin-top: 4px;
-    }
-
-    .contact-links a {
-      font-size: 0.84rem;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-      padding-bottom: 4px;
-      word-break: break-word;
-    }
-
-    .contact-links a:hover {
-      color: var(--accent-dark);
-      border-color: var(--accent-dark);
-    }
-
-    .section {
-      margin-bottom: 32px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      gap: 16px;
-      margin-bottom: 16px;
-    }
-
-    .section-heading h2 {
-      font-variant: small-caps;
-      letter-spacing: 0.06em;
-      font-size: 1.55rem;
-      line-height: 1;
-      margin: 0;
-      font-weight: 500;
-    }
-
-    .section-heading .rule {
-      height: 1px;
-      background: var(--line);
-      flex: 1;
-      margin-bottom: 3px;
-    }
-
-    .summary p {
-      margin: 0 0 14px;
-      font-size: 0.96rem;
-      color: #202020;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid var(--dark);
-      padding: 8px 13px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      transition: 0.18s ease;
-    }
-
-    .button.primary {
-      background: var(--dark);
-      color: #ffffff;
-    }
-
-    .button.secondary {
-      background: #ffffff;
-      color: var(--dark);
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .project-card {
-      border-left: 3px solid var(--accent);
-      background: var(--paper-soft);
-      padding: 15px 16px;
-      min-height: 190px;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .project-card.featured {
-      grid-column: 1 / -1;
-      min-height: auto;
-      background:
-        linear-gradient(135deg, rgba(11, 114, 133, 0.12), rgba(255, 255, 255, 0.95)),
-        var(--paper-soft);
-      border-left: 5px solid var(--accent-dark);
-    }
-
-    .project-card h3 {
-      margin: 0 0 6px;
-      font-size: 1rem;
-      line-height: 1.22;
-      font-weight: 800;
-    }
-
-    .project-card.featured h3 {
-      font-size: 1.15rem;
-    }
-
-    .project-card p {
-      margin: 0 0 11px;
-      font-size: 0.88rem;
-      line-height: 1.42;
-      color: var(--muted);
-    }
-
-    .project-note {
-      margin: -2px 0 8px;
-      font-size: 0.74rem;
-      font-weight: 700;
-      color: var(--accent-dark);
-      letter-spacing: 0.02em;
-    }
-
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      width: fit-content;
-      background: var(--dark);
-      color: #ffffff;
-      font-size: 0.74rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 4px 7px;
-      margin-bottom: 8px;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .tag {
-      font-size: 0.75rem;
-      background: #ffffff;
-      border: 1px solid var(--soft-line);
-      padding: 3px 6px;
-      color: #222222;
-      font-weight: 650;
-    }
-
-    .card-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: auto;
-      padding-top: 12px;
-    }
-
-    .card-actions a {
-      font-size: 0.77rem;
-      font-weight: 750;
-      border: 1px solid var(--dark);
-      padding: 5px 8px;
-      background: #ffffff;
-      color: var(--dark);
-      transition: 0.18s ease;
-    }
-
-    .card-actions a:hover {
-      background: var(--dark);
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-
-    .card-actions a.primary-link {
-      background: var(--dark);
-      color: #ffffff;
-    }
-
-    .card-actions a.primary-link:hover {
-      background: var(--accent-dark);
-      border-color: var(--accent-dark);
-    }
-
-    .timeline {
-      display: grid;
-      gap: 15px;
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 125px 1fr;
-      gap: 18px;
-    }
-
-    .date {
-      font-size: 0.78rem;
-      color: #222222;
-      padding-top: 2px;
-      white-space: nowrap;
-    }
-
-    .timeline-body {
-      border-left: 2px solid #8b8b8b;
-      padding-left: 14px;
-    }
-
-    .timeline-body h3 {
-      margin: 0;
-      font-size: 0.98rem;
-      line-height: 1.25;
-      font-weight: 800;
-    }
-
-    .institution {
-      margin: 2px 0 7px;
-      font-size: 0.78rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #202020;
-    }
-
-    .timeline-body p {
-      margin: 0;
-      font-size: 0.88rem;
-      line-height: 1.42;
-      color: var(--muted);
-    }
-
-    .writing-list {
-      display: grid;
-      gap: 11px;
-    }
-
-    .writing-item {
-      display: grid;
-      grid-template-columns: 18px 1fr;
-      gap: 10px;
-      background: var(--paper-soft);
-      padding: 12px 14px;
-      border-left: 3px solid var(--accent);
-    }
-
-    .mini-circle {
-      width: 10px;
-      height: 10px;
-      background: var(--accent);
-      border-radius: 999px;
-      margin-top: 7px;
-    }
-
-    .writing-item h3 {
-      margin: 0 0 4px;
-      font-size: 0.96rem;
-    }
-
-    .writing-item p {
-      margin: 0;
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 1.42;
-    }
-
-    .writing-item .card-actions {
-      margin-top: 0;
-      padding-top: 10px;
-    }
-
-    .link-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 11px;
-    }
-
-    .link-card {
-      background: var(--paper-soft);
-      border-left: 3px solid var(--accent);
-      padding: 13px 14px;
-    }
-
-    .link-card h3 {
-      margin: 0 0 5px;
-      font-size: 0.92rem;
-      font-weight: 800;
-    }
-
-    .link-card p {
-      margin: 0 0 11px;
-      font-size: 0.84rem;
-      color: var(--muted);
-      line-height: 1.38;
-    }
-
-    .skill-table {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 11px;
-    }
-
-    .skill-box {
-      background: var(--paper-soft);
-      border-left: 3px solid var(--accent);
-      padding: 12px 14px;
-    }
-
-    .skill-box h3 {
-      margin: 0 0 5px;
-      font-size: 0.92rem;
-      font-weight: 800;
-    }
-
-    .skill-box p {
-      margin: 0;
-      font-size: 0.86rem;
-      color: var(--muted);
-      line-height: 1.38;
-    }
-
-    .contact-panel {
-      background: var(--dark);
-      color: #ffffff;
-      padding: 22px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .contact-panel::after {
-      content: "";
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border-radius: 999px;
-      right: -45px;
-      bottom: -55px;
-      border: 1px solid rgba(255,255,255,0.18);
-    }
-
-    .contact-panel p {
-      margin: 0 0 14px;
-      color: rgba(255, 255, 255, 0.86);
-      max-width: 640px;
-    }
-
-    .contact-panel .button {
-      border-color: #ffffff;
-    }
-
-    .contact-panel .button.primary {
-      background: #ffffff;
-      color: var(--dark);
-    }
-
-    .contact-panel .button.secondary {
-      color: #ffffff;
-      background: transparent;
-    }
-
-    footer {
-      font-size: 0.75rem;
-      color: var(--muted);
-      margin-top: 28px;
-      text-align: right;
-    }
-
-    @media (max-width: 850px) {
-      .content {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        display: grid;
-        grid-template-columns: 150px 1fr;
-        gap: 24px;
-        align-items: start;
-      }
-
-      .profile-circle {
-        margin: 0;
-      }
-
-      .side-block {
-        margin-bottom: 18px;
-      }
-
-      .main {
-        padding: 32px 28px 42px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .top-header {
-        padding: 32px 18px 28px;
-      }
-
-      .content {
-        display: block;
-      }
-
-      .sidebar {
-        display: block;
-        padding: 28px 24px;
-      }
-
-      .profile-circle {
-        margin: 0 auto 24px;
-      }
-
-      .main {
-        padding: 28px 22px 38px;
-      }
-
-      .project-grid,
-      .skill-table,
-      .link-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .project-card.featured {
-        grid-column: auto;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 5px;
-      }
-
-      footer {
-        text-align: left;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
-      }
-    }
+      --dark: #303437;
+      --line: #cbd2d5;
+      --max: 1120px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Segoe UI", Arial, Helvetica, sans-serif; color: var(--ink); background: #eceff0; line-height: 1.55; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .skip-link { position: fixed; left: 10px; top: 10px; z-index: 1000; transform: translateY(-160%); padding: 9px 12px; background: #fff; color: var(--dark); border: 2px solid var(--dark); font-weight: 800; }
+    .skip-link:focus { transform: translateY(0); }
+    .site { max-width: var(--max); margin: 0 auto; background: var(--paper); min-height: 100vh; box-shadow: 0 20px 60px rgba(0,0,0,.08); }
+    .hero { position: relative; overflow: hidden; padding: 42px 34px 38px; text-align: center; background: var(--dark); color: #fff; }
+    .hero::before,.hero::after { content: ""; position: absolute; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; pointer-events: none; }
+    .hero::before { width: 210px; height: 210px; left: -85px; top: -105px; }
+    .hero::after { width: 145px; height: 145px; right: -45px; bottom: -80px; }
+    .hero h1 { margin: 0; font-size: clamp(2rem,5vw,3.25rem); line-height: 1.02; letter-spacing: .045em; }
+    .hero p { margin: 12px 0 0; font-size: 1rem; letter-spacing: .025em; opacity: .95; }
+    .dot { display: inline-block; width: 8px; height: 8px; margin: 0 8px 2px; border-radius: 50%; background: #4ec3d6; }
+    .layout { display: grid; grid-template-columns: 260px 1fr; align-items: stretch; }
+    .sidebar { background: var(--sidebar); padding: 34px 28px; }
+    .main { padding: 36px 42px 48px; }
+    .avatar { width: 152px; height: 152px; margin: 0 auto 30px; border-radius: 50%; overflow: hidden; border: 7px solid #f4f5f5; background: #d8dcde; box-shadow: 0 12px 28px rgba(0,0,0,.08); }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .side-block { margin-bottom: 25px; }
+    .side-title { display: inline-block; margin-bottom: 8px; padding: 4px 8px; background: var(--accent); color: #fff; font-size: .78rem; font-weight: 800; }
+    .side-block p,.side-block li { margin: 0; font-size: .86rem; line-height: 1.38; }
+    .side-block ul { margin: 0; padding-left: 17px; }
+    .side-block li { margin-bottom: 5px; }
+    .contact-links { display: grid; gap: 7px; }
+    .contact-links a { padding-bottom: 4px; border-bottom: 1px solid rgba(0,0,0,.14); font-size: .84rem; word-break: break-word; }
+    .contact-links a:hover { color: var(--accent-dark); }
+    .section { margin-bottom: 35px; }
+    .section-heading { display: flex; align-items: end; gap: 16px; margin-bottom: 17px; }
+    .section-heading h2 { margin: 0; font-size: 1.5rem; line-height: 1; font-weight: 600; font-variant: small-caps; letter-spacing: .06em; }
+    .rule { flex: 1; height: 1px; margin-bottom: 3px; background: var(--ink); }
+    .summary p { margin: 0 0 14px; font-size: .96rem; }
+    .actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 18px; }
+    .button { display: inline-flex; align-items: center; justify-content: center; padding: 8px 13px; border: 1px solid var(--dark); font-size: .81rem; font-weight: 800; transition: .16s ease; }
+    .button.primary { background: var(--dark); color: #fff; }
+    .button:hover { transform: translateY(-1px); box-shadow: 0 7px 16px rgba(0,0,0,.1); }
+    .project-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .project { display: flex; flex-direction: column; min-height: 205px; padding: 16px; border-left: 3px solid var(--accent); background: var(--soft); }
+    .project.featured { grid-column: 1/-1; min-height: auto; border-left: 5px solid var(--accent-dark); background: linear-gradient(135deg,rgba(11,114,133,.12),rgba(255,255,255,.97)),var(--soft); }
+    .badge { width: fit-content; margin-bottom: 8px; padding: 4px 7px; background: var(--dark); color: #fff; font-size: .72rem; font-weight: 850; text-transform: uppercase; letter-spacing: .045em; }
+    .project h3 { margin: 0 0 6px; font-size: 1rem; line-height: 1.22; }
+    .project.featured h3 { font-size: 1.16rem; }
+    .project-note { margin: 0 0 9px; color: var(--accent-dark); font-size: .75rem; font-weight: 800; letter-spacing: .015em; }
+    .project p { margin: 0 0 11px; color: var(--muted); font-size: .87rem; line-height: 1.43; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+    .tag { padding: 3px 6px; border: 1px solid var(--line); background: #fff; font-size: .73rem; font-weight: 700; }
+    .card-actions { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; padding-top: 12px; }
+    .card-actions a { padding: 5px 8px; border: 1px solid var(--dark); background: #fff; font-size: .76rem; font-weight: 800; }
+    .card-actions a.primary-link { background: var(--dark); color: #fff; }
+    .timeline { display: grid; gap: 16px; }
+    .timeline-item { display: grid; grid-template-columns: 125px 1fr; gap: 18px; }
+    .date { padding-top: 2px; font-size: .78rem; white-space: nowrap; }
+    .timeline-body { padding-left: 14px; border-left: 2px solid #8a9195; }
+    .timeline-body h3 { margin: 0; font-size: .98rem; line-height: 1.26; }
+    .institution { margin: 2px 0 7px; font-size: .77rem; text-transform: uppercase; letter-spacing: .045em; }
+    .timeline-body p { margin: 0; color: var(--muted); font-size: .87rem; line-height: 1.43; }
+    .skill-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 11px; }
+    .skill { padding: 13px 14px; border-left: 3px solid var(--accent); background: var(--soft); }
+    .skill h3 { margin: 0 0 5px; font-size: .91rem; }
+    .skill p { margin: 0; color: var(--muted); font-size: .84rem; line-height: 1.42; }
+    .writing-list { display: grid; gap: 11px; }
+    .writing-item { padding: 13px 14px; border-left: 3px solid var(--accent); background: var(--soft); }
+    .writing-item h3 { margin: 0 0 5px; font-size: .95rem; }
+    .writing-item p { margin: 0; color: var(--muted); font-size: .86rem; line-height: 1.43; }
+    .contact-panel { position: relative; overflow: hidden; padding: 22px; background: var(--dark); color: #fff; }
+    .contact-panel p { max-width: 690px; margin: 0 0 14px; color: rgba(255,255,255,.86); }
+    .contact-panel .button { border-color: #fff; }
+    .contact-panel .button.primary { background: #fff; color: var(--dark); }
+    .contact-panel .button:not(.primary) { color: #fff; }
+    footer { margin-top: 28px; text-align: right; color: var(--muted); font-size: .74rem; }
+    @media (max-width:850px) { .layout { grid-template-columns: 1fr; } .sidebar { display: grid; grid-template-columns: 160px 1fr; gap: 24px; align-items: start; } .avatar { margin: 0; } .main { padding: 32px 28px 42px; } }
+    @media (max-width:650px) { .hero { padding: 32px 18px 28px; } .sidebar { display: block; padding: 28px 24px; } .avatar { margin: 0 auto 24px; } .main { padding: 28px 22px 38px; } .project-grid,.skill-grid { grid-template-columns: 1fr; } .project.featured { grid-column: auto; } .timeline-item { grid-template-columns: 1fr; gap: 5px; } footer { text-align: left; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; } }
   </style>
 </head>
-
 <body>
   <a class="skip-link" href="#main-content">Skip to main content</a>
   <div class="site">
-    <header class="top-header">
+    <header class="hero">
       <h1>Alberto Reyes Castro</h1>
-      <p>
-        Applied AI Engineer
-        <span class="header-dot" aria-hidden="true"></span>
-        Multimodal &amp; On-Device ML
-        <span class="header-dot" aria-hidden="true"></span>
-        MSc Artificial Intelligence
-      </p>
+      <p>Applied AI Engineer <span class="dot" aria-hidden="true"></span> Multimodal &amp; On-Device ML <span class="dot" aria-hidden="true"></span> MSc AI Technology</p>
     </header>
 
-    <div class="content">
+    <div class="layout">
       <aside class="sidebar">
-        <div class="profile-circle">
-          <span aria-hidden="true">ARC</span>
-          <img src="./assets/profile.jpg" alt="Profile photo of Alberto Reyes Castro" width="152" height="152" decoding="async" onerror="this.style.display='none';" />
-        </div>
-
+        <div class="avatar"><img src="./assets/profile.jpg" alt="Profile photo of Alberto Reyes Castro" width="152" height="152" decoding="async" /></div>
         <div>
-          <section class="side-block">
-            <div class="side-title">About me</div>
-            <p>
-              Applied AI engineer and physics graduate completing an MSc in Artificial Intelligence,
-              with experience spanning multimodal retrieval, mobile inference, model evaluation,
-              speech processing and developer-facing AI tools.
-            </p>
-          </section>
-
-          <section class="side-block">
-            <div class="side-title">Current work</div>
-            <p>
-              Developing an on-device multimodal retrieval feature through a full-time technical
-              collaboration with <strong>TeachScribe</strong>, while also building
-              <strong>ModelHawk</strong>, an independent prototype for explainable review of
-              machine-learning notebooks.
-            </p>
-          </section>
-
-          <section class="side-block">
-            <div class="side-title">Specializations</div>
-            <ul>
-              <li>Multimodal Machine Learning</li>
-              <li>On-Device &amp; Mobile ML</li>
-              <li>Model Evaluation</li>
-              <li>LLM-Assisted Developer Tools</li>
-              <li>Speech AI &amp; Scientific Computing</li>
-              <li>Human-Reviewed AI Workflows</li>
-            </ul>
-          </section>
-
-          <section class="side-block">
-            <div class="side-title">Languages</div>
-            <p>
-              Spanish – Native<br />
-              English – C1 Advanced / IELTS UKVI 7.0<br />
-              Japanese – Intermediate study · JLPT N3 attempted (80/180)<br />
-            </p>
-          </section>
-
-          <section class="side-block">
-            <div class="side-title">Links</div>
-            <div class="contact-links">
-              <a href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email</a>
-              <a href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-              <a href="https://github.com/albertoreyescastro" target="_blank" rel="noopener noreferrer">GitHub</a>
-              <a href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noopener noreferrer">Kaggle</a>
-              <a href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
-            </div>
-          </section>
+          <section class="side-block"><div class="side-title">About me</div><p>Applied AI engineer and physics graduate completing an MSc in Artificial Intelligence Technology with Advanced Practice. I focus on multimodal systems, efficient inference, model evaluation and reliable AI engineering.</p></section>
+          <section class="side-block"><div class="side-title">Current focus</div><p>On-device multimodal ML at <strong>TeachScribe</strong>, reliable agent orchestration, and independent engineering projects that emphasise measurable behaviour and explicit failure handling.</p></section>
+          <section class="side-block"><div class="side-title">Specialisms</div><ul><li>Multimodal Machine Learning</li><li>On-Device &amp; Mobile ML</li><li>Reliable AI Systems</li><li>Model Evaluation</li><li>Speech AI</li><li>Scientific Computing</li></ul></section>
+          <section class="side-block"><div class="side-title">Languages</div><p>Spanish – Native<br />English – C1 Advanced / IELTS UKVI 7.0<br />Japanese – Intermediate study</p></section>
+          <section class="side-block"><div class="side-title">Links</div><div class="contact-links"><a href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email</a><a href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a href="https://github.com/albertoreyescastro" target="_blank" rel="noopener noreferrer">GitHub</a><a href="https://www.kaggle.com/albertoreyescastro20" target="_blank" rel="noopener noreferrer">Kaggle</a><a href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a></div></section>
         </div>
       </aside>
 
       <main class="main" id="main-content">
         <section class="section summary" id="summary">
-          <div class="section-heading">
-            <h2>Summary</h2>
-            <div class="rule"></div>
-          </div>
-
-          <p>
-            I am an applied AI engineer and physics graduate completing an MSc in Artificial
-            Intelligence Technology with Advanced Practice at Northumbria University, where my
-            current academic performance is at Distinction level. I build and evaluate machine-learning
-            systems under real product, deployment and human-review constraints.
-          </p>
-
-          <p>
-            Through a full-time technical collaboration with <strong>TeachScribe</strong>, I am
-            developing a fully on-device multimodal retrieval prototype for Android, spanning
-            model benchmarking, checkpoint licensing assessment, mobile implementation and
-            target-device validation. I also created <strong>ModelHawk</strong>, an independent
-            developer tool that combines deterministic notebook analysis with optional Gemini API
-            assistance and a locally hosted Llama model through Ollama.
-          </p>
-
-          <p>
-            I am seeking machine-learning internships and applied AI opportunities involving
-            multimodal systems, model evaluation, on-device inference, intelligent developer tools
-            and responsible human-in-the-loop product design.
-          </p>
-
-          <div class="hero-actions">
-            <a class="button primary" href="#projects">View Projects</a>
-            <a class="button secondary" href="#experience">Experience</a>
-            <a class="button secondary" href="#publications">Publications</a>
-            <a class="button secondary" href="#writing">Technical Reports</a>
-            <a class="button secondary" href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a>
-            <a class="button secondary" href="#contact">Contact</a>
-          </div>
+          <div class="section-heading"><h2>Summary</h2><div class="rule"></div></div>
+          <p>I am an Applied AI Engineer and physics graduate completing an MSc in Artificial Intelligence Technology with Advanced Practice at Northumbria University London. My current academic performance is at Distinction level, and I build systems under practical deployment, evaluation and human-review constraints.</p>
+          <p>At <strong>TeachScribe</strong>, I designed, built and evaluated an Android prototype for fully on-device multimodal photo retrieval. The work covered model comparison, mobile inference, performance optimisation and physical-device validation. The implementation remains private; public descriptions intentionally stay at a high level.</p>
+          <p>Alongside applied ML work, I build reliable AI tooling and agent systems, including <strong>Agent Control Center</strong> for orchestration and recovery behaviour and <strong>ModelHawk</strong> for structured review of machine-learning notebooks.</p>
+          <p>I am seeking Summer 2027 machine-learning and applied AI internships involving multimodal systems, efficient inference, model evaluation, AI reliability or technical tooling.</p>
+          <div class="actions"><a class="button primary" href="#projects">View Projects</a><a class="button" href="#experience">Experience</a><a class="button" href="#writing">Technical Reports</a><a class="button" href="#open-source">Open Source</a><a class="button" href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">View CV</a><a class="button" href="#contact">Contact</a></div>
         </section>
 
         <section class="section" id="projects">
-          <div class="section-heading">
-            <h2>Featured Projects</h2>
-            <div class="rule"></div>
-          </div>
-
+          <div class="section-heading"><h2>Featured Projects</h2><div class="rule"></div></div>
           <div class="project-grid">
-            <article class="project-card featured" id="multimodal-mobile">
-              <div class="status-badge">Current applied ML work</div>
-
+            <article class="project featured" id="teachscribe">
+              <div class="badge">Applied ML · Product collaboration</div>
               <h3>TeachScribe — On-Device Multimodal Retrieval</h3>
-
-              <p class="project-note">
-                Full-time technical collaboration for product integration · Code, data and internal
-                product materials remain private
-              </p>
-
-              <p>
-                Built and evaluated a standalone Android prototype that retrieves and ranks relevant
-                classroom photographs from written observations using optional capture-time filtering
-                and fully on-device image–text inference. The prototype is currently undergoing
-                target-device validation before adaptation and proposed integration into
-                TeachScribe’s main teacher-facing product.
-              </p>
-
-              <p>
-                Responsible for model research, system design, evaluation and mobile implementation.
-                Benchmarked five pretrained vision–language models across three structured retrieval
-                evaluations, comparing Recall@1 and Recall@5 alongside model size, CPU performance,
-                mobile feasibility and checkpoint licensing. Identified TinyCLIP as the current
-                leading deployment candidate and integrated it through ONNX Runtime into the
-                Expo/React Native application, implementing native Kotlin image preprocessing,
-                reusable inference sessions, persistent SQLite embedding caches and human-reviewed
-                multi-photo selection. Current work covers task-specific fine-tuning and validation
-                on the target Android tablet, including retrieval quality, latency, memory use and
-                thermal behaviour.
-              </p>
-
-              <div class="tags">
-                <span class="tag">Multimodal ML</span>
-                <span class="tag">Vision–Language Models</span>
-                <span class="tag">Image–Text Retrieval</span>
-                <span class="tag">On-Device Inference</span>
-                <span class="tag">Android</span>
-                <span class="tag">ONNX Runtime</span>
-                <span class="tag">React Native</span>
-                <span class="tag">Kotlin</span>
-                <span class="tag">Model Evaluation</span>
-                <span class="tag">Mobile Performance</span>
-                <span class="tag">Human-Reviewed AI</span>
-              </div>
-
-              <div class="card-actions">
-                <a class="primary-link" href="https://teachscribe.com/" target="_blank" rel="noreferrer">TeachScribe Website</a>
-              </div>
+              <p class="project-note">Android prototype · fully on-device retrieval · implementation private</p>
+              <p>Designed, built and evaluated a standalone prototype that retrieves relevant local photographs from natural-language observations on constrained Android hardware. I evaluated five pretrained vision–language models on small curated retrieval evaluations, then validated the selected mobile configuration on physical hardware across retrieval quality, latency, memory use, sustained-load stability, thermal behaviour and battery-side energy consumption.</p>
+              <p>The full implementation, product data and sensitive engineering details remain private. Public material focuses on my contribution, evaluation methodology, engineering trade-offs and high-level system behaviour rather than a reproducible recipe for the feature.</p>
+              <div class="tags"><span class="tag">Multimodal ML</span><span class="tag">On-Device AI</span><span class="tag">Android</span><span class="tag">Model Evaluation</span><span class="tag">Efficient Inference</span><span class="tag">Mobile Performance</span><span class="tag">Human-Reviewed AI</span><span class="tag">Privacy by Design</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://teachscribe.com/" target="_blank" rel="noopener noreferrer">TeachScribe Website</a></div>
             </article>
 
-            <article class="project-card featured" id="modelhawk">
-              <div class="status-badge">Current independent prototype</div>
+            <article class="project featured" id="agent-control-center">
+              <div class="badge">Reliable AI systems</div>
+              <h3>Agent Control Center — Multi-Agent Orchestration</h3>
+              <p class="project-note">Capability-aware routing · execution leases · bounded recovery · independent verification</p>
+              <p>Interactive demonstration of a multi-agent orchestration architecture designed around explicit execution ownership and observable state. It models routing, leases, heartbeat tracking, bounded recovery and verification rather than treating agent execution as a black box.</p>
+              <p>The design also includes spending controls, fail-closed publication checks and human approval gates before merge, with a focus on predictable behaviour when workers or dependencies become stale or unavailable.</p>
+              <div class="tags"><span class="tag">Agent Orchestration</span><span class="tag">Reliability Engineering</span><span class="tag">State Machines</span><span class="tag">Human Approval</span><span class="tag">Failure Recovery</span><span class="tag">GitHub Workflows</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/agent-control-center" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://albertoreyescastro.github.io/agent-control-center/" target="_blank" rel="noopener noreferrer">Interactive Demo</a></div>
+            </article>
 
+            <article class="project featured" id="modelhawk">
+              <div class="badge">Independent AI tooling</div>
               <h3>ModelHawk — ML Notebook Audit Prototype</h3>
-
-              <p class="project-note">
-                Structured classification audits · Deterministic analysis · Gemini/Ollama examiner · LaTeX reports
-              </p>
-
-              <p>
-                Independent developer tool currently focused on structured classification
-                notebooks, particularly projects involving imbalanced datasets. It parses notebook
-                code and Markdown, identifies workflow signals and applies deterministic and heuristic
-                checks covering leakage risk, metric choice, class imbalance, validation quality,
-                reproducibility and portfolio readiness.
-              </p>
-
-              <p>
-                The core audit remains usable without an external language model. An optional AI
-                Examiner uses the Gemini API, falls back to a locally hosted Llama 3.2 model through 
-                Ollama as a fallback and retains deterministic operation when neither provider is available. 
-                The resulting findings and reviewer questions are compiled into professional LaTeX PDFs.
-              </p>
-
-              <div class="tags">
-                <span class="tag">Next.js</span>
-                <span class="tag">TypeScript</span>
-                <span class="tag">React</span>
-                <span class="tag">Static Analysis</span>
-                <span class="tag">Model Evaluation</span>
-                <span class="tag">Imbalanced Classification</span>
-                <span class="tag">Jupyter Notebooks</span>
-                <span class="tag">Gemini API</span>
-                <span class="tag">Ollama</span>
-                <span class="tag">Local LLMs</span>
-                <span class="tag">Deterministic Fallbacks</span>
-                <span class="tag">LaTeX</span>
-                <span class="tag">Technical Reports</span>
-              </div>
-
-              <div class="card-actions">
-                <a class="primary-link" href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">
-                  GitHub Repo
-                </a>
-                <a href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noreferrer">Read Sample PDF</a>
-              </div>
+              <p class="project-note">Static analysis · deterministic findings · optional AI-assisted review · LaTeX reporting</p>
+              <p>Developer tool for reviewing structured machine-learning notebooks. It parses code and Markdown, identifies workflow signals and applies deterministic and heuristic checks around leakage risk, class imbalance, metric choice, validation quality, reproducibility and portfolio readiness.</p>
+              <p>An optional AI review layer can add examiner-style questions and commentary while deterministic operation remains available without an external model. Findings are compiled into professional LaTeX reports.</p>
+              <div class="tags"><span class="tag">Next.js</span><span class="tag">TypeScript</span><span class="tag">Static Analysis</span><span class="tag">Model Evaluation</span><span class="tag">Jupyter</span><span class="tag">Local LLMs</span><span class="tag">LaTeX</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noopener noreferrer">Sample Report</a></div>
             </article>
 
-           <article class="project-card">
-              <h3>AIoT Smart Home Prototype</h3>
-              <p class="project-note">Simulated, rule-labelled held-out set: 85.9% accuracy · 0.99 AUC · 0.89 weighted F1</p>
-              <p>
-                Designed a modular, privacy-aware smart-home prototype with independent ESP32-S3 
-                controllers, profile-aware automation, Blynk monitoring and staged gas/heat responses. 
-                Added a five-class Edge Impulse environmental classifier with deterministic safety 
-                fallbacks and an estimated embedded footprint of ~1 ms inference, 1.4 KB peak RAM and 14.4 KB flash. 
-                Separate bedroom and kitchen/living-room simulations validated comfort automation, security states and staged safety responses.
-              </p>
-              <div class="tags">
-                <span class="tag">AIoT</span>
-                <span class="tag">ESP32-S3</span>
-                <span class="tag">Wokwi</span>
-                <span class="tag">Blynk</span>
-                <span class="tag">Edge Impulse</span>
-                <span class="tag">Embedded C++</span>
-                <span class="tag">TinyML</span>
-                <span class="tag">Hybrid AI</span>
-              </div>
-              <div class="card-actions">
-                <a class="primary-link" href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-                <a href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noreferrer">Read Report</a>
-                <a href="https://wokwi.com/projects/465661521735358465" target="_blank" rel="noreferrer">Bedroom Demo</a>
-                <a href="https://wokwi.com/projects/465661368262601729" target="_blank" rel="noreferrer">Kitchen &amp; Living Room Demo</a>
-              </div>
-            </article>
-
-
-            <article class="project-card">
-              <h3>Credit Card Fraud Detection</h3>
-              <p class="project-note">MSc machine-learning report · Distinction mark: 85/100</p>
-              <p>
-                Built a leakage-controlled pipeline for 284,807 transactions and compared six
-                classifiers and imbalance strategies using five-fold stratified cross-validation,
-                RandomizedSearchCV and validation-based threshold analysis. The tuned XGBoost model
-                achieved 91.2% precision, 84.7% recall and 0.8827 average precision.
-              </p>
-              <p>
-                Evaluation prioritised Average Precision and precision–recall trade-offs over accuracy, 
-                with leakage controls spanning preprocessing, resampling, cross-validation and threshold selection.
-              </p>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">scikit-learn</span>
-                <span class="tag">XGBoost</span>
-                <span class="tag">SMOTE</span>
-                <span class="tag">Model Evaluation</span>
-              </div>
-              <div class="card-actions">
-                <a class="primary-link" href="https://github.com/albertoreyescastro/credit-card-fraud-detection" target="_blank" rel="noreferrer">GitHub Repo</a>
-                <a href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noreferrer">Kaggle Notebook</a>
-                <a href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noreferrer">Read Report</a>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <h3>Computational Physics Numerical Methods</h3>
-              <p>
-                Scientific Python project implementing interpolation, numerical integration,
-                ODE solvers and stochastic simulation, with applications to computational physics
-                and a combined Kaggle showcase.
-              </p>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">NumPy</span>
-                <span class="tag">SciPy</span>
-                <span class="tag">Matplotlib</span>
-                <span class="tag">Numerical Methods</span>
-                <span class="tag">Scientific Computing</span>
-              </div>
-              <div class="card-actions">
-                <a class="primary-link" href="https://github.com/albertoreyescastro/computational-physics-numerical-methods" target="_blank" rel="noreferrer">GitHub Repo</a>
-                <a href="https://www.kaggle.com/code/albertoreyescastro20/computational-physics-numerical-methods-in-python" target="_blank" rel="noreferrer">Kaggle Demo</a>
-              </div>
-            </article>
-
-            <article class="project-card">
-              <h3>IAC Publication–Press Note Matching</h3>
-              <p>
-                Semi-automated workflow that compared 67 IAC outreach articles against more than
-                700 scientific publications using text preprocessing, regex and fuzzy matching,
-                while retaining manual review for uncertain matches.
-              </p>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">NLP</span>
-                <span class="tag">Regex</span>
-                <span class="tag">Fuzzy Matching</span>
-                <span class="tag">Science Communication</span>
-              </div>
-              <div class="card-actions">
-                <a class="primary-link" href="https://github.com/albertoreyescastro/IAC-publication-press-note-matching" target="_blank" rel="noreferrer">GitHub Repo</a>
-                <a href="https://www.kaggle.com/code/albertoreyescastro20/iac-scientific-publication-matching-demo" target="_blank" rel="noreferrer">Kaggle Demo</a>
-              </div>
-            </article>
-
-            <article class="project-card">
+            <article class="project">
               <h3>Adaptive Whisper Transcription Pipeline</h3>
-              <p>
-                Portable CPU/GPU transcription workflow for audio and video files using faster-whisper,
-                with automatic hardware selection, safe input handling, audio normalization,
-                progress tracking and optional SRT subtitle generation.
-              </p>
-              <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">Whisper</span>
-                <span class="tag">Audio Processing</span>
-                <span class="tag">SRT Subtitles</span>
-                <span class="tag">Automation</span>
-              </div>
-              <div class="card-actions">
-                <a class="primary-link" href="https://github.com/albertoreyescastro/adaptive-whisper-transcription-pipeline" target="_blank" rel="noreferrer">GitHub Repo</a>
-                <a href="https://www.kaggle.com/code/albertoreyescastro20/adaptive-whisper-transcription-pipeline-demo" target="_blank" rel="noreferrer">Kaggle Demo</a>
-              </div>
+              <p class="project-note">Hardware-aware speech inference · reusable CPU/GPU workflow</p>
+              <p>Portable transcription workflow built on faster-whisper with hardware-aware model selection, CPU/GPU execution, audio normalisation, configurable VAD, repetition safeguards, caching, quality checks and TXT/SRT export.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">faster-whisper</span><span class="tag">FFmpeg</span><span class="tag">INT8 / FP16</span><span class="tag">Speech AI</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/adaptive-whisper-transcription-pipeline" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/adaptive-whisper-transcription-pipeline-demo" target="_blank" rel="noopener noreferrer">Kaggle Demo</a></div>
+            </article>
+
+            <article class="project">
+              <h3>AIoT Smart Home Prototype</h3>
+              <p class="project-note">Held-out simulation: 85.9% accuracy · 0.99 AUC · 0.89 weighted F1</p>
+              <p>Modular ESP32-S3 smart-home prototype combining profile-aware automation, Blynk monitoring and a five-class Edge Impulse environmental classifier with deterministic safety fallbacks. Estimated embedded footprint: ~1 ms inference, 1.4 KB peak RAM and 14.4 KB flash.</p>
+              <div class="tags"><span class="tag">ESP32-S3</span><span class="tag">Edge Impulse</span><span class="tag">Wokwi</span><span class="tag">Embedded C++</span><span class="tag">TinyML</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noopener noreferrer">Technical Report</a><a href="https://wokwi.com/projects/465661521735358465" target="_blank" rel="noopener noreferrer">Bedroom Demo</a></div>
+            </article>
+
+            <article class="project">
+              <h3>Credit Card Fraud Detection</h3>
+              <p class="project-note">MSc ML project · 85/100 · 0.8827 average precision</p>
+              <p>Leakage-controlled pipeline for 284,807 transactions comparing six classifiers and imbalance strategies with stratified cross-validation and validation-based threshold analysis. The tuned XGBoost model achieved 91.2% precision and 84.7% recall.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">scikit-learn</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">Model Evaluation</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/credit-card-fraud-detection" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noopener noreferrer">Kaggle Notebook</a><a href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noopener noreferrer">Report</a></div>
+            </article>
+
+            <article class="project">
+              <h3>Computational Physics Numerical Methods</h3>
+              <p>Scientific Python implementations of interpolation, numerical integration, ODE solvers and stochastic simulation, applying numerical techniques to physical problems and reproducible scientific computing.</p>
+              <div class="tags"><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">Matplotlib</span><span class="tag">Numerical Methods</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/computational-physics-numerical-methods" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/computational-physics-numerical-methods-in-python" target="_blank" rel="noopener noreferrer">Kaggle Demo</a></div>
+            </article>
+
+            <article class="project">
+              <h3>IAC Publication–Press Note Matching</h3>
+              <p>Semi-automated workflow comparing 67 IAC outreach articles with more than 700 scientific publications using text preprocessing, regex and fuzzy matching, with manual review retained for uncertain matches.</p>
+              <div class="tags"><span class="tag">Python</span><span class="tag">NLP</span><span class="tag">Regex</span><span class="tag">Fuzzy Matching</span></div>
+              <div class="card-actions"><a class="primary-link" href="https://github.com/albertoreyescastro/IAC-publication-press-note-matching" target="_blank" rel="noopener noreferrer">GitHub Repo</a><a href="https://www.kaggle.com/code/albertoreyescastro20/iac-scientific-publication-matching-demo" target="_blank" rel="noopener noreferrer">Kaggle Demo</a></div>
             </article>
           </div>
         </section>
 
         <section class="section" id="experience">
-          <div class="section-heading">
-            <h2>Experience</h2>
-            <div class="rule"></div>
-          </div>
-
+          <div class="section-heading"><h2>Experience</h2><div class="rule"></div></div>
           <div class="timeline">
-            <article class="timeline-item">
-              <div class="date">Jul 2026–Present</div>
-              <div class="timeline-body">
-                <h3>Applied AI Engineer — On-Device Multimodal ML</h3>
-                <div class="institution">TeachScribe · Full-time technical collaboration · Hybrid</div>
-                <p>
-                  Building an Android-based multimodal retrieval prototype for TeachScribe's
-                  teacher-facing product. Responsible for benchmarking vision–language models,
-                  integrating on-device inference and validating retrieval quality, latency, memory
-                  use and thermal behaviour on the target device before planned product integration.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">Jul 2026–Present</div>
-              <div class="timeline-body">
-                <h3>Creator &amp; Applied AI Developer — ModelHawk</h3>
-                <div class="institution">Independent technical build · London</div>
-                <p>
-                  Designed and built a Next.js/TypeScript prototype for explainable review of structured
-                  classification notebooks, combining deterministic and heuristic audit checks with
-                  optional Gemini API assistance, a locally hosted Llama 3.2/Ollama fallback and
-                  automated LaTeX PDF report generation.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">Mar 2025–May 2025</div>
-              <div class="timeline-body">
-                <h3>Python &amp; Scientific Communication Intern</h3>
-                <div class="institution">Instituto de Astrofísica de Canarias · La Laguna</div>
-                <p>
-                  Developed a multilingual faster-whisper transcription and subtitle workflow and a
-                  semi-automated matcher comparing 67 outreach articles with more than 700 scientific
-                  publications. Authored the IAC Vía Láctea article <em>Eclipse Solar Parcial de Marzo 2025</em>,
-                  wrote the English-language version of the IAC News article on SN 2023ixf, co-authored
-                  an <em>Astronomía</em> Magazine feature and produced technical documentation in LaTeX.
-                  Completed the assessed 250-hour placement with a final mark of 9.2/10.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">Sep 2024–Jul 2025</div>
-              <div class="timeline-body">
-                <h3>Final Degree Project — BSc Physics</h3>
-                <div class="institution">Universidad de La Laguna · Tenerife</div>
-                <p>
-                  Completed a scientific project in English on the structural mechanisms of
-                  ferroelectricity and ferroelasticity in β′-RE₂(MoO₄)₃ compounds, involving
-                  crystallographic analysis and scientific reporting. Mark: 9.4/10.
-                </p>
-              </div>
-            </article>
+            <article class="timeline-item"><div class="date">Jul 2026–Present</div><div class="timeline-body"><h3>Applied AI Engineer — On-Device Multimodal ML</h3><div class="institution">TeachScribe · Technical collaboration · London / Hybrid</div><p>Designed, built and evaluated an Android on-device multimodal retrieval prototype. Responsible for model research and comparison, system design, mobile implementation, performance optimisation and physical-device validation. Since October 2026, I have continued the collaboration alongside my MSc. Full implementation details remain private to protect product IP.</p></div></article>
+            <article class="timeline-item"><div class="date">Jul 2026–Present</div><div class="timeline-body"><h3>Creator &amp; Applied AI Developer — ModelHawk</h3><div class="institution">Independent technical build · London</div><p>Designed and built a TypeScript/Next.js prototype for structured ML notebook review, combining deterministic and heuristic checks with optional AI assistance and automated LaTeX report generation.</p></div></article>
+            <article class="timeline-item"><div class="date">Mar 2025–May 2025</div><div class="timeline-body"><h3>Python &amp; Scientific Communication Intern</h3><div class="institution">Instituto de Astrofísica de Canarias · La Laguna</div><p>Developed Python workflows for multilingual transcription and publication matching; produced technical documentation and scientific communication in English and Spanish. Completed the assessed 250-hour placement with a final mark of 9.2/10.</p></div></article>
+            <article class="timeline-item"><div class="date">Sep 2024–Jul 2025</div><div class="timeline-body"><h3>Final Degree Project — BSc Physics</h3><div class="institution">Universidad de La Laguna · Tenerife</div><p>Scientific project in English on structural mechanisms of ferroelectricity and ferroelasticity in β′-RE₂(MoO₄)₃ compounds, combining crystallographic analysis and long-form scientific reporting. Mark: 9.4/10.</p></div></article>
           </div>
         </section>
 
         <section class="section" id="skills">
-          <div class="section-heading">
-            <h2>Skills</h2>
-            <div class="rule"></div>
-          </div>
-
-          <div class="skill-table">
-            <article class="skill-box">
-              <h3>AI &amp; Data</h3>
-              <p>Python · PyTorch · TensorFlow/Keras (Coursework) · Hugging Face Transformers · scikit-learn · XGBoost · pandas · Machine Learning · Fine-Tuning · Classification · Model Evaluation · Retrieval Metrics · Imbalanced Learning</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Multimodal &amp; On-Device ML</h3>
-              <p>Vision–Language Models · Image–Text Retrieval · Mobile Inference · ONNX Runtime · Android · Model Benchmarking · Latency, Memory &amp; Thermal Evaluation · Human-Reviewed Selection</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>LLMs &amp; Developer Tools</h3>
-              <p>Gemini API · Llama 3.2 · Ollama · Local LLM Workflows · Structured Outputs · Static Notebook Analysis · Provider Fallback Logic · Deterministic Fallbacks</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Mobile, Web &amp; Prototyping</h3>
-              <p>React Native · Expo · Kotlin · SQLite · Next.js · TypeScript · React · API Routes · Front-End Prototyping</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Technical Documentation</h3>
-              <p>LaTeX/Overleaf · Markdown · Scientific Writing · Technical Reports · PDF Report Generation · Academic Writing · Structured Documentation · Reproducible Notebooks</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>AIoT &amp; Prototyping</h3>
-              <p>Embedded C++ · ESP32-S3 · Wokwi · Blynk · Edge Impulse · TinyML · Sensor-Based Logic</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Scientific Communication</h3>
-              <p>Bilingual Communication · Subtitles · Transcription Workflows · Publication Matching · Content Adaptation</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Scientific Computing</h3>
-              <p>NumPy · SciPy · Matplotlib · R/RStudio (Coursework) · Numerical Methods · ODE Solvers · Computational Physics</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Software &amp; Data Tools</h3>
-              <p>Git/GitHub · Docker (Foundational) · Bash/PowerShell · Linux/Ubuntu · Jupyter/Colab · SQL · Data Pipelines · API Integration</p>
-            </article>
-
-            <article class="skill-box">
-              <h3>Cloud &amp; Data Foundations</h3>
-              <p>Google Cloud Platform (GCP) · Cloud Architecture Fundamentals · Big Data Concepts · Data Transformation · APIs</p>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="writing">
-          <div class="section-heading">
-            <h2>Selected Technical Reports</h2>
-            <div class="rule"></div>
-          </div>
-
-          <div class="writing-list">
-            <article class="writing-item">
-              <div class="mini-circle"></div>
-              <div>
-                <h3>ModelHawk — Static ML Audit Report Generator</h3>
-                <p>
-                  Developer-tool prototype currently focused on structured classification notebooks,
-                  especially imbalanced datasets. It transforms deterministic and heuristic analysis into
-                  structured findings, reviewer questions, optional Gemini/Ollama examiner notes and
-                  professional PDF reports compiled through LaTeX.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noreferrer">Read Sample PDF</a>
-                  <a href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="writing-item">
-              <div class="mini-circle"></div>
-              <div>
-                <h3>AIoT Smart Home Prototype — Technical Report</h3>
-                <p>
-                  Full technical report documenting the design, architecture, simulation logic,
-                  sensor behaviour, AIoT integration and evaluation of an ESP32-S3 smart home prototype.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
-                  <a href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="writing-item">
-              <div class="mini-circle"></div>
-              <div>
-                <h3>Credit Card Fraud Detection — Machine Learning Report</h3>
-                <p class="project-note">85/100 · Distinction</p>
-                <p>
-                  Technical report documenting a leakage-controlled workflow for highly imbalanced
-                  fraud detection, including preprocessing, resampling, six-model comparison,
-                  stratified cross-validation, threshold selection and precision–recall evaluation.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noreferrer">Read PDF</a>
-                  <a href="https://github.com/albertoreyescastro/credit-card-fraud-detection" target="_blank" rel="noreferrer">GitHub Repo</a>
-                  <a href="https://www.kaggle.com/code/albertoreyescastro20/credit-card-fraud-detection-using-machine-learning" target="_blank" rel="noreferrer">Kaggle Notebook</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="writing-item">
-              <div class="mini-circle"></div>
-              <div>
-                <h3>Final Degree Project — Ferroelectricity and Ferroelasticity</h3>
-                <p class="project-note">9.4/10 · Supervisor proposed development into a peer-reviewed journal manuscript</p>
-                <p>
-                  BSc Physics thesis written in English on the structural mechanisms of
-                  ferroelectricity and ferroelasticity in β′-RE₂(MoO₄)₃ compounds.
-                  The work involved crystallographic analysis, neutron and X-ray diffraction,
-                  Rietveld and Le Bail refinement, amplimode analysis and long-form scientific
-                  reporting in LaTeX.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/reports/final-degree-project-ferroelectricity-ferroelasticity.pdf" target="_blank" rel="noreferrer">Read Thesis PDF</a>
-                  <a href="./assets/reports/tfg-defense-presentation.pdf" target="_blank" rel="noreferrer">Defense Slides</a>
-                </div>
-              </div>
-            </article>
+          <div class="section-heading"><h2>Technical Skills</h2><div class="rule"></div></div>
+          <div class="skill-grid">
+            <article class="skill"><h3>Machine Learning &amp; Evaluation</h3><p>Python · PyTorch · scikit-learn · XGBoost · pandas · model benchmarking · retrieval metrics · imbalanced learning · error analysis</p></article>
+            <article class="skill"><h3>Multimodal &amp; Efficient Inference</h3><p>Vision–language models · image–text retrieval · ONNX Runtime · quantisation · mobile inference · latency and memory profiling · Android</p></article>
+            <article class="skill"><h3>Reliable AI &amp; Agent Systems</h3><p>Agent orchestration · capability-aware routing · stateful workflows · bounded recovery · independent verification · human approval gates</p></article>
+            <article class="skill"><h3>Application Engineering</h3><p>TypeScript · React · Next.js · React Native · Expo · Kotlin · SQLite · Node.js · REST APIs · GitHub Actions</p></article>
+            <article class="skill"><h3>Speech &amp; Local AI</h3><p>faster-whisper · FFmpeg · VAD · CPU/GPU inference · Ollama · local LLM workflows · provider fallbacks</p></article>
+            <article class="skill"><h3>Scientific Computing &amp; Documentation</h3><p>NumPy · SciPy · Matplotlib · SymPy · numerical methods · Jupyter · LaTeX/Overleaf · reproducible technical reporting</p></article>
+            <article class="skill"><h3>Embedded AI / AIoT</h3><p>ESP32-S3 · Embedded C++ · Wokwi · Blynk · Edge Impulse · TinyML · sensor-driven control logic</p></article>
+            <article class="skill"><h3>Engineering Tools</h3><p>Git/GitHub · Bash · PowerShell · Linux · SQL · Docker fundamentals · API integration · reproducible validation workflows</p></article>
           </div>
         </section>
 
         <section class="section" id="open-source">
-          <div class="section-heading">
-            <h2>Open Source</h2>
-            <div class="rule"></div>
-          </div>
-
+          <div class="section-heading"><h2>Open Source</h2><div class="rule"></div></div>
           <div class="writing-list">
-            <article class="writing-item">
-              <div class="mini-circle"></div>
-              <div>
-                <h3>Vizro/Dash Rendering Regression Analysis</h3>
-                <p>
-                  Helped reproduce and isolate a Vizro/Dash tab-rendering regression by comparing dependency versions,
-                  testing pure Dash behaviour and narrowing the issue beyond Plotly graph rendering. The analysis was
-                  acknowledged by a Vizro maintainer and helped narrow the source of the regression.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4605773378" target="_blank" rel="noreferrer">View Maintainer Comment</a>
-                </div>
-              </div>
-            </article>
+            <article class="writing-item"><h3>Vizro / Dash Rendering Regression Analysis</h3><p>Helped reproduce and isolate a Vizro/Dash tab-rendering regression by comparing dependency versions, testing pure Dash behaviour and narrowing the issue beyond Plotly graph rendering. The analysis was acknowledged by a Vizro maintainer and helped narrow the source of the regression.</p><div class="card-actions"><a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4605773378" target="_blank" rel="noopener noreferrer">View Maintainer Comment</a></div></article>
+          </div>
+        </section>
+
+        <section class="section" id="writing">
+          <div class="section-heading"><h2>Selected Technical Reports</h2><div class="rule"></div></div>
+          <div class="writing-list">
+            <article class="writing-item"><h3>ModelHawk — Static ML Audit Report Generator</h3><p>Sample technical report generated from structured notebook analysis, deterministic findings and optional AI-assisted review.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/modelhawk-sample-audit-report.pdf" target="_blank" rel="noopener noreferrer">Read Sample PDF</a><a href="https://github.com/albertoreyescastro/ModelHawk" target="_blank" rel="noopener noreferrer">GitHub Repo</a></div></article>
+            <article class="writing-item"><h3>AIoT Smart Home Prototype — Technical Report</h3><p>Architecture, simulation logic, embedded classifier behaviour, safety fallbacks and evaluation of an ESP32-S3 smart-home prototype.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/aiot_smart_home_public_report.pdf" target="_blank" rel="noopener noreferrer">Read PDF</a><a href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo</a></div></article>
+            <article class="writing-item"><h3>Credit Card Fraud Detection — Machine Learning Report</h3><p>Distinction-level MSc report documenting leakage controls, imbalance handling, cross-validation, threshold selection and precision-recall evaluation.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/credit-card-fraud-detection-report.pdf" target="_blank" rel="noopener noreferrer">Read PDF</a><a href="https://github.com/albertoreyescastro/credit-card-fraud-detection" target="_blank" rel="noopener noreferrer">GitHub Repo</a></div></article>
+            <article class="writing-item"><h3>Final Degree Project — Ferroelectricity and Ferroelasticity</h3><p>BSc Physics thesis written in English on structural mechanisms in β′-RE₂(MoO₄)₃ compounds. Final mark: 9.4/10.</p><div class="card-actions"><a class="primary-link" href="./assets/reports/final-degree-project-ferroelectricity-ferroelasticity.pdf" target="_blank" rel="noopener noreferrer">Read Thesis</a><a href="./assets/reports/tfg-defense-presentation.pdf" target="_blank" rel="noopener noreferrer">Defense Slides</a></div></article>
           </div>
         </section>
 
         <section class="section" id="publications">
-          <div class="section-heading">
-            <h2>Selected Publications &amp; Scientific Communication</h2>
-            <div class="rule"></div>
-          </div>
-
+          <div class="section-heading"><h2>Publications &amp; Scientific Communication</h2><div class="rule"></div></div>
           <div class="writing-list">
-            <article class="writing-item">
-              <div class="mini-circle" aria-hidden="true"></div>
-              <div>
-                <h3>The Partial Solar Eclipse of March 2025</h3>
-                <p>
-                  Authored this Spanish-language science-outreach article for the IAC Vía Láctea blog 
-                  during my internship in the Department of Communication and Scientific Culture.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="https://www.iac.es/es/blog/vialactea/2025/03/eclipse-solar-parcial-de-marzo-2025" target="_blank" rel="noopener noreferrer">Read IAC Article</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="writing-item">
-              <div class="mini-circle" aria-hidden="true"></div>
-              <div>
-                <h3>The WEAVE spectrograph captures the interaction of supernova SN 2023ixf with its surroundings one year after its explosion</h3>
-                <p>
-                  Wrote the English-language version of this IAC News article during the internship,
-                  communicating current astrophysical research accurately for an international audience.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="https://www.iac.es/en/outreach/news/weave-spectrograph-captures-interaction-supernova-sn-2023ixf-its-surroundings-one-year-after-its-explosion" target="_blank" rel="noopener noreferrer">Read IAC Article</a>
-                </div>
-              </div>
-            </article>
-
-            
-
-            <article class="writing-item">
-              <div class="mini-circle" aria-hidden="true"></div>
-              <div>
-                <h3>The Partial Solar Eclipse That Reminded Canary Islanders of the Value of Looking Skyward</h3>
-                <p>
-                  Co-authored with Ariadna Mesa and Hugo Fernández and published in Spanish as 
-                  “El eclipse parcial que recordó a Canarias el valor de mirar al cielo” in
-                  <em>Astronomía</em>, Spain's first newsstand magazine devoted entirely
-                  to astronomy, astrophysics and space-science outreach, in continuous
-                  publication since 1985. Produced during my IAC internship, the article
-                  communicated the scientific and public-engagement significance of the
-                  29 March 2025 partial solar eclipse in the Canary Islands.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="https://www.globalastronomia.com/producto/astronomia-mayo-2025-n-o-311-pdf/" target="_blank" rel="noopener noreferrer">View Magazine Issue</a>
-                  <a class="primary-link" href="https://albertoreyescastro.github.io/assets/publications/Astronomy_Magazine.pdf" target="_blank" rel="noopener noreferrer">Read Article</a>
-                </div>
-              </div>
-            </article>
+            <article class="writing-item"><h3>The Partial Solar Eclipse of March 2025</h3><p>Original Spanish-language science-outreach article written for the IAC Vía Láctea blog during my internship in the Department of Communication and Scientific Culture.</p><div class="card-actions"><a class="primary-link" href="https://www.iac.es/es/blog/vialactea/2025/03/eclipse-solar-parcial-de-marzo-2025" target="_blank" rel="noopener noreferrer">Read IAC Article</a></div></article>
+            <article class="writing-item"><h3>SN 2023ixf — IAC News</h3><p>Wrote the English-language version of the IAC News article on WEAVE observations of supernova SN 2023ixf.</p><div class="card-actions"><a class="primary-link" href="https://www.iac.es/en/outreach/news/weave-spectrograph-captures-interaction-supernova-sn-2023ixf-its-surroundings-one-year-after-its-explosion" target="_blank" rel="noopener noreferrer">Read IAC Article</a></div></article>
+            <article class="writing-item"><h3>Astronomía Magazine — Partial Solar Eclipse Feature</h3><p>Co-authored a Spanish-language feature on the scientific and public-engagement significance of the 29 March 2025 partial solar eclipse in the Canary Islands.</p><div class="card-actions"><a class="primary-link" href="./assets/publications/Astronomy_Magazine.pdf" target="_blank" rel="noopener noreferrer">Read Article</a></div></article>
           </div>
         </section>
 
         <section class="section" id="education">
-          <div class="section-heading">
-            <h2>Education</h2>
-            <div class="rule"></div>
-          </div>
-
+          <div class="section-heading"><h2>Education</h2><div class="rule"></div></div>
           <div class="timeline">
-            <article class="timeline-item">
-              <div class="date">Jan 2026–Jan 2028</div>
-              <div class="timeline-body">
-                <h3>MSc Artificial Intelligence Technology with Advanced Practice</h3>
-                <div class="institution">Northumbria University, London Campus · London, UK</div>
-                <p>
-                  Current academic performance: Distinction level (70%+). Completed the first semester
-                  with Distinction-grade results of 70%, 75% and 85%, including 85/100 for an end-to-end
-                  machine-learning project on credit-card fraud detection. Modules include Programming for AI, 
-                  Machine Learning on Cloud, Artificial Intelligence for IoT, Information Governance and Cyber Security, 
-                  Contemporary Computing and Digital Technologies, Leadership in a Digital Age, the Professional Practices 
-                  in Computing and Digital Technologies Project, and Advanced Practice.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">Sep 2018–Jul 2025</div>
-              <div class="timeline-body">
-                <h3>BSc in Physics</h3>
-                <div class="institution">Universidad de La Laguna · Tenerife, Spain</div>
-                <p>
-                  Final grade: 7.13/10 (approximately equivalent to a UK 2:1). Built strong foundations
-                  in mathematics, scientific computing, numerical methods and signal/image processing.
-                  Selected results: General Relativity (10/10); Acquisition and Transmission of Signals and Images
-                  (9.9/10); Differential Calculus (9.5/10); Electronic Physics (9.0/10); Statistical Physics
-                  (8.7/10); Nuclear and Particle Physics (8.2/10); Differential Equations and Complex Variables
-                  (8.1/10); and Remote Sensing (8.1/10).
-                  Completed and defended the final project in English with a mark of 9.4/10; the
-                  supervisor subsequently proposed developing it into a manuscript for submission to
-                  a high-impact peer-reviewed scientific journal.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">2025</div>
-              <div class="timeline-body">
-                <h3>Academic Merit Convocation Award</h3>
-                <div class="institution">Universidad de La Laguna</div>
-                <p>
-                  Official Universidad de La Laguna recognition for academic merit, awarded in 2025.
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="selected-training">
-          <div class="section-heading">
-            <h2>Selected AI &amp; Technical Training</h2>
-            <div class="rule"></div>
-          </div>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="date">Dec 2025</div>
-              <div class="timeline-body">
-                <h3>Artificial Intelligence &amp; Big Data Applied to the Biomedical and Healthcare Sector — 300 hours</h3>
-                <div class="institution">DYM Canarias</div>
-                <p>
-                  Applied training in Python data analysis, machine learning, TensorFlow/Keras, Docker and APIs,
-                  Big Data and cloud architecture, and probability and statistics with R.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">Nov 2025</div>
-              <div class="timeline-body">
-                <h3>Google Cloud Skills Boost — Selected Courses</h3>
-                <div class="institution">Google Cloud</div>
-                <p>
-                  Innovating with Google Cloud Artificial Intelligence; Exploring Data Transformation with
-                  Google Cloud; and Digital Transformation with Google Cloud.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">2024–2025</div>
-              <div class="timeline-body">
-                <h3>Additional Relevant Training</h3>
-                <div class="institution">NASA · IE University & Google / Santander Open Academy</div>
-                <p>
-                  Open Science 101 (NASA, 2025), Introduction to Data Science
-                  (IE University / Santander Open Academy, 2024), and Artificial Intelligence and Productivity (Google / Santander Open Academy, 2024).
-                </p>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="section" id="language-certifications">
-          <div class="section-heading">
-            <h2>Language Certifications</h2>
-            <div class="rule"></div>
-          </div>
-
-          <div class="timeline">
-            <article class="timeline-item">
-              <div class="date">Jul 2025–Jul 2027</div>
-              <div class="timeline-body">
-                <h3>IELTS Academic UKVI — 7.0/9.0</h3>
-                <div class="institution">British Council</div>
-                <p>
-                  C1-level English certification for UK academic and visa purposes.
-                </p>
-              </div>
-            </article>
-
-            <article class="timeline-item">
-              <div class="date">Sep 2022</div>
-              <div class="timeline-body">
-                <h3>Cambridge Advanced Certificate — C1</h3>
-                <div class="institution">University of Cambridge</div>
-                <p>
-                  Cambridge English qualification certifying advanced English communication ability.
-                </p>
-              </div>
-            </article>
+            <article class="timeline-item"><div class="date">Jan 2026–Jan 2028</div><div class="timeline-body"><h3>MSc Artificial Intelligence Technology with Advanced Practice</h3><div class="institution">Northumbria University London · London, UK</div><p>First-semester average: 73.25% (Distinction level), including 85/100 in an end-to-end machine-learning project on credit-card fraud detection.</p></div></article>
+            <article class="timeline-item"><div class="date">Sep 2018–Jul 2025</div><div class="timeline-body"><h3>BSc Physics</h3><div class="institution">Universidad de La Laguna · Tenerife, Spain</div><p>Final grade: 7.13/10. Final degree project completed and defended in English with a mark of 9.4/10, supported by foundations in mathematics, scientific computing, numerical methods and signal/image processing.</p></div></article>
+            <article class="timeline-item"><div class="date">2025</div><div class="timeline-body"><h3>Academic Merit Convocation Award</h3><div class="institution">Universidad de La Laguna</div><p>Official academic-merit recognition awarded in 2025.</p></div></article>
           </div>
         </section>
 
         <section class="section" id="recommendations">
-          <div class="section-heading">
-            <h2>Recommendations</h2>
-            <div class="rule"></div>
-          </div>
-
+          <div class="section-heading"><h2>Recommendations</h2><div class="rule"></div></div>
           <div class="writing-list">
-            <article class="writing-item">
-              <div class="mini-circle" aria-hidden="true"></div>
-              <div>
-                <h3>Academic Recommendation — Universidad de La Laguna</h3>
-                <p>
-                  Recommendation letter from a Full Professor of Applied Physics highlighting academic performance,
-                  autonomous learning, analytical ability, communication skills, Computational Physics, Python programming
-                  and mathematical strength.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/recommendations/ull-recommendation-justo-roberto-perez-cruz.pdf" target="_blank" rel="noopener noreferrer">Read Signed Letter</a>
-                </div>
-              </div>
-            </article>
-
-            <article class="writing-item">
-              <div class="mini-circle" aria-hidden="true"></div>
-              <div>
-                <h3>Professional Recommendation — Instituto de Astrofísica de Canarias</h3>
-                <p>
-                  Recommendation letter from my internship supervisor at the IAC, highlighting Python automation,
-                  AI-assisted transcription, multilingual subtitles, regex, fuzzy matching, LaTeX documentation
-                  and scientific communication work.
-                </p>
-                <div class="card-actions">
-                  <a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noopener noreferrer">Read Signed Letter</a>
-                </div>
-              </div>
-            </article>
+            <article class="writing-item"><h3>Academic Recommendation — Universidad de La Laguna</h3><p>Signed recommendation from a Full Professor of Applied Physics covering academic performance, autonomous learning, analytical ability, communication and Python / computational-physics strengths.</p><div class="card-actions"><a class="primary-link" href="./assets/recommendations/ull-recommendation-justo-roberto-perez-cruz.pdf" target="_blank" rel="noopener noreferrer">Read Signed Letter</a></div></article>
+            <article class="writing-item"><h3>Professional Recommendation — Instituto de Astrofísica de Canarias</h3><p>Signed recommendation from my internship supervisor highlighting Python automation, AI-assisted transcription, multilingual subtitles, publication matching, LaTeX documentation and scientific communication.</p><div class="card-actions"><a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noopener noreferrer">Read Signed Letter</a></div></article>
           </div>
         </section>
 
         <section class="section" id="contact">
-          <div class="section-heading">
-            <h2>Contact</h2>
-            <div class="rule"></div>
-          </div>
-
-          <div class="contact-panel">
-            <p>
-              Open to machine-learning internships and applied AI opportunities involving multimodal
-              systems, on-device inference, model evaluation, intelligent developer tools, speech AI
-              and responsible human-in-the-loop product development.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button primary" href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email Me</a>
-              <a class="button secondary" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            </div>
-          </div>
+          <div class="section-heading"><h2>Contact</h2><div class="rule"></div></div>
+          <div class="contact-panel"><p>Open to Summer 2027 machine-learning and applied AI internships, especially work in multimodal systems, efficient inference, model evaluation, reliable AI systems and technical tooling.</p><div class="actions"><a class="button primary" href="mailto:albertoreyescastro20@gmail.com?subject=Portfolio%20Contact">Email Me</a><a class="button" href="https://www.linkedin.com/in/alberto-reyes-ba5546238/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="button" href="https://github.com/albertoreyescastro" target="_blank" rel="noopener noreferrer">GitHub</a></div></div>
         </section>
 
-        <footer>
-          © <span id="year"></span> Alberto Reyes Castro · Portfolio hosted on GitHub Pages.
-        </footer>
+        <footer>© <span id="year"></span> Alberto Reyes Castro · Portfolio hosted on GitHub Pages.</footer>
       </main>
     </div>
   </div>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
 </body>
 </html>
