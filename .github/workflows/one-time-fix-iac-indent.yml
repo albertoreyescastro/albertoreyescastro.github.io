@@ -1,0 +1,46 @@
+name: Fix IAC HTML indentation once
+
+on:
+  push:
+    branches: [fix-iac-provenance-20261029]
+
+permissions:
+  contents: write
+
+jobs:
+  fix_indent:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: fix-iac-provenance-20261029
+      - name: Fix indentation
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          old = '''                  Developed Python workflows for multilingual scientific-interview transcription and segmented
+        subtitling using the internship's original speech-processing stack, including SpeechRecognition,
+        and a semi-automated matcher comparing 67 outreach articles with more than 700 scientific
+        publications. After the placement, independently re-engineered the transcription workflow as a
+        reusable faster-whisper/CTranslate2 pipeline with hardware-aware CPU/GPU execution, FFmpeg
+        preprocessing, bounded fallbacks and CI. Authored the IAC Vía Láctea article <em>Eclipse Solar Parcial de Marzo 2025</em>,'''
+          new = '''                  Developed Python workflows for multilingual scientific-interview transcription and segmented
+                  subtitling using the internship's original speech-processing stack, including SpeechRecognition,
+                  and a semi-automated matcher comparing 67 outreach articles with more than 700 scientific
+                  publications. After the placement, independently re-engineered the transcription workflow as a
+                  reusable faster-whisper/CTranslate2 pipeline with hardware-aware CPU/GPU execution, FFmpeg
+                  preprocessing, bounded fallbacks and CI. Authored the IAC Vía Láctea article <em>Eclipse Solar Parcial de Marzo 2025</em>,'''
+          if s.count(old) != 1:
+              raise SystemExit(f'Expected exactly one IAC block, found {s.count(old)}')
+          p.write_text(s.replace(old, new), encoding='utf-8')
+          PY
+      - name: Commit and remove this one-time workflow
+        run: |
+          git rm .github/workflows/one-time-fix-iac-indent.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Keep IAC provenance edit aligned with HTML style"
+          git push
