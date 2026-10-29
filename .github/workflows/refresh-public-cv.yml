@@ -1,0 +1,86 @@
+name: Refresh public CV and IAC provenance
+
+on:
+  push:
+    branches:
+      - fix-iac-provenance-20261029
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Install LaTeX
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-fonts-recommended lmodern
+
+      - name: Align public IAC wording with recommendation evidence
+        shell: python
+        run: |
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_text(encoding="utf-8")
+
+          old_experience = """Developed a multilingual faster-whisper transcription and subtitle workflow and a
+                  semi-automated matcher comparing 67 outreach articles with more than 700 scientific
+                  publications."""
+          new_experience = """Developed Python workflows for multilingual scientific-interview transcription and segmented
+                  subtitling using the internship's original speech-processing stack, including SpeechRecognition,
+                  and a semi-automated matcher comparing 67 outreach articles with more than 700 scientific
+                  publications. After the placement, independently re-engineered the transcription workflow as a
+                  reusable faster-whisper/CTranslate2 pipeline with hardware-aware CPU/GPU execution, FFmpeg
+                  preprocessing, bounded fallbacks and CI."""
+
+          old_letter = '<a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noopener noreferrer">Read Signed Letter</a>'
+          new_letter = '<a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noopener noreferrer">Read Public Recommendation</a>'
+
+          if text.count(old_experience) != 1:
+              raise SystemExit(f"Expected exactly one old IAC experience block, found {text.count(old_experience)}")
+          if text.count(old_letter) != 1:
+              raise SystemExit(f"Expected exactly one IAC recommendation link, found {text.count(old_letter)}")
+
+          text = text.replace(old_experience, new_experience)
+          text = text.replace(old_letter, new_letter)
+          path.write_text(text, encoding="utf-8")
+
+      - name: Compile the already-approved CV v4 source
+        run: |
+          pdflatex -interaction=nonstopmode -halt-on-error -jobname=Alberto_Reyes_CV -output-directory=assets _cv_build/Alberto_Reyes_CV.tex
+          pdflatex -interaction=nonstopmode -halt-on-error -jobname=Alberto_Reyes_CV -output-directory=assets _cv_build/Alberto_Reyes_CV.tex
+          rm -f assets/Alberto_Reyes_CV.aux assets/Alberto_Reyes_CV.log assets/Alberto_Reyes_CV.out
+
+      - name: Verify provenance wording
+        shell: python
+        run: |
+          from pathlib import Path
+          text = Path("index.html").read_text(encoding="utf-8")
+          required = [
+              "including SpeechRecognition",
+              "After the placement, independently re-engineered",
+              "reusable faster-whisper/CTranslate2 pipeline",
+              "Read Public Recommendation",
+          ]
+          missing = [item for item in required if item not in text]
+          if missing:
+              raise SystemExit(f"Missing expected public wording: {missing}")
+          if "Developed a multilingual faster-whisper transcription and subtitle workflow" in text:
+              raise SystemExit("Old IAC faster-whisper attribution is still present")
+          if not Path("assets/Alberto_Reyes_CV.pdf").is_file():
+              raise SystemExit("CV PDF was not generated")
+
+      - name: Commit refreshed public assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html assets/Alberto_Reyes_CV.pdf
+          git diff --cached --quiet && exit 0
+          git commit -m "Align IAC provenance and refresh public CV"
+          git push
