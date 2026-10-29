@@ -1,0 +1,219 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\input{glyphtounicode}
+\pdfgentounicode=1
+
+\usepackage[
+  a4paper,
+  top=0.26in,
+  bottom=0.36in,
+  left=0.56in,
+  right=0.56in
+]{geometry}
+
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{needspace}
+\usepackage{hyperref}
+\usepackage{xurl}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+
+\definecolor{linkblue}{RGB}{0,70,140}
+\hypersetup{
+  colorlinks=true,
+  urlcolor=linkblue,
+  linkcolor=linkblue,
+  pdftitle={Alberto Reyes Castro - Applied AI and Machine Learning CV},
+  pdfauthor={Alberto Reyes Castro},
+  pdfsubject={Applied AI, machine learning, multimodal, on-device and reliable AI systems},
+  pdfkeywords={Applied AI, Machine Learning, Multimodal AI, On-Device ML, TinyCLIP, ONNX Runtime, INT8, Python, SQL, PyTorch, LLM Agents, Multi-Agent Orchestration}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.035em}
+\linespread{1.025}
+\setlength{\emergencystretch}{1.5em}
+\urlstyle{same}
+\frenchspacing
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{13pt}
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}{0pt}{}
+  [\vspace{-0.44em}\rule{\textwidth}{0.35pt}]
+
+\titlespacing*{\section}{0pt}{0.88em}{0.40em}
+
+\setlist[itemize]{
+  leftmargin=1.18em,
+  itemsep=0.17em,
+  topsep=0.24em,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\newcommand{\entry}[4]{%
+  \needspace{4\baselineskip}%
+  \textbf{#1}\hfill\textbf{#2}\\[-0.08em]
+  \textit{#3}\hfill\textit{#4}\par\nopagebreak
+  \vspace{0.10em}
+}
+
+\newcommand{\project}[1]{%
+  \needspace{3\baselineskip}%
+  \textbf{#1}\par\nopagebreak
+  \vspace{0.06em}
+}
+
+\begin{document}
+\small
+
+{\LARGE\bfseries Alberto Reyes Castro}\par
+{\large\bfseries Applied AI Engineer \textbar{} Multimodal \& On-Device ML \textbar{} MSc AI Technology}\par
+\vspace{0.10em}
+
+% Application version. Portfolio intentionally omitted while public materials are being refreshed.
+London, UK \textbar{} +44 7311 991878 \textbar{}
+\href{mailto:albertoreyescastro20@gmail.com}{albertoreyescastro20@gmail.com}\par
+\href{https://github.com/albertoreyescastro}{github.com/albertoreyescastro}
+\textbar{}
+\href{https://www.linkedin.com/in/alberto-reyes-ba5546238/}{linkedin.com/in/alberto-reyes-ba5546238}\par
+
+\vspace{0.62em}
+\textbf{Availability:} open to suitable part-time AI/ML roles now; full-time during official university vacation periods and for the Advanced Practice placement (Sep 2027 -- Jan 2028); graduate roles from early 2028.\par
+\vspace{0.12em}
+\textbf{Right to work:} Student visa valid to May 2028 (up to 20 hours/week during term; full-time outside term-time and on an approved course placement); eligible to apply for the 18-month Graduate visa after completing the MSc.\par
+\vspace{0.24em}
+
+\section{Summary}
+
+Applied AI engineer and physics graduate completing an MSc Artificial Intelligence Technology with Advanced Practice at Northumbria University London, with Distinction-level first-semester module results. At TeachScribe, designed and built an on-device multimodal photo-retrieval system now live in production and shipped to 50+ UK schools, spanning model selection, INT8 ONNX deployment, native Android preprocessing and physical-device evaluation. Independent work spans multi-agent orchestration and reliability engineering, ModelHawk ML auditing and public multimodal/speech-inference tooling. Open to Applied AI and ML engineering opportunities across multimodal systems, efficient inference, AI platforms and reliable agentic systems.
+
+\section{Experience}
+
+\needspace{5\baselineskip}%
+\textbf{Applied AI Engineer -- On-Device Multimodal ML}\hfill\textbf{Jul 2026 -- Present}\\[-0.08em]
+\textit{TeachScribe -- UK EdTech start-up in 50+ schools \textbar{} DfE AI Tools for Education}\par\nopagebreak
+\textit{Full-time Jul--Oct 2026; part-time alongside MSc thereafter}\par\nopagebreak
+\vspace{0.10em}
+
+\begin{itemize}
+  \item Designed, built and evaluated the fully on-device multimodal photo-retrieval pipeline now live in production and shipped through TeachScribe to 50+ UK schools; written observations retrieve local classroom photos while inference stays on the tablet and the teacher confirms matches.
+  \item Benchmarked five pretrained vision--language models across three structured retrieval evaluations, balancing Hit@1/Hit@5, model size, CPU cost, deployability and licensing; selected TinyCLIP 39M/16, which ranked the correct image first in 17/20 queries on the initial 16-candidate model-selection set and achieved higher Hit@1 than MobileCLIP-S0 across all three evaluated sets.
+  \item Implemented ONNX Runtime inference with dynamic INT8 quantisation, native Kotlin preprocessing, reusable sessions and a RAM + SQLite embedding cache; the text encoder fell from 178.5 MB FP32 to 45.0 MB INT8 (\textbf{-74.77\%}), with 0.978 mean cosine similarity to FP32 on real text queries.
+  \item On a Huawei MediaPad M3 Lite 8 (Android 7), measured 108 consecutive cached searches over 44 photos at \textbf{441 ms median / 459 ms P95}; lazy image-model loading kept idle memory at 76.3 MiB, and the tested workload showed no observed throttling.
+\end{itemize}
+
+\textit{Public multimodal portfolio links:} \href{https://github.com/albertoreyescastro/public-multimodal-retrieval-demo}{GitHub} \textbar{} \href{https://albertoreyescastro.github.io/public-multimodal-retrieval-demo/}{Live demo}\par
+
+\vspace{0.3cm}
+\needspace{5\baselineskip}%
+\textbf{Python \& Scientific Communication Intern}\hfill\textbf{Mar 2025 -- May 2025}\\[-0.08em]
+\textit{Instituto de Astrof\'isica de Canarias (IAC) -- astrophysics research institute}\par\nopagebreak
+\textit{Full-time internship \textbar{} Tenerife, Spain}\par\nopagebreak
+\vspace{0.10em}
+
+\begin{itemize}
+  \item Built Python workflows for multilingual scientific-interview transcription and segmented subtitling using the internship's original speech-processing stack (including \texttt{SpeechRecognition}), including material featuring Nobel Prize-winning physicists Donna Strickland and John Mather. After the placement, independently re-engineered the workflow into a reusable \href{https://github.com/albertoreyescastro/adaptive-whisper-transcription-pipeline}{faster-whisper/CTranslate2 pipeline} with hardware-aware CPU/GPU execution, FFmpeg preprocessing, bounded fallbacks and CI.
+  \item Built a human-verified matching workflow comparing 67 outreach articles with 750+ scientific-publication titles using multilingual text normalisation, regular expressions and fuzzy matching.
+  \item Wrote science-outreach content for the IAC and \textit{Astronom\'ia} magazine; completed the assessed 250-hour placement with a final mark of 9.2/10.
+\end{itemize}
+
+\section{Selected Projects}
+
+\project{\href{https://github.com/albertoreyescastro/agent-control-center}{Multi-Agent Orchestration \& Reliability -- Agent Control Center}\textmd{ \textbar{} \href{https://albertoreyescastro.github.io/agent-control-center/}{Live demo}}}
+\begin{itemize}
+  \item Built a private Python/PowerShell orchestration system with capability-aware local/cloud routing, durable task state, account-scoped quota controls, execution leases and heartbeats, bounded recovery, separate execution/review roles, deterministic validation and human merge gates; published a sanitized interactive demonstration of the control-plane architecture.
+\end{itemize}
+
+\project{\href{https://github.com/albertoreyescastro/ModelHawk}{ModelHawk -- ML Notebook Audit Tool}\textmd{ \textbar{} \href{https://modelhawk.onrender.com}{Live demo}}}
+\begin{itemize}
+  \item Built and deployed a Next.js/TypeScript static-audit tool for Jupyter notebooks with deterministic checks for leakage, validation, metrics and reproducibility; Dockerised Render deployment and CI exercise the production container, audit API and LaTeX/PDF path end to end.
+\end{itemize}
+
+\project{\href{https://github.com/albertoreyescastro/adaptive-whisper-transcription-pipeline}{Adaptive Whisper Transcription Pipeline}}
+\begin{itemize}
+  \item Developed a reusable faster-whisper/CTranslate2 workflow with CPU/CUDA-aware execution, FFmpeg preprocessing, fingerprinted caching, bounded fallback presets, quality checks and atomic TXT/SRT outputs, with deterministic CI across Python 3.10--3.12.
+\end{itemize}
+
+\newpage
+% Page 2 has more room, so major sections can breathe slightly more.
+\titlespacing*{\section}{0pt}{1.05em}{0.46em}
+\section{Education}
+
+\entry
+{MSc Artificial Intelligence Technology with Advanced Practice}
+{Jan 2026 -- Jan 2028}
+{Northumbria University, London Campus}
+{London, UK}
+
+First-semester performance at \textbf{Distinction level}, including module results of \textbf{85/100, 75/100 and 70/100}. Current study includes \textit{AI Agents Unleashed}; previous modules include \textit{Machine Learning on Cloud}, \textit{Programming for AI}, \textit{AI for IoT} and \textit{Contemporary Computing and Digital Technologies}.
+
+\vspace{0.3cm}
+
+\entry
+{BSc in Physics}
+{Sep 2018 -- Jul 2025}
+{Universidad de La Laguna}
+{Tenerife, Spain}
+
+Final grade: \textbf{7.13/10 (approx. UK 2:1)}; 240 ECTS, with training spanning mathematics, scientific computing, numerical methods, signal/image processing, laboratory analysis and data-driven problem solving.
+
+\textbf{Selected module results:} General Relativity 10/10; Signals \& Images 9.9/10; Differential Calculus 9.5/10; Electronic Physics 9.0/10; Statistical Physics 8.7/10.
+
+Final Degree Project (\textbf{9.4/10}), written and defended in English: \textit{Structural Mechanisms of Ferroelectricity and Ferroelasticity in} $\beta'$-RE$_2$(MoO$_4$)$_3$. My supervisor proposed developing the work into a manuscript for submission to a high-impact peer-reviewed journal; manuscript preparation and further polishing are ongoing.
+
+Awarded the \textbf{University of La Laguna 2025 Academic Merit Convocation}.
+
+\section{Technical Skills}
+
+\textbf{Programming and data:}
+Python, TypeScript/JavaScript, Kotlin, SQL/SQLite, PowerShell, Bash, C\texttt{++}/Arduino, R, pandas, NumPy, SciPy, Matplotlib and Jupyter.\\
+\textbf{Machine learning and evaluation:}
+PyTorch, Hugging Face Transformers, scikit-learn, XGBoost, TensorFlow/Keras, model benchmarking, Hit@K retrieval evaluation, imbalanced learning, cross-validation, threshold selection and error analysis.\\
+\textbf{Multimodal and on-device AI:}
+vision--language models (CLIP/TinyCLIP), embeddings, ONNX Runtime, INT8 quantisation, Android (React Native/Expo, Kotlin), native preprocessing, persistent embedding caches, latency/memory/energy profiling and physical-device validation.\\
+\textbf{LLMs and agent systems:}
+multi-agent orchestration, capability-aware routing, durable task state, leases/heartbeats, bounded recovery, quota-aware provider controls, deterministic validation, separate review roles and human approval gates.\\
+\textbf{Engineering and cloud:}
+Git/GitHub, GitHub Actions, Docker, Render, REST APIs, Next.js/React, Node.js, Linux, Windows/PowerShell and Google Cloud.\\
+\textbf{Speech, embedded AI and scientific computing:}
+faster-whisper/CTranslate2, FFmpeg, voice-activity detection, ESP32-S3, Edge Impulse/TinyML, Wokwi, Blynk, regular expressions, fuzzy matching, numerical methods and LaTeX.
+
+\section{Open-Source Contribution}
+
+\project{\href{https://github.com/mckinsey/vizro/issues/1750\#issuecomment-4605773378}{Vizro / Dash Rendering Regression Analysis}}
+\begin{itemize}
+  \item Reproduced and isolated a Vizro/Dash tab-rendering regression through dependency comparisons and minimal pure-Dash tests, separating it from Plotly graph rendering; a Vizro maintainer acknowledged the investigation as useful in narrowing the defect and developing a fix.
+\end{itemize}
+
+\section{Selected Publications \& Scientific Communication}
+
+\begin{itemize}
+  \item \href{https://albertoreyescastro.github.io/assets/publications/Astronomy_Magazine.pdf}{\textit{The Partial Solar Eclipse That Reminded Canary Islanders of the Value of Looking Skyward}} (Spanish) -- co-authored with Ariadna Mesa and Hugo Fern\'andez; \textit{Astronom\'ia} magazine, No.~311 (May 2025).
+  \item \href{https://www.iac.es/en/outreach/news/weave-spectrograph-captures-interaction-supernova-sn-2023ixf-its-surroundings-one-year-after-its-explosion}{\textit{The WEAVE spectrograph captures the interaction of supernova SN 2023ixf with its surroundings one year after its explosion}} -- English-language version written for IAC News (Apr 2025).
+  \item \href{https://www.iac.es/es/blog/vialactea/2025/03/eclipse-solar-parcial-de-marzo-2025}{\textit{The Partial Solar Eclipse of March 2025}} (Spanish) -- authored for the IAC \textit{V\'ia L\'actea} science-outreach blog (Mar 2025).
+\end{itemize}
+
+\section{Languages \& Selected Training}
+
+\textbf{English:} C1 -- \href{https://albertoreyescastro.github.io/assets/certifications/IELTS_Academic_Test_Report_Form_Alberto_Reyes_Castro_Public.pdf}{IELTS Academic UKVI 7.0/9.0} and \href{https://albertoreyescastro.github.io/assets/certifications/Cambridge_C1_Advanced_English_Certificate_Alberto_Reyes_Castro_Public.pdf}{Cambridge C1 Advanced Certificate}. \textbf{Spanish:} Native. \textbf{Japanese:} Intermediate study; preparing for JLPT N3. \textbf{French:} Limited working proficiency.\\
+\textbf{CS50's Introduction to Databases with SQL} -- Harvard University (in progress).\\
+\textbf{AWS Educate Machine Learning Foundations} (2026).\\
+\href{https://albertoreyescastro.github.io/assets/certifications/Government_of_Canary_Islands_AI_Big_Data_Healthcare_Certificate.pdf}{\textbf{Artificial Intelligence and Big Data Applied to the Healthcare Sector}} -- 325-hour course (Canary Islands Employment Service, 2025): Python, pandas, scikit-learn, TensorFlow/Keras, Docker/APIs, cloud platforms, Big Data and R.
+
+\section{Activities}
+
+Competitive basketball with London Knights (2026 -- present).
+
+\end{document}
