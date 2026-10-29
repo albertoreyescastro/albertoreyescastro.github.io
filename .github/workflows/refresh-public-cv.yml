@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install LaTeX
         run: |
@@ -25,13 +25,16 @@ jobs:
         shell: python
         run: |
           from pathlib import Path
+          import re
 
           path = Path("index.html")
           text = path.read_text(encoding="utf-8")
 
-          old_experience = """Developed a multilingual faster-whisper transcription and subtitle workflow and a
-                  semi-automated matcher comparing 67 outreach articles with more than 700 scientific
-                  publications."""
+          pattern = re.compile(
+              r"Developed a multilingual faster-whisper transcription and subtitle workflow and a\s+"
+              r"semi-automated matcher comparing 67 outreach articles with more than 700 scientific\s+"
+              r"publications\."
+          )
           new_experience = """Developed Python workflows for multilingual scientific-interview transcription and segmented
                   subtitling using the internship's original speech-processing stack, including SpeechRecognition,
                   and a semi-automated matcher comparing 67 outreach articles with more than 700 scientific
@@ -39,15 +42,15 @@ jobs:
                   reusable faster-whisper/CTranslate2 pipeline with hardware-aware CPU/GPU execution, FFmpeg
                   preprocessing, bounded fallbacks and CI."""
 
+          matches = pattern.findall(text)
+          if len(matches) != 1:
+              raise SystemExit(f"Expected exactly one old IAC experience block, found {len(matches)}")
+          text = pattern.sub(new_experience, text, count=1)
+
           old_letter = '<a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noopener noreferrer">Read Signed Letter</a>'
           new_letter = '<a class="primary-link" href="./assets/recommendations/iac-recommendation-veronica-martin.pdf" target="_blank" rel="noopener noreferrer">Read Public Recommendation</a>'
-
-          if text.count(old_experience) != 1:
-              raise SystemExit(f"Expected exactly one old IAC experience block, found {text.count(old_experience)}")
           if text.count(old_letter) != 1:
               raise SystemExit(f"Expected exactly one IAC recommendation link, found {text.count(old_letter)}")
-
-          text = text.replace(old_experience, new_experience)
           text = text.replace(old_letter, new_letter)
           path.write_text(text, encoding="utf-8")
 
