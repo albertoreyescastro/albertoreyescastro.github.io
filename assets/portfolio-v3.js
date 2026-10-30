@@ -3,7 +3,8 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // One white signal travels through the loop. Each node reacts in its own colour.
-  // Keeping the signal colour constant makes the pipeline read as one continuous process.
+  // The VERIFY -> HUMAN GATE handoff is positioned from live layout geometry so the
+  // signal remains physically continuous across desktop and responsive layouts.
   const loopMotionStyle = document.createElement('style');
   loopMotionStyle.textContent = `
     .flow-node[data-flow-step="1"] { --node-rgb: 111 212 229; }
@@ -41,10 +42,36 @@
       box-shadow: 0 0 5px #fff, 0 0 13px rgba(255,255,255,.96), 0 0 24px rgba(255,255,255,.55);
     }
 
+    /* Supersede the old centred gate-entry signal: the real handoff now starts at VERIFY. */
     .gate::before {
-      background:
-        radial-gradient(circle, #fff 0 2px, rgba(255,255,255,.9) 2.4px, transparent 3.2px) 50% -6px / 7px 7px no-repeat,
-        linear-gradient(to bottom, rgba(255,255,255,.10), rgba(255,255,255,.68), rgba(255,255,255,.10)) 50% 0 / 1px 100% no-repeat;
+      animation: none !important;
+      opacity: 0 !important;
+    }
+
+    .verify-handoff {
+      position: absolute;
+      z-index: 3;
+      height: 1px;
+      transform-origin: 0 50%;
+      pointer-events: none;
+      opacity: .38;
+      background: linear-gradient(90deg,
+        rgba(255,255,255,.12),
+        rgba(255,255,255,.42) 45%,
+        rgba(255,255,255,.18));
+      box-shadow: 0 0 7px rgba(255,255,255,.15);
+    }
+
+    .verify-handoff i {
+      position: absolute;
+      left: -3px;
+      top: -2.5px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      opacity: 0;
+      background: #fff;
+      box-shadow: 0 0 5px #fff, 0 0 13px rgba(255,255,255,.96), 0 0 24px rgba(255,255,255,.55);
     }
 
     .engineering-card.is-active [data-flow-step="1"]::before { animation: nodeSignal  .62s .02s ease-in-out both; }
@@ -57,8 +84,8 @@
 
     .engineering-card.is-active [data-flow-step="3"]::before { animation: nodeSignal  .62s 2.02s ease-in-out both; }
     .engineering-card.is-active [data-flow-step="3"]::after  { animation: flowNodePulse .56s 2.10s ease both; }
-    .engineering-card.is-active .gate::before                { animation: gateSignalTravel .62s 2.58s ease-in-out both; }
-    .engineering-card.is-active [data-flow-step="4"]::after  { animation: flowGatePulse .78s 2.98s ease both; }
+    .engineering-card.is-active .verify-handoff i            { animation: handoffTravel .66s 2.60s ease-in-out both; }
+    .engineering-card.is-active [data-flow-step="4"]::after  { animation: flowGatePulse .78s 3.16s ease both; }
 
     @keyframes nodeSignal {
       0%   { left: -8px; opacity: 0; transform: translateY(-50%) scale(.72); }
@@ -66,6 +93,14 @@
       48%  { opacity: 1; transform: translateY(-50%) scale(1.12); }
       88%  { opacity: 1; }
       100% { left: calc(100% + 2px); opacity: 0; transform: translateY(-50%) scale(.86); }
+    }
+
+    @keyframes handoffTravel {
+      0%   { left: -3px; opacity: 0; transform: scale(.78); }
+      10%  { opacity: 1; }
+      48%  { opacity: 1; transform: scale(1.12); }
+      90%  { opacity: 1; }
+      100% { left: calc(100% - 3px); opacity: 0; transform: scale(.88); }
     }
 
     @keyframes flowGatePulse {
@@ -80,7 +115,12 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .engineering-card.is-active .flow-node::before { animation: none !important; opacity: 0 !important; }
+      .engineering-card.is-active .flow-node::before,
+      .engineering-card.is-active .verify-handoff i {
+        animation: none !important;
+        opacity: 0 !important;
+      }
+      .verify-handoff { display: none; }
     }
   `;
   document.head.appendChild(loopMotionStyle);
@@ -137,11 +177,44 @@
 
   const card = document.querySelector('.engineering-card');
   if (card && !reduceMotion) {
+    const verify = card.querySelector('[data-flow-step="3"]');
+    const gate = card.querySelector('[data-flow-step="4"]');
+    const handoff = document.createElement('span');
+    handoff.className = 'verify-handoff';
+    handoff.setAttribute('aria-hidden', 'true');
+    handoff.innerHTML = '<i></i>';
+    card.appendChild(handoff);
+
+    const positionHandoff = () => {
+      if (!verify || !gate) return;
+      const cardRect = card.getBoundingClientRect();
+      const verifyRect = verify.getBoundingClientRect();
+      const gateRect = gate.getBoundingClientRect();
+
+      // Start at VERIFY's right-hand exit, exactly where its internal white signal finishes.
+      const startX = verifyRect.right - cardRect.left - 1;
+      const startY = verifyRect.top - cardRect.top + (verifyRect.height / 2);
+      // End at the top centre of HUMAN GATE.
+      const endX = gateRect.left - cardRect.left + (gateRect.width / 2);
+      const endY = gateRect.top - cardRect.top + 1;
+
+      const dx = endX - startX;
+      const dy = endY - startY;
+      const length = Math.hypot(dx, dy);
+      const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+      handoff.style.left = `${startX}px`;
+      handoff.style.top = `${startY}px`;
+      handoff.style.width = `${length}px`;
+      handoff.style.transform = `rotate(${angle}deg)`;
+    };
+
     const cycleMs = 5000;
     let cycleTimer = null;
     let cardVisible = false;
 
     const runFlow = () => {
+      positionHandoff();
       card.classList.remove('is-active');
       void card.offsetWidth;
       card.classList.add('is-active');
@@ -185,9 +258,12 @@
 
     card.addEventListener('mouseenter', replayNow);
     card.addEventListener('focusin', replayNow);
+    window.addEventListener('resize', positionHandoff, {passive: true});
     document.addEventListener('visibilitychange', () => {
       if (document.hidden) stopLoop();
       else if (cardVisible) startLoop();
     });
+
+    positionHandoff();
   }
 })();
