@@ -1,0 +1,65 @@
+0</td></tr>
+  </table>
+  <p><strong>Total official specialty duration:</strong> 300 hours.</p>
+  <p class="footer">IFCD104 · Unofficial English translation for portfolio review</p>
+</section>
+
+<section class="page">
+  <h2>Delivery modes and learner entry requirements</h2>
+  <p>The programme may be delivered in person or through online training. For online delivery, the official syllabus specifies no mandatory in-person tutorial hours.</p>
+  <h3>Learner access requirements</h3>
+  <p>Applicants must meet at least one of the following:</p>
+  <ul>
+    <li>Upper-secondary/Bachillerato qualification or equivalent.</li>
+    <li>Higher Technician qualification (advanced vocational training) or equivalent.</li>
+    <li>Pass the official entry examination for advanced vocational education.</li>
+    <li>Pass an official university entrance examination.</li>
+    <li>Level-3 professional certificate.</li>
+    <li>University degree or equivalent.</li>
+    <li>Postgraduate/Master's degree or equivalent.</li>
+  </ul>
+  <p><strong>Professional experience:</strong> not required.</p>
+  <h3>Recommended prior knowledge</h3>
+  <ul>
+    <li>Fundamentals of structured programming: basic data types, input/output, control blocks and top-down design.</li>
+    <li>Traditional and networked office software.</li>
+    <li>English sufficient to read technical documentation, approximately B1 level.</li>
+  </ul>
+  <h3>Trainer requirements</h3>
+  <ul>
+    <li>Relevant university degree or equivalent technical qualification.</li>
+    <li>No minimum professional experience is required by the syllabus.</li>
+    <li>Documented teaching experience/training or an equivalent recognised trainer qualification.</li>
+    <li>For online delivery, trainers must additionally demonstrate training or experience in online teaching and ICT use.</li>
+  </ul>
+  <p class="footer">IFCD104 · Unofficial English translation for portfolio review</p>
+</section>
+
+<section class="page">
+  <h2>Minimum facilities, equipment and software</h2>
+  <table>
+    <tr><th>Training space</th><th>Minimum surface for 15 participants</th><th>Increase per participant</th></tr>
+    <tr><td>Management / computer classroom</td><td>45 m²</td><td>2.4 m² per participant (maximum 30 participants)</td></tr>
+  </table>
+  <h3>Classroom equipment</h3>
+  <ul>
+    <li>Instructor desk and chair; student desks and chairs; classroom materials and whiteboard.</li>
+    <li>Networked computers able to run virtual machines and the software required for each training activity.</li>
+    <li>Projector and internet access for the instructor.</li>
+    <li>Networked student computers with internet access and printing capability.</li>
+  </ul>
+  <h3>Specified software / platforms</h3>
+  <ul>
+    <li>Ubuntu, Anaconda, Docker.</li>
+    <li>Python with NumPy, pandas, Matplotlib and scikit-learn.</li>
+    <li>Jupyter Notebooks, TensorFlow, Keras, Colab.</li>
+    <li>Hive, Pig, Flume.</li>
+    <li>PowerShell.</li>
+    <li>Azure, AWS and Google Cloud.</li>
+    <li>IaaS, PaaS and SaaS environments.</li>
+    <li>R, RStudio and Bioconductor.</li>
+    <li>openEHR, Dash and related tooling.</li>
+  </ul>
+  <p>Facilities and equipment must scale with participant numbers, meet applicable industrial and health-and-safety requirements, and provide reasonable accessibility adjustments for learners with disabilities.</p>
+  <h3>Virtual classroom / online platform requirements</h3>
+  <p>The official syllabus requires synchronous connectivity, bidirectional commu
