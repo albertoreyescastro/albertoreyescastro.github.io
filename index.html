@@ -66,14 +66,6 @@
         </span>
       </a>
 
-      <div class="nav-links">
-        <a href="#projects">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#writing">Writing</a>
-        <a href="#credentials">Credentials</a>
-      </div>
-
       <div class="nav-actions">
         <a href="https://github.com/albertoreyescastro" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         <a class="nav-cta" href="./assets/Alberto_Reyes_CV.pdf" target="_blank" rel="noopener noreferrer">CV ↗</a>
@@ -81,13 +73,43 @@
     </nav>
   </header>
 
+  <aside class="page-rail" aria-label="Section navigation">
+    <span class="rail-label">NAVIGATE</span>
+    <nav>
+      <a href="#projects">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#open-source">Open Source</a>
+      <a href="#writing">Writing</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#language-certifications">Languages</a>
+      <a href="#recommendations">References</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="rail-progress" aria-hidden="true"><span></span></div>
+  </aside>
+
+  <nav class="section-jump" aria-label="Section navigation">
+    <a href="#projects">Work</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#skills">Skills</a>
+    <a href="#open-source">Open Source</a>
+    <a href="#writing">Writing</a>
+    <a href="#credentials">Credentials</a>
+    <a href="#language-certifications">Languages</a>
+    <a href="#recommendations">References</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
   <main id="main-content">
     <section class="hero shell" id="top">
       <div class="hero-copy">
         <p class="eyebrow">ALBERTO REYES CASTRO / LONDON, UK</p>
         <h1>Applied AI Engineer</h1>
         <p class="hero-lead">Engineering reliable, efficient AI systems.</p>
-        <p class="hero-focus">Multimodal ML <span>•</span> on-device inference <span>•</span> agent systems <span>•</span> model evaluation</p>
+        <p class="hero-focus">Multimodal ML <span>•</span> On-Device Inference <span>•</span> Agent Systems <span>•</span> Model Evaluation</p>
         <p class="hero-summary">
           Physics-trained engineer building end-to-end AI systems around measurable behaviour, deployment constraints,
           reproducible evidence and explicit human decision points.
@@ -107,14 +129,14 @@
         </div>
 
         <div class="engineering-flow" aria-label="Model, route, verify, human gate">
-          <div class="flow-node">MODEL</div>
-          <span class="flow-arrow" aria-hidden="true">→</span>
-          <div class="flow-node blue">ROUTE</div>
-          <span class="flow-arrow" aria-hidden="true">→</span>
-          <div class="flow-node violet">CHECK</div>
+          <div class="flow-node" data-flow-step="1"><span>MODEL</span><small>produce</small></div>
+          <span class="flow-link" aria-hidden="true"><i></i></span>
+          <div class="flow-node blue" data-flow-step="2"><span>ROUTE</span><small>eligible path</small></div>
+          <span class="flow-link" aria-hidden="true"><i></i></span>
+          <div class="flow-node violet" data-flow-step="3"><span>VERIFY</span><small>independent evidence</small></div>
         </div>
 
-        <div class="gate">HUMAN GATE</div>
+        <div class="gate" data-flow-step="4"><span>HUMAN GATE</span><small>final authority</small></div>
 
         <dl class="engineering-meta">
           <div><dt>Capability</dt><dd>multimodal · agents · evals</dd></div>
@@ -143,12 +165,12 @@
       <div class="profile-fact">
         <span class="mini-label">EDUCATION</span>
         <p><strong>MSc AI Technology with Advanced Practice</strong><br />Northumbria University London · 2026–2028</p>
-        <p class="secondary-fact"><strong>BSc Physics</strong><br />Universidad de La Laguna · 2025</p>
+        <p class="secondary-fact"><strong>BSc Physics</strong><br />University of La Laguna · 2025</p>
       </div>
 
       <div class="profile-fact">
         <span class="mini-label">LANGUAGES</span>
-        <p>Spanish · Native<br />English · C1 / IELTS 7.0<br />Japanese · Intermediate (around JLPT N3 level) · preparing for the N3 exam</p>
+        <p>Spanish · Native<br />English · C1 / IELTS 7.0/9.0<br />Japanese · Intermediate (around JLPT N3 level) · preparing for the N3 exam</p>
       </div>
     </section>
 
@@ -341,7 +363,7 @@
         <article class="project-card compact">
           <p class="project-overline">EMBEDDED AI / AIoT</p>
           <h3>AIoT Smart Home · ESP32-S3</h3>
-          <p>Simulation-based two-controller smart-home prototype with deterministic safety logic, optional Blynk monitoring and an explicitly separated TinyML experimentation path.</p>
+          <p>Simulation-based two-controller ESP32-S3 smart-home prototype with deterministic safety logic, optional Blynk monitoring and an explicitly separated TinyML experimentation path.</p>
           <div class="tag-row"><span>ESP32-S3</span><span>C++</span><span>Wokwi</span><span>Edge Impulse</span></div>
           <div class="card-actions">
             <a class="primary-link" href="https://github.com/albertoreyescastro/AIoT-smart-home-esp32-wokwi" target="_blank" rel="noopener noreferrer">GitHub Repo ↗</a>
@@ -426,6 +448,7 @@
             <li><strong>Distinction-level current performance.</strong></li>
             <li>Selected first-semester marks: <strong>85/100 · 75/100 · 70/100</strong>.</li>
             <li>The 85/100 assessment was an end-to-end machine-learning project on credit-card fraud detection.</li>
+            <li><strong>Relevant modules:</strong> Programming for AI · Machine Learning on Cloud · Artificial Intelligence for IoT · Information Governance and Cyber Security.</li>
             <li>Advanced Practice pathway adds an applied industry/start-up component to the MSc.</li>
           </ul>
         </article>
@@ -436,12 +459,12 @@
             <span>Sep 2018–Jul 2025</span>
           </div>
           <h3>BSc Physics</h3>
-          <p class="institution-line">Universidad de La Laguna · Tenerife, Spain</p>
+          <p class="institution-line">University of La Laguna · Tenerife, Spain</p>
           <ul class="evidence-list">
             <li>Final degree grade: <strong>7.13/10</strong>.</li>
             <li>Final Degree Project completed and defended in English: <strong>9.4/10</strong>.</li>
+            <li><strong>Selected marks:</strong> General Relativity 10/10 · Signals &amp; Images 9.9/10 · Differential Calculus 9.5/10 · Electronic Physics 9.0/10 · Statistical Physics 8.7/10.</li>
             <li><strong>Academic Merit Convocation – BSc in Physics (2025).</strong></li>
-            <li>Foundations in mathematics, scientific computing, numerical methods and signal/image processing.</li>
           </ul>
           <div class="card-actions">
             <a class="primary-link" href="./assets/reports/final-degree-project-ferroelectricity-ferroelasticity.pdf" target="_blank" rel="noopener noreferrer">Read Thesis ↗</a>
@@ -518,7 +541,7 @@
 
         <div class="card-actions full">
           <a class="primary-link" href="https://github.com/mckinsey/vizro/issues/1750#issuecomment-4603400692" target="_blank" rel="noopener noreferrer">My Regression Analysis ↗</a>
-          <a href="https://github.com/mckinsey/vizro/pull/1752" target="_blank" rel="noopener noreferrer">Merged Fix PR #1752 ↗</a>
+          <a href="https://github.com/mckinsey/vizro/pull/1752" target="_blank" rel="noopener noreferrer">Maintainer Fix PR #1752 ↗</a>
         </div>
       </article>
     </section>
@@ -536,7 +559,7 @@
           <h3>TeachScribe — On-Device Multimodal Retrieval</h3>
           <p>Architecture, measured retrieval and device-performance evidence, validation outcomes, limitations, privacy boundaries and deployment trade-offs.</p>
           <div class="card-actions">
-            <a class="primary-link" href="https://github.com/user-attachments/files/34107666/TeachScribe_On_Device_Multimodal_Retrieval_Public_Engineering_Case_Study_v2.pdf" target="_blank" rel="noopener noreferrer">Read Engineering Report ↗</a>
+            <a class="primary-link" href="./assets/reports/TeachScribe_On_Device_Multimodal_Retrieval_Public_Engineering_Case_Study_v2.pdf" target="_blank" rel="noopener noreferrer">Read Engineering Report ↗</a>
             <a href="https://github.com/albertoreyescastro/teachscribe-on-device-multimodal-retrieval" target="_blank" rel="noopener noreferrer">Evidence Repository ↗</a>
           </div>
         </article>
@@ -562,7 +585,7 @@
       <article class="publication-feature">
         <div>
           <span class="badge">Co-author · Astronomía Magazine · Issue 311</span>
-          <h3>The partial solar eclipse that reminded the Canary Islands of the value of looking at the sky</h3>
+          <h3>The Partial Solar Eclipse That Reminded Canary Islanders of the Value of Looking Skyward</h3>
           <p class="project-lead">
             Co-authored with Ariadna Mesa and Hugo Fernández during my internship at the Instituto de Astrofísica de Canarias.
             Published in the May 2025 issue of <em>Astronomía</em>, Spain's first newsstand magazine dedicated entirely to
@@ -613,11 +636,11 @@
 
       <article class="credential-feature">
         <div class="credential-main">
-          <span class="badge">Servicio Canario de Empleo · Government of the Canary Islands</span>
-          <h3>Artificial Intelligence &amp; Big Data Applied to the Biomedical &amp; Healthcare Sector</h3>
-          <p class="credential-meta">Course 24-38/006757 · IFCD104 · 325 hours · in person</p>
+          <span class="badge">Issued by the Government of the Canary Islands · 325 hours</span>
+          <h3>Artificial Intelligence &amp; Big Data Applied to the Healthcare Sector</h3>
+          <p class="credential-meta">Course 24-38/006757 · IFCD104 · in person · Sep–Dec 2025</p>
           <p>
-            Government-backed programme combining 300 hours of the IFCD104 technical specialty with 25 hours of complementary
+            Government-backed technical programme combining the 300-hour IFCD104 specialty with 25 hours of complementary
             professional training. Core modules covered programming/data/AI models, machine learning systems, Big Data,
             probability &amp; statistics with R, and healthcare information technologies.
           </p>
@@ -636,41 +659,41 @@
         </div>
         <div class="card-actions full">
           <a class="primary-link" href="./assets/certifications/Government_of_Canary_Islands_AI_Big_Data_Healthcare_Certificate.pdf" target="_blank" rel="noopener noreferrer">View Public Certificate ↗</a>
-          <a href="https://www.gobiernodecanarias.org/empleo/sce/ftp/principal/documentos/sce_formacion/documentacion/fped2024_tenerife.pdf" target="_blank" rel="noopener noreferrer">Official SCE Listing ↗</a>
-          <a href="https://dymcanarias.com/wp-content/uploads/2025/03/IFCD104.pdf" target="_blank" rel="noopener noreferrer">Detailed Syllabus ↗</a>
+          <a href="./assets/certifications/IFCD104_AI_Big_Data_Healthcare_English_Syllabus.pdf" target="_blank" rel="noopener noreferrer">English Syllabus ↗</a>
         </div>
       </article>
 
       <div class="credential-grid">
         <article class="credential-card">
-          <span class="mini-label">AWS · SEP 2026</span>
+          <span class="mini-label">AWS · OCT 2026</span>
           <h3>AWS Educate Machine Learning Foundations</h3>
-          <p>Completed the AWS Educate Machine Learning Foundations training and post-course assessment, covering core ML concepts and application of the ML pipeline to business problems.</p>
+          <p>Verified AWS Training and Certification badge covering core machine-learning concepts and applying the ML pipeline to business problems.</p>
           <div class="card-actions">
-            <a href="https://www.credly.com/org/amazon-web-services/badge/aws-educate-machine-learning-foundations-training-b" target="_blank" rel="noopener noreferrer">AWS Badge Details ↗</a>
+            <a class="primary-link" href="https://www.credly.com/badges/9147c7d9-68db-494a-8899-e01d067ea20b/public_url" target="_blank" rel="noopener noreferrer">Verified Badge ↗</a>
+          </div>
+        </article>
+
+        <article class="credential-card">
+          <span class="mini-label">GOOGLE CLOUD · NOV 2025</span>
+          <h3>Innovating with Google Cloud Artificial Intelligence</h3>
+          <p>Google Skills badge focused on how organisations can use AI and machine learning to transform business processes.</p>
+          <div class="card-actions">
+            <a class="primary-link" href="https://www.skills.google/public_profiles/4d56fec7-20ad-4cfe-a61c-827dd76653d8/badges/19894228" target="_blank" rel="noopener noreferrer">Verified Badge ↗</a>
           </div>
         </article>
 
         <article class="credential-card">
           <span class="mini-label">NASA · APR 2025</span>
           <h3>NASA Open Science 101</h3>
-          <p>Completed NASA's five-module Open Science 101 training covering practical open-science execution, FAIR principles, open data/code/results, collaboration, and legal and ethical considerations.</p>
+          <p>Verified NASA Open Science badge covering open data, open code, open results, tools/resources and the ethos of open science.</p>
           <div class="card-actions">
+            <a class="primary-link" href="https://www.credly.com/badges/dc9c722c-6177-4ea2-97d6-390283b4b821" target="_blank" rel="noopener noreferrer">Verified Badge ↗</a>
             <a href="https://science.nasa.gov/open-science/training/" target="_blank" rel="noopener noreferrer">NASA Course Details ↗</a>
           </div>
         </article>
 
         <article class="credential-card">
-          <span class="mini-label">WROCŁAW UNIVERSITY OF SCIENCE &amp; TECHNOLOGY · AUG 2023</span>
-          <h3>IDEAUP International Open Innovation Training</h3>
-          <p>International training in open innovation and multidisciplinary project development.</p>
-          <div class="card-actions">
-            <a class="primary-link" href="./assets/certifications/IDEAUP_Certificate.pdf" target="_blank" rel="noopener noreferrer">View Certificate ↗</a>
-          </div>
-        </article>
-
-        <article class="credential-card">
-          <span class="mini-label">HARVARD CS50 · IN PROGRESS</span>
+          <span class="mini-label">HARVARD UNIVERSITY · CS50 · IN PROGRESS</span>
           <h3>CS50's Introduction to Databases with SQL</h3>
           <p>Current OpenCourseWare study in relational modelling, querying, joins, schema design, views, indexing, optimisation and database scaling.</p>
           <div class="card-actions">
@@ -681,15 +704,15 @@
     </section>
 
     <section class="section shell" id="language-certifications">
-      <div class="section-kicker">10 / LANGUAGE CERTIFICATIONS</div>
+      <div class="section-kicker">10 / LANGUAGE CREDENTIALS</div>
       <div class="section-title-row">
-        <h2>English certification.</h2>
+        <h2>Verified language proficiency.</h2>
       </div>
 
       <div class="writing-grid two-up">
         <article class="writing-card">
           <span class="mini-label">BRITISH COUNCIL · JUL 2025</span>
-          <h3>IELTS Academic UKVI — Overall Band 7.0</h3>
+          <h3>IELTS Academic UKVI — Overall Band 7.0/9.0</h3>
           <p>CEFR C1-level result for academic and UKVI purposes.</p>
           <div class="card-actions">
             <a class="primary-link" href="./assets/certifications/IELTS_Academic_Test_Report_Form_Alberto_Reyes_Castro_Public.pdf" target="_blank" rel="noopener noreferrer">View Public Certificate ↗</a>
@@ -699,7 +722,7 @@
         <article class="writing-card">
           <span class="mini-label">UNIVERSITY OF CAMBRIDGE · SEP 2022</span>
           <h3>Cambridge C1 Advanced</h3>
-          <p>Advanced English qualification covering reading, writing, listening, speaking and use of English.</p>
+          <p>CEFR C1 qualification covering reading, writing, listening, speaking and use of English.</p>
           <div class="card-actions">
             <a class="primary-link" href="./assets/certifications/Cambridge_C1_Advanced_English_Certificate_Alberto_Reyes_Castro_Public.pdf" target="_blank" rel="noopener noreferrer">View Public Certificate ↗</a>
           </div>
@@ -715,7 +738,7 @@
 
       <div class="writing-grid two-up">
         <article class="writing-card">
-          <span class="mini-label">UNIVERSIDAD DE LA LAGUNA</span>
+          <span class="mini-label">UNIVERSITY OF LA LAGUNA</span>
           <h3>Academic Recommendation</h3>
           <p>Signed recommendation from a Full Professor of Applied Physics highlighting analytical ability, autonomous learning, communication and computational-physics / Python strengths.</p>
           <div class="card-actions">
@@ -724,7 +747,7 @@
         </article>
 
         <article class="writing-card">
-          <span class="mini-label">INSTITUTO DE ASTROFÍSICA DE CANARIAS</span>
+          <span class="mini-label">INSTITUTO DE ASTROFÍSICA DE CANARIAS (IAC)</span>
           <h3>Professional Recommendation</h3>
           <p>Public recommendation from my internship supervisor covering Python automation, transcription/subtitling, publication matching, LaTeX documentation and scientific communication.</p>
           <div class="card-actions">
@@ -758,5 +781,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script src="./assets/portfolio-v3.js" defer></script>
 </body>
 </html>
