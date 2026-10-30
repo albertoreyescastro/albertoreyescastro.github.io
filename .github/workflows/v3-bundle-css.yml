@@ -1,0 +1,63 @@
+name: Bundle V3 portfolio CSS
+
+on:
+  push:
+    branches:
+      - portfolio-v3-evidence-nav-20261030
+    paths:
+      - '.github/workflows/v3-bundle-css.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  bundle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout V3 branch
+        uses: actions/checkout@v4
+        with:
+          ref: portfolio-v3-evidence-nav-20261030
+          fetch-depth: 0
+
+      - name: Build self-contained stylesheet
+        shell: bash
+        run: |
+          set -euo pipefail
+          curl --fail --location --retry 3 \
+            'https://raw.githubusercontent.com/albertoreyescastro/albertoreyescastro.github.io/22aa0234b708fee5c8fca52713c5deb0c8e42b5e/assets/styles.css' \
+            --output /tmp/v2-base.css
+          test "$(stat -c%s /tmp/v2-base.css)" -gt 15000
+          cat /tmp/v2-base.css \
+              assets/palette-reference-v2.css \
+              assets/portfolio-v3.css \
+              assets/portfolio-v3-final.css \
+              > /tmp/styles.css
+          mv /tmp/styles.css assets/styles.css
+          rm -f assets/styles-base.css \
+                assets/palette-reference-v2.css \
+                assets/portfolio-v3.css \
+                assets/portfolio-v3-final.css
+          ! grep -q 'cdn.jsdelivr.net' assets/styles.css
+          ! grep -q '^@import' assets/styles.css
+
+      - name: Validate bundled candidate
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_site.py
+          git diff --check
+          test -f assets/reports/TeachScribe_On_Device_Multimodal_Retrieval_Public_Engineering_Case_Study_v2.pdf
+          test -f assets/certifications/IFCD104_AI_Big_Data_Healthcare_English_Syllabus.pdf
+
+      - name: Commit bundle and remove workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/v3-bundle-css.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'Bundle V3 portfolio CSS locally'
+          git push origin HEAD:portfolio-v3-evidence-nav-20261030
