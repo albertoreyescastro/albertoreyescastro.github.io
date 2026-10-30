@@ -1,1 +1,0 @@
-Portfolio V2 palette iteration: structure from the original V2 stylesheet, visual overrides inspired by the TeachScribe hero (navy, blue, cyan). This note can be removed before merge.
