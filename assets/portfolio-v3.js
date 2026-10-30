@@ -1,3 +1,4 @@
+// Portfolio V3 progressive enhancement: navigation state, scroll progress and optional engineering-loop motion.
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const navLinks = [...document.querySelectorAll('.page-rail a[href^="#"], .section-jump a[href^="#"]')];
