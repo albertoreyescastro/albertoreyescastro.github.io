@@ -1,4 +1,4 @@
-// Portfolio V3 progressive enhancement: navigation state, scroll progress and optional engineering-loop motion.
+// Portfolio V3 progressive enhancement: navigation state, scroll progress and engineering-loop motion.
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const navLinks = [...document.querySelectorAll('.page-rail a[href^="#"], .section-jump a[href^="#"]')];
@@ -53,27 +53,57 @@
 
   const card = document.querySelector('.engineering-card');
   if (card && !reduceMotion) {
-    let activated = false;
+    const cycleMs = 5000;
+    let cycleTimer = null;
+    let cardVisible = false;
+
     const runFlow = () => {
       card.classList.remove('is-active');
       void card.offsetWidth;
       card.classList.add('is-active');
     };
 
+    const stopLoop = () => {
+      if (cycleTimer !== null) {
+        window.clearInterval(cycleTimer);
+        cycleTimer = null;
+      }
+    };
+
+    const startLoop = () => {
+      stopLoop();
+      if (!cardVisible || document.hidden) return;
+      runFlow();
+      cycleTimer = window.setInterval(() => {
+        if (cardVisible && !document.hidden) runFlow();
+      }, cycleMs);
+    };
+
     if ('IntersectionObserver' in window) {
-      const flowObserver = new IntersectionObserver((entries, observer) => {
-        if (entries.some((entry) => entry.isIntersecting && entry.intersectionRatio > .35) && !activated) {
-          activated = true;
-          runFlow();
-          observer.disconnect();
-        }
+      const flowObserver = new IntersectionObserver((entries) => {
+        const entry = entries[0];
+        const nowVisible = Boolean(entry?.isIntersecting && entry.intersectionRatio > .35);
+        if (nowVisible === cardVisible) return;
+        cardVisible = nowVisible;
+        if (cardVisible) startLoop();
+        else stopLoop();
       }, {threshold: [.35]});
       flowObserver.observe(card);
     } else {
-      runFlow();
+      cardVisible = true;
+      startLoop();
     }
 
-    card.addEventListener('mouseenter', runFlow);
-    card.addEventListener('focusin', runFlow);
+    const replayNow = () => {
+      if (!cardVisible || document.hidden) return;
+      runFlow();
+    };
+
+    card.addEventListener('mouseenter', replayNow);
+    card.addEventListener('focusin', replayNow);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) stopLoop();
+      else if (cardVisible) startLoop();
+    });
   }
 })();
