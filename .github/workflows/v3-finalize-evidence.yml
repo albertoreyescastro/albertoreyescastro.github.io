@@ -1,0 +1,57 @@
+name: Finalize V3 evidence candidate
+
+on:
+  push:
+    branches:
+      - portfolio-v3-evidence-nav-20261030
+    paths:
+      - '.github/workflows/v3-finalize-evidence.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout V3 branch
+        uses: actions/checkout@v4
+        with:
+          ref: portfolio-v3-evidence-nav-20261030
+          fetch-depth: 0
+
+      - name: Remove unverified academic-merit claim
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('index.html')
+          text = p.read_text(encoding='utf-8')
+          target = '            <li><strong>Academic Merit Convocation – BSc in Physics (2025).</strong></li>\n'
+          if target not in text:
+              raise SystemExit('Expected academic-merit line not found; refusing broad edit')
+          text = text.replace(target, '', 1)
+          if 'Academic Merit Convocation' in text:
+              raise SystemExit('Academic Merit Convocation still present after exact edit')
+          p.write_text(text, encoding='utf-8')
+
+      - name: Validate final candidate tree
+        shell: bash
+        run: |
+          set -euo pipefail
+          python scripts/validate_site.py
+          git diff --check
+          ! grep -Rni --exclude-dir=.git -E 'Servicio Canario de Empleo|Official SCE Listing' index.html assets || false
+          test -f assets/reports/TeachScribe_On_Device_Multimodal_Retrieval_Public_Engineering_Case_Study_v2.pdf
+          test -f assets/certifications/IFCD104_AI_Big_Data_Healthcare_English_Syllabus.pdf
+
+      - name: Commit final evidence cleanup and remove workflow
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -f .github/workflows/v3-finalize-evidence.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git diff --cached --check
+          git commit -m 'Remove unverified V3 academic-merit claim'
+          git push origin HEAD:portfolio-v3-evidence-nav-20261030
