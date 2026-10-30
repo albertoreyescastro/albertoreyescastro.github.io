@@ -1,4 +1,5 @@
 (() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const navLinks = [...document.querySelectorAll('.page-rail a[href^="#"], .section-jump a[href^="#"]')];
   const sectionIds = [...new Set(navLinks.map((a) => a.getAttribute('href').slice(1)))];
   const sections = sectionIds.map((id) => document.getElementById(id)).filter(Boolean);
@@ -12,7 +13,11 @@
         link.setAttribute('aria-current', 'true');
         const jump = link.closest('.section-jump');
         if (jump) {
-          link.scrollIntoView({behavior: 'smooth', inline: 'center', block: 'nearest'});
+          link.scrollIntoView({
+            behavior: reduceMotion ? 'auto' : 'smooth',
+            inline: 'center',
+            block: 'nearest'
+          });
         }
       } else {
         link.removeAttribute('aria-current');
@@ -46,7 +51,6 @@
   window.addEventListener('resize', updateProgress, {passive: true});
 
   const card = document.querySelector('.engineering-card');
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (card && !reduceMotion) {
     let activated = false;
     const runFlow = () => {
