@@ -210,7 +210,7 @@
         <article class="project-card hero-project" id="teachscribe">
           <div class="project-topline">
             <span class="project-index">01</span>
-            <span class="badge">Applied AI · Production pipeline</span>
+            <span class="badge">Applied AI · Android retrieval</span>
           </div>
           <div class="project-layout">
             <div>
@@ -222,9 +222,9 @@
               </p>
               <p>
                 Five pretrained vision-language models were compared before deployment. The final ranking path stays fully
-                local and keeps the teacher as the final decision-maker. The pipeline has been integrated into TeachScribe
-                and shipped within its deployment to 50+ UK schools; that figure is deployment reach, not measured adoption
-                of this specific feature.
+                local and keeps the teacher as the final decision-maker. The pipeline was delivered to TeachScribe and
+                integrated into its observation workflow. Feature adoption has not been measured. On the 20-query Hard
+                set, desktop Hit@1 was 17/20 with FP32 and 14/20 with INT8.
               </p>
 
               <div class="tag-row">
@@ -233,8 +233,8 @@
             </div>
 
             <div class="metric-panel">
-              <div class="metric"><strong>441.07 ms</strong><span>median cached search</span></div>
-              <div class="metric"><strong>459.28 ms</strong><span>P95 · 108 searches</span></div>
+              <div class="metric"><strong>441.07 ms</strong><span>median · 108 cached searches on one Android 7 tablet</span></div>
+              <div class="metric"><strong>459.28 ms</strong><span>P95 · historical pre-refactor run</span></div>
               <div class="metric"><strong>−74.77%</strong><span>text encoder bytes</span></div>
               <div class="metric"><strong>76.3 MiB</strong><span>idle PSS · lazy image session</span></div>
             </div>
