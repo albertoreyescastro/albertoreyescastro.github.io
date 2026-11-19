@@ -210,7 +210,7 @@
         <article class="project-card hero-project" id="teachscribe">
           <div class="project-topline">
             <span class="project-index">01</span>
-            <span class="badge">Applied AI · Production pipeline</span>
+            <span class="badge">Applied AI · On-device search</span>
           </div>
           <div class="project-layout">
             <div>
@@ -221,10 +221,9 @@
                 separate INT8 ONNX encoders, native Kotlin preprocessing and persistent RAM + SQLite embedding reuse.
               </p>
               <p>
-                Five pretrained vision-language models were compared before deployment. The final ranking path stays fully
-                local and keeps the teacher as the final decision-maker. The pipeline has been integrated into TeachScribe
-                and shipped within its deployment to 50+ UK schools; that figure is deployment reach, not measured adoption
-                of this specific feature.
+                I built and shipped this feature to the 50+ UK schools that use TeachScribe. I compared five pretrained models before selecting TinyCLIP.
+                On one Android 7 tablet, 108 cached searches covered 44 photos. On the desktop Hard set, FP32 and INT8
+                placed a labelled photo first on 17/20 and 14/20 queries respectively. The teacher reviews the suggestions.
               </p>
 
               <div class="tag-row">
@@ -560,7 +559,7 @@
           <h3>TeachScribe — On-Device Multimodal Retrieval</h3>
           <p>Architecture, measured retrieval and device-performance evidence, validation outcomes, limitations, privacy boundaries and deployment trade-offs.</p>
           <div class="card-actions">
-            <a class="primary-link" href="./assets/reports/TeachScribe_On_Device_Multimodal_Retrieval_Public_Engineering_Case_Study_v2.pdf" target="_blank" rel="noopener noreferrer">Read Engineering Report ↗</a>
+            <a class="primary-link" href="https://github.com/albertoreyescastro/teachscribe-on-device-multimodal-retrieval/blob/main/report/TeachScribe_Public_Engineering_Case_Study_v4.pdf" target="_blank" rel="noopener noreferrer">Read Engineering Report ↗</a>
             <a href="https://github.com/albertoreyescastro/teachscribe-on-device-multimodal-retrieval" target="_blank" rel="noopener noreferrer">Evidence Repository ↗</a>
           </div>
         </article>
