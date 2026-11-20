@@ -1190,6 +1190,8 @@ body::before {
 .engineering-flow {
   position: relative;
   gap: 8px;
+  /* Keep MODEL, ROUTE and two-line VERIFY at exactly the same height. */
+  align-items: stretch;
 }
 .flow-node {
   position: relative;
@@ -1197,6 +1199,10 @@ body::before {
   display: grid;
   gap: 6px;
   padding: 14px 8px 11px;
+  min-height: 66px;
+  align-content: center;
+  justify-content: center;
+  box-sizing: border-box;
   overflow: hidden;
 }
 .flow-node > span,
@@ -1226,6 +1232,7 @@ body::before {
   position: relative;
   z-index: 1;
   flex: 0 0 26px;
+  align-self: center;
   height: 1px;
   overflow: visible;
   background: rgba(143,174,247,.22);
