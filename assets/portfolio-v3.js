@@ -48,30 +48,38 @@
       opacity: 0 !important;
     }
 
-    /* Orthogonal VERIFY -> HUMAN GATE link, attached to live element geometry. */
+    /* One continuous, two-leg right-angle path: VERIFY bottom → gate right side. */
     .verify-handoff {
       position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
       z-index: 3;
       pointer-events: none;
-      background: rgba(143,174,247,.17);
-      box-shadow: 0 0 6px rgba(143,174,247,.09);
     }
 
-    .verify-handoff.vertical { width: 1px; }
-    .verify-handoff.horizontal { height: 1px; }
+    .verify-handoff path {
+      fill: none;
+      stroke: rgba(143,174,247,.34);
+      stroke-width: 1;
+      vector-effect: non-scaling-stroke;
+    }
 
-    .verify-handoff i {
+    .verify-handoff-dot {
       position: absolute;
+      z-index: 4;
+      left: 0;
+      top: 0;
       width: 6px;
       height: 6px;
       border-radius: 50%;
       opacity: 0;
+      offset-rotate: 0deg;
+      pointer-events: none;
       background: #fff;
       box-shadow: 0 0 5px #fff, 0 0 13px rgba(255,255,255,.96), 0 0 24px rgba(255,255,255,.55);
     }
-
-    .verify-handoff.vertical i { left: -2.5px; top: -3px; }
-    .verify-handoff.horizontal i { top: -2.5px; left: calc(100% - 3px); }
 
     .engineering-card.is-active [data-flow-step="1"]::before { animation: nodeSignal  .62s .02s ease-in-out both; }
     .engineering-card.is-active [data-flow-step="1"]::after  { animation: flowNodePulse .56s .10s ease both; }
@@ -83,8 +91,7 @@
 
     .engineering-card.is-active [data-flow-step="3"]::before { animation: nodeSignal  .62s 2.02s ease-in-out both; }
     .engineering-card.is-active [data-flow-step="3"]::after  { animation: flowNodePulse .56s 2.10s ease both; }
-    .engineering-card.is-active .verify-handoff.vertical i   { animation: handoffVerticalTravel .42s 2.60s ease-in-out both; }
-    .engineering-card.is-active .verify-handoff.horizontal i { animation: handoffHorizontalTravel .24s 3.02s ease-in-out both; }
+    .engineering-card.is-active .verify-handoff-dot { animation: handoffPathTravel .66s 2.60s linear both; }
     .engineering-card.is-active [data-flow-step="4"]::after  { animation: flowGatePulse .78s 3.24s ease both; }
 
     @keyframes nodeSignal {
@@ -95,18 +102,12 @@
       100% { left: calc(100% + 2px); opacity: 0; transform: translateY(-50%) scale(.86); }
     }
 
-    @keyframes handoffVerticalTravel {
-      0%   { top: -3px; opacity: 0; transform: scale(.78); }
-      12%,88% { opacity: 1; }
+    @keyframes handoffPathTravel {
+      0%   { offset-distance: 0%; opacity: 0; transform: scale(.78); }
+      10%  { opacity: 1; }
       48%  { transform: scale(1.12); }
-      100% { top: calc(100% - 3px); opacity: 0; transform: scale(.88); }
-    }
-
-    @keyframes handoffHorizontalTravel {
-      0%   { left: calc(100% - 3px); opacity: 0; transform: scale(.78); }
-      12%,88% { opacity: 1; }
-      48%  { transform: scale(1.12); }
-      100% { left: -3px; opacity: 0; transform: scale(.88); }
+      90%  { opacity: 1; }
+      100% { offset-distance: 100%; opacity: 0; transform: scale(.88); }
     }
 
     @keyframes flowGatePulse {
@@ -122,11 +123,11 @@
 
     @media (prefers-reduced-motion: reduce) {
       .engineering-card.is-active .flow-node::before,
-      .engineering-card.is-active .verify-handoff i {
+      .engineering-card.is-active .verify-handoff-dot {
         animation: none !important;
         opacity: 0 !important;
       }
-      .verify-handoff { display: none; }
+      .verify-handoff, .verify-handoff-dot { display: none; }
     }
   `;
   document.head.appendChild(loopMotionStyle);
@@ -185,15 +186,16 @@
   if (card && !reduceMotion) {
     const verify = card.querySelector('[data-flow-step="3"]');
     const gate = card.querySelector('[data-flow-step="4"]');
-    const vertical = document.createElement('span');
-    const horizontal = document.createElement('span');
-    vertical.className = 'verify-handoff vertical';
-    horizontal.className = 'verify-handoff horizontal';
-    for (const segment of [vertical, horizontal]) {
-      segment.setAttribute('aria-hidden', 'true');
-      segment.innerHTML = '<i></i>';
-      card.appendChild(segment);
-    }
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const handoff = document.createElementNS(svgNS, 'svg');
+    const path = document.createElementNS(svgNS, 'path');
+    const dot = document.createElement('span');
+    handoff.classList.add('verify-handoff');
+    handoff.setAttribute('aria-hidden', 'true');
+    dot.className = 'verify-handoff-dot';
+    dot.setAttribute('aria-hidden', 'true');
+    handoff.appendChild(path);
+    card.append(handoff, dot);
 
     const positionHandoff = () => {
       if (!verify || !gate) return;
@@ -201,23 +203,25 @@
       const verifyRect = verify.getBoundingClientRect();
       const gateRect = gate.getBoundingClientRect();
 
-      // Drop from VERIFY's bottom edge, then travel left into HUMAN GATE's right edge.
-      // The .57 position matches the diagram while leaving space for a leftward turn.
-      const endX = gateRect.right - cardRect.left - 1;
-      const startX = Math.min(
-        verifyRect.right - cardRect.left - 6,
-        Math.max(verifyRect.left - cardRect.left + verifyRect.width * .57, endX + 10)
-      );
-      const startY = verifyRect.bottom - cardRect.top - 1;
-      const endY = gateRect.top - cardRect.top + gateRect.height * .72;
+      const svgRect = handoff.getBoundingClientRect();
+      // Match the user-marked route: start near 58% along VERIFY's lower edge,
+      // descend vertically, then enter the RIGHT SIDE of HUMAN GATE at 70% height.
+      const startX = verifyRect.left + verifyRect.width * .58 - svgRect.left;
+      const startY = verifyRect.bottom - svgRect.top;
+      const endX = gateRect.right - svgRect.left;
+      const endY = gateRect.top + gateRect.height * .70 - svgRect.top;
 
-      vertical.style.left = `${startX}px`;
-      vertical.style.top = `${startY}px`;
-      vertical.style.height = `${Math.max(0, endY - startY)}px`;
+      if (endY <= startY || endX >= startX) {
+        // No diagonal fallback: hide the path if a future layout cannot fit this route.
+        path.setAttribute('d', '');
+        dot.style.offsetPath = 'none';
+        return;
+      }
 
-      horizontal.style.left = `${endX}px`;
-      horizontal.style.top = `${endY}px`;
-      horizontal.style.width = `${Math.max(0, startX - endX)}px`;
+      const d = `M ${startX} ${startY} V ${endY} H ${endX}`;
+      path.setAttribute('d', d);
+      // CSS motion path follows the exact same vertical-then-left geometry.
+      dot.style.offsetPath = `path("${d}")`;
     };
 
     const cycleMs = 5000;
